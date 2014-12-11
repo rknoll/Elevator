@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+group = 'at.fhhagenberg.sqe.project'
+version = '0.1'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Elevator', 'Implementation-Version': version, 'Main-Class': 'at.fhhagenberg.sqe.project.Elevator'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
+task javadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
+}
+
+task javadocsZip(type: Zip, dependsOn: javadocs) {
+    classifier = 'javadoc'
+    from javadocs.destinationDir
+    archiveName 'SQE-Project-Elevator-javadoc.zip'
+}
+
+artifacts {
+    archives javadocsZip
+}

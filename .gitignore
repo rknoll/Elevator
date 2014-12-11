@@ -1,0 +1,13 @@
+.gradle
+.metadata
+.recommenders
+.settings
+.project
+.classpath
+bin
+classes
+build
+*.iml
+*.ipr
+*.iws
+.idea

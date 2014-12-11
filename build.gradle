@@ -5,9 +5,29 @@ apply plugin: 'eclipse'
 group = 'at.fhhagenberg.sqe.project'
 version = '0.1'
 
+if (hasProperty('teamcity') && !property('teamcity')['build.number'].startsWith(version + "-")) {
+    version += '-' + property('teamcity')['build.number']
+    println "##teamcity[buildNumber '" + version + "']"
+} else {
+    version = property('teamcity')['build.number']
+}
+
 jar {
     manifest {
         attributes 'Implementation-Title': 'Elevator', 'Implementation-Version': version, 'Main-Class': 'at.fhhagenberg.sqe.project.Elevator'
+    }
+}
+
+uploadArchives {
+    repositories {
+        ivy {
+            credentials {
+                username = System.getenv('IVY_USERNAME')
+                password = System.getenv('IVY_PASSWORD')
+            }
+            url System.getenv('IVY_HOST')
+            layout 'maven'
+        }
     }
 }
 

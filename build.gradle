@@ -14,7 +14,7 @@ if (hasProperty('teamcity') && !property('teamcity')['build.number'].startsWith(
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Elevator', 'Implementation-Version': version, 'Main-Class': 'at.fhhagenberg.sqe.project.Elevator'
+        attributes 'Implementation-Title': 'Elevator', 'Implementation-Version': version, 'Main-Class': 'at.fhhagenberg.sqe.project.ElevatorProgram'
     }
 }
 
@@ -37,6 +37,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile group: 'org.easymock', name: 'easymock', version: '3.1'
 }
 
 uploadArchives {

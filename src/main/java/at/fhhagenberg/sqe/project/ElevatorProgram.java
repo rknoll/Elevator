@@ -7,7 +7,7 @@ package at.fhhagenberg.sqe.project;
 /**
  * Main Entry Class for the Elevator Project
  */
-public class Elevator {
+public class ElevatorProgram {
 
     /**
      * Main Entry function to the Elevator Project

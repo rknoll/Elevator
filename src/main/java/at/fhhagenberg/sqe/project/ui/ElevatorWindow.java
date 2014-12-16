@@ -2,6 +2,7 @@ package at.fhhagenberg.sqe.project.ui;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.services.IElevatorInfoListener;
 
 import javax.swing.*;
 
@@ -18,6 +19,20 @@ public class ElevatorWindow {
         mFrame = new JFrame();
         mFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        for (Elevator e : mBuilding.getElevators()) {
+            mBuilding.addListener(new IElevatorInfoListener() {
+
+                @Override
+                public Elevator getElevator() {
+                    return e;
+                }
+
+                @Override
+                public void update() {
+                    System.out.println(e.getDescription() + " changed.");
+                }
+            });
+        }
 
         mFrame.setSize(300, 200);
         //mFrame.pack();

@@ -7,5 +7,4 @@ import at.fhhagenberg.sqe.project.model.Elevator;
  */
 public interface IElevatorInfoListener extends IElevatorListener {
     Elevator getElevator();
-    void update();
 }

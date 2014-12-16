@@ -65,4 +65,12 @@ public class Building {
 
     }
 
+    public void removeListener(IElevatorInfoListener listener) {
+        mElevatorInfoService.removeListener(listener);
+    }
+
+    public void removeListener(IElevatorPositionListener listener) {
+
+    }
+
 }

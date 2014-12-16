@@ -327,7 +327,7 @@
                 </control>
               </groupChildrenDescriptors>
             </control>
-            <control controlID="6" controlTypeID="com.balsamiq.mockups::PointyButton" x="250" y="164" w="36" h="-1" measuredW="38" measuredH="27" zOrder="6" locked="false" isInGroup="0">
+            <control controlID="6" controlTypeID="com.balsamiq.mockups::PointyButton" x="250" y="155" w="36" h="-1" measuredW="38" measuredH="27" zOrder="6" locked="false" isInGroup="0">
               <controlProperties>
                 <borderStyle>square</borderStyle>
                 <color>13576743</color>
@@ -640,6 +640,12 @@
                 </control>
                 <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="0" y="16" w="59" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="23"/>
               </groupChildrenDescriptors>
+            </control>
+            <control controlID="24" controlTypeID="com.balsamiq.mockups::CheckBox" x="238" y="188" w="-1" h="-1" measuredW="56" measuredH="22" zOrder="24" locked="false" isInGroup="0">
+              <controlProperties>
+                <state>selected</state>
+                <text>Serve</text>
+              </controlProperties>
             </control>
           </groupChildrenDescriptors>
         </control>

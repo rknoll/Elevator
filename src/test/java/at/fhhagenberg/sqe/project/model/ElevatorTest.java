@@ -2,11 +2,7 @@ package at.fhhagenberg.sqe.project.model;
 
 import junit.framework.TestCase;
 
-import java.rmi.RemoteException;
-
-import static org.easymock.EasyMock.createMock;
-import static org.easymock.EasyMock.replay;
-import static org.easymock.EasyMock.verify;
+import java.util.*;
 
 /**
  * Created by rknoll on 15/12/14.
@@ -14,19 +10,17 @@ import static org.easymock.EasyMock.verify;
 public class ElevatorTest extends TestCase {
 
     private Elevator elevator;
-    IElevator mockConn;
+    private List<Floor> floors;
 
     public void setUp() {
-        mockConn = createMock(IElevator.class);
-        elevator = new Elevator(mockConn, 0);
+        floors = new ArrayList<Floor>();
+        floors.add(new Floor(0, "Floor 1"));
+        floors.add(new Floor(1, "Floor 2"));
+        elevator = new Elevator(0, "elevator", floors);
     }
 
-    public void testSetTarget() throws RemoteException {
-        mockConn.setTarget(0, 1);
-        replay(mockConn);
-
-        elevator.setTarget(1);
-
-        verify(mockConn);
+    public void testSetTarget() {
+        elevator.setTarget(floors.get(0));
+        assertEquals(floors.get(0), elevator.getTarget());
     }
 }

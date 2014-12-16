@@ -12,13 +12,17 @@ public class Elevator {
         UP, DOWN, UNCOMMITTED
     }
 
+    public enum DoorStatus {
+        OPEN, CLOSED, OPENING, CLOSING
+    }
+
     private int mElevatorNumber;
     private String mDescription;
 
     private Floor mCurrentFloor;
     private int mPosition;
     private Floor mTarget;
-    private boolean mDoorStatus;
+    private DoorStatus mDoorStatus;
     private int mSpeed;
     private int mAcceleration;
     private int mCapacity;
@@ -37,6 +41,10 @@ public class Elevator {
             mFloorServices.put(f, false);
             mFloorButtons.put(f, false);
         }
+    }
+
+    public Iterable<Floor> getFloors() {
+        return mFloorButtons.keySet();
     }
 
     public void setService(Floor floor, boolean service) {
@@ -87,11 +95,11 @@ public class Elevator {
         this.mTarget = target;
     }
 
-    public boolean getDoorStatus() {
+    public DoorStatus getDoorStatus() {
         return mDoorStatus;
     }
 
-    public void setDoorStatus(boolean doorStatus) {
+    public void setDoorStatus(DoorStatus doorStatus) {
         this.mDoorStatus = doorStatus;
     }
 

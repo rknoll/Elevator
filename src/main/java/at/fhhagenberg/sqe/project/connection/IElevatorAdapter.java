@@ -1,47 +1,49 @@
 package at.fhhagenberg.sqe.project.connection;
 
+import at.fhhagenberg.sqe.project.model.Elevator;
+
 /**
  * Created by rknoll on 16/12/14.
  */
 public interface IElevatorAdapter {
 
-    public int getCommittedDirection(int elevatorNumber);
+    public Elevator.Direction getCommittedDirection(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorAccel(int elevatorNumber);
+    public int getElevatorAccel(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public boolean getElevatorButton(int elevatorNumber, int floor);
+    public boolean getElevatorButton(int elevatorNumber, int floor) throws ElevatorConnectionLostException;
 
-    public int getElevatorDoorStatus(int elevatorNumber);
+    public Elevator.DoorStatus getElevatorDoorStatus(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorFloor(int elevatorNumber);
+    public int getElevatorFloor(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorNum();
+    public int getElevatorNum() throws ElevatorConnectionLostException;
 
-    public int getElevatorPosition(int elevatorNumber);
+    public int getElevatorPosition(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorSpeed(int elevatorNumber);
+    public int getElevatorSpeed(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorWeight(int elevatorNumber);
+    public int getElevatorWeight(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public int getElevatorCapacity(int elevatorNumber);
+    public int getElevatorCapacity(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public boolean getFloorButtonDown(int floor);
+    public boolean getFloorButtonDown(int floor) throws ElevatorConnectionLostException;
 
-    public boolean getFloorButtonUp(int floor);
+    public boolean getFloorButtonUp(int floor) throws ElevatorConnectionLostException;
 
-    public int getFloorHeight();
+    public int getFloorHeight() throws ElevatorConnectionLostException;
 
-    public int getFloorNum();
+    public int getFloorNum() throws ElevatorConnectionLostException;
 
-    public boolean getServicesFloors(int elevatorNumber, int floor);
+    public boolean getServicesFloors(int elevatorNumber, int floor) throws ElevatorConnectionLostException;
 
-    public int getTarget(int elevatorNumber);
+    public int getTarget(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public void setCommittedDirection(int elevatorNumber, int direction);
+    public void setCommittedDirection(int elevatorNumber, int direction) throws ElevatorConnectionLostException;
 
-    public void setServicesFloors(int elevatorNumber, int floor, boolean service);
+    public void setServicesFloors(int elevatorNumber, int floor, boolean service) throws ElevatorConnectionLostException;
 
-    public void setTarget(int elevatorNumber, int target);
+    public void setTarget(int elevatorNumber, int target) throws ElevatorConnectionLostException;
 
-    public long getClockTick();
+    public long getClockTick() throws ElevatorConnectionLostException;
 }

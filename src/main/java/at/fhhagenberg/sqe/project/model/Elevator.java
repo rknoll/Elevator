@@ -48,7 +48,7 @@ public class Elevator {
     }
 
     public void setService(Floor floor, boolean service) {
-        mFloorServices.replace(floor, service);
+        mFloorServices.put(floor, service);
     }
 
     public boolean getService(Floor floor) {

@@ -10,6 +10,13 @@ import at.fhhagenberg.sqe.project.services.IElevatorPositionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
+import javax.swing.JCheckBox;
+import javax.swing.event.ChangeEvent;
+
+import javafx.beans.value.ChangeListener;
+
 /**
  * Created by rknoll on 16/12/14.
  */
@@ -18,9 +25,15 @@ public class Building {
     private IElevatorAdapter mAdapter;
 
     private ElevatorInfoService mElevatorInfoService;
+    
+    private int mNumberOfFloors;
+    private int mNumberOfElevators;
 
     private List<Elevator> mElevators;
     private List<Floor> mFloors;
+    
+    //private List<ChangeListener<JCheckBox>> mModeChangedListener;
+    
 
     public Building(IElevatorAdapter adapter) {
         mAdapter = adapter;
@@ -30,15 +43,16 @@ public class Building {
 
         // TODO: do this in a new Thread
         try {
-            int elevatorCount = mAdapter.getElevatorNum();
-            int floorCount = mAdapter.getFloorNum();
+        	mNumberOfFloors = mAdapter.getElevatorNum();
+        	mNumberOfElevators = mAdapter.getFloorNum();
 
-            for (int i = 0; i < floorCount; ++i) {
+            for (int i = 0; i < mNumberOfElevators; ++i) {
                 mFloors.add(new Floor(i, "Flooor " + (i + 1)));
             }
 
-            for (int i = 0; i < elevatorCount; ++i) {
+            for (int i = 0; i < mNumberOfFloors; ++i) {
                 mElevators.add(new Elevator(i, "Elevator " + (i + 1), mFloors));
+                //mModeChangedListener.add(new ChangeListener<JCheckBox>());                
             }
 
         } catch (ElevatorConnectionLostException ignored) {
@@ -71,6 +85,16 @@ public class Building {
 
     public void removeListener(IElevatorPositionListener listener) {
 
+    }
+    
+    public int GetNumberOfElevators()
+    {
+    	return mNumberOfElevators;
+    }
+    
+    public int GetNumberOfFloors()
+    {
+    	return mNumberOfFloors;
     }
 
 }

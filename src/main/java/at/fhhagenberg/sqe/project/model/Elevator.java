@@ -28,6 +28,8 @@ public class Elevator {
     private int mCapacity;
     private int mWeight;
     private Direction mDirection;
+    
+    private boolean mAutomaticMode;
 
     private Map<Floor, Boolean> mFloorServices;
     private Map<Floor, Boolean> mFloorButtons;
@@ -142,5 +144,19 @@ public class Elevator {
     public void setDirection(Direction direction) {
         this.mDirection = direction;
     }
+
+	/**
+	 * @return the mAutomaticMode
+	 */
+	public boolean isAutomaticMode() {
+		return mAutomaticMode;
+	}
+
+	/**
+	 * @param mAutomaticMode the mAutomaticMode to set
+	 */
+	public void setAutomaticMode(boolean automaticMode) {
+		this.mAutomaticMode = automaticMode;
+	}
 
 }

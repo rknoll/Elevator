@@ -92,11 +92,27 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 		try {
 			Map<String, String> lines = new HashMap<String, String>();
 			lines.put("Cureent Mode:", mElevator.isAutomaticMode() ? "automatic" : "manual");
-			lines.put("Current Floor:", mElevator.getCurrentFloor().getDescription());
+            if (mElevator.getCurrentFloor() != null) {
+                lines.put("Current Floor:", mElevator.getCurrentFloor().getDescription());
+            } else {
+                lines.put("Current Floor:", "None");
+            }
 			lines.put("Position:", mElevator.getPosition() + " feet");
-			lines.put("Target:", mElevator.getTarget().getDescription());
-			lines.put("Direction:", mElevator.getDirection().name());
-			lines.put("Door State:", mElevator.getDoorStatus().name());
+            if (mElevator.getTarget() != null) {
+                lines.put("Target:", mElevator.getTarget().getDescription());
+            } else {
+                lines.put("Target:", "None");
+            }
+            if (mElevator.getDirection() != null) {
+                lines.put("Direction:", mElevator.getDirection().name());
+            } else {
+                lines.put("Direction:", "None");
+            }
+            if (mElevator.getDoorStatus() != null) {
+                lines.put("Door State:", mElevator.getDoorStatus().name());
+            } else {
+                lines.put("Door State:", "None");
+            }
 			lines.put("Speed:", mElevator.getSpeed() + " feet/s");
 			lines.put("Acceleration: ", mElevator.getAcceleration() + "feet/s^2");
 			lines.put("Capacity:", mElevator.getCapacity() + "");
@@ -113,7 +129,7 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 			    infoPanel.add(keyLabel, gc);
 			    gc.gridx += 1;	// Eine Spalte weiter
 			    infoPanel.add(valueLabel, gc);
-			    gc.gridx -= 1;	// Eine Spalte zurück
+			    gc.gridx -= 1;	// Eine Spalte zurï¿½ck
 			    gc.gridy += 1;	// Eine Zeile weiter	    	
 			}
 		}

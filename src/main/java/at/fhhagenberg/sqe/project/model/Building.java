@@ -2,20 +2,12 @@ package at.fhhagenberg.sqe.project.model;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
-import at.fhhagenberg.sqe.project.services.ElevatorInfoService;
-import at.fhhagenberg.sqe.project.services.IElevatorInfoListener;
-import at.fhhagenberg.sqe.project.services.IElevatorListener;
-import at.fhhagenberg.sqe.project.services.IElevatorPositionListener;
+import at.fhhagenberg.sqe.project.services.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractButton;
-import javax.swing.ButtonModel;
-import javax.swing.JCheckBox;
-import javax.swing.event.ChangeEvent;
-
-import javafx.beans.value.ChangeListener;
+import at.fhhagenberg.sqe.project.services.listeners.IElevatorListener;
 
 /**
  * Created by rknoll on 16/12/14.
@@ -24,7 +16,7 @@ public class Building {
 
     private IElevatorAdapter mAdapter;
 
-    private ElevatorInfoService mElevatorInfoService;
+    private List<ElevatorService> mElevatorServices;
     
     private int mNumberOfFloors;
     private int mNumberOfElevators;
@@ -43,14 +35,14 @@ public class Building {
 
         // TODO: do this in a new Thread
         try {
-        	mNumberOfFloors = mAdapter.getElevatorNum();
-        	mNumberOfElevators = mAdapter.getFloorNum();
+        	mNumberOfFloors = mAdapter.getFloorNum();
+        	mNumberOfElevators = mAdapter.getElevatorNum();
 
-            for (int i = 0; i < mNumberOfElevators; ++i) {
+            for (int i = 0; i < mNumberOfFloors; ++i) {
                 mFloors.add(new Floor(i, "Flooor " + (i + 1)));
             }
 
-            for (int i = 0; i < mNumberOfFloors; ++i) {
+            for (int i = 0; i < mNumberOfElevators; ++i) {
                 mElevators.add(new Elevator(i, "Elevator " + (i + 1), mFloors));
                 //mModeChangedListener.add(new ChangeListener<JCheckBox>());                
             }
@@ -59,8 +51,15 @@ public class Building {
             // TODO: error handling :D
         }
 
-        mElevatorInfoService = new ElevatorInfoService(mAdapter);
-        mElevatorInfoService.start();
+        mElevatorServices = new ArrayList<ElevatorService>();
+
+        mElevatorServices.add(new ElevatorInfoService(mAdapter));
+        mElevatorServices.add(new FloorStatusService(mAdapter));
+        mElevatorServices.add(new ElevatorPositionService(mAdapter));
+
+        for (ElevatorService service : mElevatorServices) {
+            service.start();
+        }
     }
 
     public Iterable<Elevator> getElevators() {
@@ -71,28 +70,34 @@ public class Building {
         return mFloors;
     }
 
-    public void addListener(IElevatorInfoListener listener) {
-        mElevatorInfoService.addListener(listener);
+    public void addListener(IElevatorListener listener) {
+        for (ElevatorService service : mElevatorServices) {
+            if (service.isCompatibleListener(listener)) {
+                service.addListener(listener);
+            }
+        }
     }
 
-    public void addListener(IElevatorPositionListener listener) {
-
+    public void removeListener(IElevatorListener listener) {
+        for (ElevatorService service : mElevatorServices) {
+            if (service.isCompatibleListener(listener)) {
+                service.removeListener(listener);
+            }
+        }
     }
 
-    public void removeListener(IElevatorInfoListener listener) {
-        mElevatorInfoService.removeListener(listener);
+    public void removeAllListeners() {
+        for (ElevatorService service : mElevatorServices) {
+            service.removeAllListeners();
+        }
     }
 
-    public void removeListener(IElevatorPositionListener listener) {
-
-    }
-    
-    public int GetNumberOfElevators()
+    public int getNumberOfElevators()
     {
     	return mNumberOfElevators;
     }
     
-    public int GetNumberOfFloors()
+    public int getNumberOfFloors()
     {
     	return mNumberOfFloors;
     }

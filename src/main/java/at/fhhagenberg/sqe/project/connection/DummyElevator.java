@@ -6,6 +6,20 @@ import at.fhhagenberg.sqe.project.model.Elevator;
  * Created by rknoll on 16/12/14.
  */
 public class DummyElevator implements IElevatorAdapter {
+    private boolean mBtnState;
+
+    public DummyElevator() {
+        new Thread(() -> {
+            while(true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ignored) {
+                }
+                mBtnState = !mBtnState;
+            }
+        }).start();
+    }
+
     @Override
     public Elevator.Direction getCommittedDirection(int elevatorNumber) throws ElevatorConnectionLostException {
         return null;
@@ -58,12 +72,12 @@ public class DummyElevator implements IElevatorAdapter {
 
     @Override
     public boolean getFloorButtonDown(int floor) throws ElevatorConnectionLostException {
-        return false;
+        return mBtnState;
     }
 
     @Override
     public boolean getFloorButtonUp(int floor) throws ElevatorConnectionLostException {
-        return false;
+        return !mBtnState;
     }
 
     @Override

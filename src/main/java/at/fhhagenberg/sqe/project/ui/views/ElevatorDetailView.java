@@ -3,7 +3,8 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.services.IElevatorInfoListener;
+import at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener;
+import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorOverviewSelectListener;
 
 import javax.swing.*;
 
@@ -32,7 +33,6 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 
 //        JButton returnButton = new JButton("Return");
 //        returnButton.addActionListener(event -> {
-//            building.removeListener(this);
 //            selectListener.selectOverview();
 //        });
 //        add(returnButton);
@@ -57,7 +57,6 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 
 		JButton returnButton = new JButton("Return");
 		returnButton.addActionListener(event -> {
-			mBuilding.removeListener(this);
 			selectListener.selectOverview();
 		});
 		mainPanel.add(returnButton);

@@ -1,4 +1,4 @@
-package at.fhhagenberg.sqe.project.ui.views;
+package at.fhhagenberg.sqe.project.ui.views.listeners;
 
 import at.fhhagenberg.sqe.project.model.Elevator;
 

@@ -1,9 +1,8 @@
 package at.fhhagenberg.sqe.project.model;
 
 import at.fhhagenberg.sqe.project.connection.DummyElevator;
-import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.services.ElevatorInfoService;
-import at.fhhagenberg.sqe.project.services.IElevatorInfoListener;
+import at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;

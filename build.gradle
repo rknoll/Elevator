@@ -1,9 +1,15 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'jacoco'
 
 group = 'at.fhhagenberg.sqe.project'
 version = '0.1'
+
+buildscript {
+    repositories { mavenCentral() }
+    dependencies { classpath 'org.ajoberstar:gradle-jacoco:0.2.0' }
+}
 
 if (hasProperty('teamcity') && !property('teamcity')['build.number'].startsWith(version + "-")) {
     version += '-' + property('teamcity')['build.number']
@@ -17,6 +23,8 @@ jar {
         attributes 'Implementation-Title': 'Elevator', 'Implementation-Version': version, 'Main-Class': 'at.fhhagenberg.sqe.project.ElevatorProgram'
     }
 }
+
+test.finalizedBy jacocoTestReport
 
 uploadArchives {
     repositories {

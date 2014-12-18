@@ -47,5 +47,7 @@ public class ElevatorModeComponent extends JComponent {
         // 		 Im Building muss es f�r jeden Elevator einen ModeChangedListener geben, das dieser Funktion �bergeben wird.
 
         add(checkBox, gc);
+
+        setPreferredSize(new Dimension(150, 60));
     }
 }

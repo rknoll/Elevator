@@ -20,12 +20,10 @@ public class Building {
     
     private int mNumberOfFloors;
     private int mNumberOfElevators;
+    private int mHeight;
 
     private List<Elevator> mElevators;
     private List<Floor> mFloors;
-    
-    //private List<ChangeListener<JCheckBox>> mModeChangedListener;
-    
 
     public Building(IElevatorAdapter adapter) {
         mAdapter = adapter;
@@ -37,6 +35,7 @@ public class Building {
         try {
         	mNumberOfFloors = mAdapter.getFloorNum();
         	mNumberOfElevators = mAdapter.getElevatorNum();
+            mHeight = mAdapter.getFloorHeight() * mNumberOfFloors;
 
             for (int i = 0; i < mNumberOfFloors; ++i) {
                 mFloors.add(new Floor(i, "Flooor " + (i + 1)));
@@ -44,7 +43,6 @@ public class Building {
 
             for (int i = 0; i < mNumberOfElevators; ++i) {
                 mElevators.add(new Elevator(i, "Elevator " + (i + 1), mFloors));
-                //mModeChangedListener.add(new ChangeListener<JCheckBox>());                
             }
 
         } catch (ElevatorConnectionLostException ignored) {
@@ -56,6 +54,7 @@ public class Building {
         mElevatorServices.add(new ElevatorInfoService(mAdapter));
         mElevatorServices.add(new FloorStatusService(mAdapter));
         mElevatorServices.add(new ElevatorPositionService(mAdapter));
+        mElevatorServices.add(new ElevatorServicesFloorService(mAdapter));
 
         for (ElevatorService service : mElevatorServices) {
             service.start();
@@ -100,6 +99,24 @@ public class Building {
     public int getNumberOfFloors()
     {
     	return mNumberOfFloors;
+    }
+    public int getHeight()
+    {
+        return mHeight;
+    }
+
+    public void callElevator(Elevator elevator, Floor floor) {
+        try {
+            mAdapter.setTarget(elevator.getElevatorNumber(), floor.getFloorNumber());
+        } catch (ElevatorConnectionLostException ignored) {
+        }
+    }
+
+    public void setServicesFloor(Elevator elevator, Floor floor, boolean services) {
+        try {
+            mAdapter.setServicesFloors(elevator.getElevatorNumber(), floor.getFloorNumber(), services);
+        } catch (ElevatorConnectionLostException ignored) {
+        }
     }
 
 }

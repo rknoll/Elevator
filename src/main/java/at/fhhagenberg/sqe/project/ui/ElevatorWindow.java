@@ -24,8 +24,8 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
 
         selectOverview();
 
-        //mFrame.setSize(300, 200);
-        mFrame.pack();
+        mFrame.setSize(800, 600);
+        //mFrame.pack();
         mFrame.setVisible(true);
     }
 

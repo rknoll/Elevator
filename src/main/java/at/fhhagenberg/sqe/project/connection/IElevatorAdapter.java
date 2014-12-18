@@ -39,7 +39,7 @@ public interface IElevatorAdapter {
 
     public int getTarget(int elevatorNumber) throws ElevatorConnectionLostException;
 
-    public void setCommittedDirection(int elevatorNumber, int direction) throws ElevatorConnectionLostException;
+    public void setCommittedDirection(int elevatorNumber, Elevator.Direction direction) throws ElevatorConnectionLostException;
 
     public void setServicesFloors(int elevatorNumber, int floor, boolean service) throws ElevatorConnectionLostException;
 

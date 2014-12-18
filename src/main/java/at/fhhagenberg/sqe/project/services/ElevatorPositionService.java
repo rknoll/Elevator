@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener;
 import at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener;
 
 import java.util.HashSet;
@@ -18,7 +19,11 @@ public class ElevatorPositionService extends ElevatorService<IElevatorPositionLi
     private Set<Elevator> elevatorCache;
 
     public ElevatorPositionService(IElevatorAdapter adapter) {
-        super(IElevatorPositionListener.class);
+        this(adapter, 100);
+    }
+
+    public ElevatorPositionService(IElevatorAdapter adapter, int sleepTimeMs) {
+        super(IElevatorPositionListener.class, sleepTimeMs);
         mAdapter = adapter;
         elevatorCache = new HashSet<Elevator>();
     }

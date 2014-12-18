@@ -19,7 +19,11 @@ public class ElevatorInfoService extends ElevatorService<IElevatorInfoListener> 
     private Set<Elevator> elevatorCache;
 
     public ElevatorInfoService(IElevatorAdapter adapter) {
-        super(IElevatorInfoListener.class);
+        this(adapter, 100);
+    }
+
+    public ElevatorInfoService(IElevatorAdapter adapter, int sleepTimeMs) {
+        super(IElevatorInfoListener.class, sleepTimeMs);
         mAdapter = adapter;
         elevatorCache = new HashSet<Elevator>();
     }

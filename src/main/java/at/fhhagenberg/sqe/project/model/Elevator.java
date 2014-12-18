@@ -125,8 +125,11 @@ public class Elevator {
         return mCapacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.mCapacity = capacity;
+    public void setCapacity(int capacity) throws IllegalArgumentException {
+        if (capacity < 0) {
+        	throw new IllegalArgumentException();
+        }
+    	this.mCapacity = capacity;
     }
 
     public int getWeight() {

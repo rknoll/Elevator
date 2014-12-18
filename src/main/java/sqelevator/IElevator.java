@@ -1,4 +1,4 @@
-package sqlelevator;
+package sqelevator;
 
 import at.fhhagenberg.sqe.project.model.Elevator;
 

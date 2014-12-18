@@ -17,41 +17,42 @@ import java.util.Map;
  */
 public class ElevatorDetailView extends JComponent implements IElevatorInfoListener {
 
-    private Building mBuilding;
-    private Elevator mElevator;
+	private Building mBuilding;
+	private Elevator mElevator;
 
-    private JLabel mDescriptionLabel;
+	private JLabel mDescriptionLabel;
 
-    public ElevatorDetailView(Building building, Elevator elevator, IElevatorOverviewSelectListener selectListener) {
-        mBuilding = building;
-        mElevator = elevator;
-        mDescriptionLabel = new JLabel();
+	private JLabel mAutomaticMode;
+	private JLabel mCurrentFloor;
+	private JLabel mPosition;
+	private JLabel mTarget;
+	private JLabel mDirection;
+	private JLabel mDoorStatus;
+	private JLabel mSpeed;
+	private JLabel mAcceleration;
+	private JLabel mCapacity;
+	private JLabel mWeight;
 
-        setLayout(new FlowLayout());
-        JPanel mainPanel = CreateMainPanel(selectListener);
-        add(mainPanel);
+	private JLabel mElevatorButtons;
 
-//        JButton returnButton = new JButton("Return");
-//        returnButton.addActionListener(event -> {
-//            selectListener.selectOverview();
-//        });
-//        add(returnButton);
-//
-//        mDescriptionLabel = new JLabel();
-//        add(mDescriptionLabel);
-//        
-//        Component detailInfo = CreateComponentDetailInfo();
-//        add(detailInfo);
+	public ElevatorDetailView(Building building, Elevator elevator, IElevatorOverviewSelectListener selectListener) {
+		mBuilding = building;
+		mElevator = elevator;
+		mDescriptionLabel = new JLabel();
 
-        building.addListener(this);
-    }
-    
-    private JPanel CreateMainPanel(IElevatorOverviewSelectListener selectListener)
-    {
-    	JPanel mainPanel = new JPanel(new GridBagLayout());
-    	GridBagConstraints gc = new GridBagConstraints();
+		setLayout(new FlowLayout());
 
-    	gc.gridx = 0;
+		add(CreateMainPanel(selectListener));
+
+		building.addListener(this);
+	}
+
+	private JPanel CreateMainPanel(IElevatorOverviewSelectListener selectListener)
+	{
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
+		gc.gridx = 0;
 		gc.gridy = 0;
 		gc.anchor = GridBagConstraints.CENTER;
 
@@ -60,110 +61,160 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 			selectListener.selectOverview();
 		});
 		mainPanel.add(returnButton);
-		
+
 		gc.gridx += 1;
 		mainPanel.add(mDescriptionLabel, gc);
-		
+
 		gc.gridx = 0;
 		gc.gridy = 1;
-		
+
 		Component detailInfo = CreateComponentDetailInfo();
 		mainPanel.add(detailInfo, gc);
-		
+
 		gc.gridx += 1;
 		gc.gridy = 1;
-		Component pressedButtons = CreateComponentButtonPessedOverview();
-		mainPanel.add(pressedButtons, gc);		
-		
+		mElevatorButtons = new JLabel();
+		mainPanel.add(mElevatorButtons, gc);
+
+		showDetails();
+
 		return mainPanel;
-    }
-    
-    private Component CreateComponentDetailInfo()
-    {
-    	JPanel infoPanel = new JPanel(new GridBagLayout());
-    	GridBagConstraints gc = new GridBagConstraints();
-    	
+	}
+
+	private Component CreateComponentDetailInfo()
+	{
+		JPanel infoPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
 		gc.gridx = 0;
 		gc.gridy = 0;
-		
+
 		gc.anchor = GridBagConstraints.WEST;
-		
-		try {
-			Map<String, String> lines = new HashMap<String, String>();
-			lines.put("Cureent Mode:", mElevator.isAutomaticMode() ? "automatic" : "manual");
-            if (mElevator.getCurrentFloor() != null) {
-                lines.put("Current Floor:", mElevator.getCurrentFloor().getDescription());
-            } else {
-                lines.put("Current Floor:", "None");
-            }
-			lines.put("Position:", mElevator.getPosition() + " feet");
-            if (mElevator.getTarget() != null) {
-                lines.put("Target:", mElevator.getTarget().getDescription());
-            } else {
-                lines.put("Target:", "None");
-            }
-            if (mElevator.getDirection() != null) {
-                lines.put("Direction:", mElevator.getDirection().name());
-            } else {
-                lines.put("Direction:", "None");
-            }
-            if (mElevator.getDoorStatus() != null) {
-                lines.put("Door State:", mElevator.getDoorStatus().name());
-            } else {
-                lines.put("Door State:", "None");
-            }
-			lines.put("Speed:", mElevator.getSpeed() + " feet/s");
-			lines.put("Acceleration: ", mElevator.getAcceleration() + "feet/s^2");
-			lines.put("Capacity:", mElevator.getCapacity() + "");
-			lines.put("Weight:", mElevator.getWeight() + "");
-			
-			
-			for (Map.Entry<String, String> entry : lines.entrySet()) {
-			    String key = entry.getKey();
-			    String value = entry.getValue();
-			    
-			    JLabel keyLabel = new JLabel(key);
-			    JLabel valueLabel = new JLabel(value);
-			    
-			    infoPanel.add(keyLabel, gc);
-			    gc.gridx += 1;	// Eine Spalte weiter
-			    infoPanel.add(valueLabel, gc);
-			    gc.gridx -= 1;	// Eine Spalte zur�ck
-			    gc.gridy += 1;	// Eine Zeile weiter	    	
+
+		infoPanel.add(new JLabel("Current Mode:"), gc);
+		gc.gridx += 1;
+		mAutomaticMode = new JLabel();
+		infoPanel.add(mAutomaticMode, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Position:"), gc);
+		gc.gridx += 1;
+		mCurrentFloor = new JLabel();
+		infoPanel.add(mCurrentFloor, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Position:"), gc);
+		gc.gridx += 1;
+		mPosition = new JLabel();
+		infoPanel.add(mPosition, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Target:"), gc);
+		gc.gridx += 1;
+		mTarget = new JLabel();
+		infoPanel.add(mTarget, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Direction:"), gc);
+		gc.gridx += 1;
+		mDirection = new JLabel();
+		infoPanel.add(mDirection, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Door State:"), gc);
+		gc.gridx += 1;
+		mDoorStatus = new JLabel();
+		infoPanel.add(mDoorStatus, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Speed:"), gc);
+		gc.gridx += 1;
+		mSpeed = new JLabel();
+		infoPanel.add(mSpeed, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Acceleration:"), gc);
+		gc.gridx += 1;
+		mAcceleration = new JLabel();
+		infoPanel.add(mAcceleration, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Capacity:"), gc);
+		gc.gridx += 1;
+		mCapacity = new JLabel();
+		infoPanel.add(mCapacity, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Weight:"), gc);
+		gc.gridx += 1;
+		mWeight = new JLabel();
+		infoPanel.add(mWeight, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		return infoPanel;
+	}
+
+	private void showDetails() {
+		mDescriptionLabel.setText(mElevator.getDescription());
+
+		mAutomaticMode.setText(mElevator.isAutomaticMode() ? "Automatic" : "Manual");
+		mCurrentFloor.setText(mElevator.getCurrentFloor() != null ? mElevator.getCurrentFloor().getDescription() : "None");
+		mPosition.setText("" + mElevator.getPosition());
+		mTarget.setText(mElevator.getTarget() != null ? mElevator.getTarget().getDescription() : "None");
+		mDirection.setText(mElevator.getDirection() != null ? mElevator.getDirection().name() : "None");
+		mDoorStatus.setText(mElevator.getDoorStatus() != null ? mElevator.getDoorStatus().name() : "None");
+		mSpeed.setText("" + mElevator.getSpeed());
+		mAcceleration.setText("" + mElevator.getAcceleration());
+		mCapacity.setText("" + mElevator.getCapacity());
+		mWeight.setText("" + mElevator.getWeight());
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>");
+		sb.append("Pressed Buttons:<br>");
+		for (Floor f : mBuilding.getFloors())
+		{
+			if (mElevator.getButton(f))
+			{
+				sb.append(f.getDescription());
+				sb.append("<br>");
 			}
 		}
-		catch (Exception e)
+		sb.append("</html>");
+		mElevatorButtons.setText(sb.toString());
+	}
+
+	private Component CreateComponentButtonPessedOverview()
+	{
+		JPanel buttonPressed = new JPanel(new FlowLayout());
+		for (Floor f : mBuilding.getFloors())
 		{
-			// TODO: Exception Handling
-			System.out.println(e.getMessage());
-			System.out.println(e.getCause());
+			if (mElevator.getButton(f) == true)
+			{
+				// Add floor
+				JLabel floorLabel = new JLabel(f.getDescription());
+				buttonPressed.add(floorLabel);
+			}
 		}
-		    	
-    	return infoPanel;
-    }
-    
-    private Component CreateComponentButtonPessedOverview()
-    {
-    	JPanel buttonPressed = new JPanel(new FlowLayout());
-    	for (Floor f : mBuilding.getFloors())
-    	{
-    		if (mElevator.getButton(f) == true)
-    		{
-    			// Add floor
-    			JLabel floorLabel = new JLabel(f.getDescription());
-    			buttonPressed.add(floorLabel);
-    		}
-    	}
-    	return buttonPressed;
-    }
+		return buttonPressed;
+	}
 
-    @Override
-    public Elevator getElevator() {
-        return mElevator;
-    }
+	@Override
+	public Elevator getElevator() {
+		return mElevator;
+	}
 
-    @Override
-    public void update() {
-        mDescriptionLabel.setText(mElevator.getDescription());
-    }
+	@Override
+	public void update() {
+		showDetails();
+	}
 }

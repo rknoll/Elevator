@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener;
+import at.fhhagenberg.sqe.project.services.listeners.IElevatorServicesFloorListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +13,18 @@ import java.util.Random;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorFloorComponent extends JComponent {
+public class ElevatorFloorComponent extends JComponent implements IElevatorServicesFloorListener {
 
     private Building mBuilding;
+    private Elevator mElevator;
+    private Floor mFloor;
+
+    private JCheckBox mServeFloorCheckBox;
 
     public ElevatorFloorComponent(Building building, Elevator elevator, Floor floor) {
         mBuilding = building;
+        mElevator = elevator;
+        mFloor = floor;
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -28,6 +35,9 @@ public class ElevatorFloorComponent extends JComponent {
 
         Component elevatorSetting = CreateComponentElevatorSettings(elevator, floor);
         add(elevatorSetting, gc);
+        setPreferredSize(new Dimension(120, 60));
+
+        mBuilding.addListener(this);
     }
 
     private Component CreateComponentElevatorSettings(Elevator elevator, Floor floor)
@@ -44,15 +54,36 @@ public class ElevatorFloorComponent extends JComponent {
         callButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
         pnlElevatorSettings.add(callButton, gc);
 
-        gc.gridy = 1;
-        JCheckBox serveFloorCheckBox = new JCheckBox("Serve");
-        serveFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
-        serveFloorCheckBox.setSelected(elevator.getService(floor));
+        callButton.addActionListener(event -> {
+            mBuilding.callElevator(elevator, floor);
+        });
 
-        // TODO: Add Listener!
-        pnlElevatorSettings.add(serveFloorCheckBox, gc);
+        gc.gridy = 1;
+        mServeFloorCheckBox = new JCheckBox("Serve");
+        mServeFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
+        mServeFloorCheckBox.setSelected(elevator.getService(floor));
+
+        mServeFloorCheckBox.addActionListener(event -> {
+            mBuilding.setServicesFloor(mElevator, mFloor, mServeFloorCheckBox.isSelected());
+        });
+
+        pnlElevatorSettings.add(mServeFloorCheckBox, gc);
 
         return pnlElevatorSettings;
     }
 
+    @Override
+    public Elevator getElevator() {
+        return mElevator;
+    }
+
+    @Override
+    public Floor getFloor() {
+        return mFloor;
+    }
+
+    @Override
+    public void update() {
+        mServeFloorCheckBox.setSelected(mElevator.getService(mFloor));
+    }
 }

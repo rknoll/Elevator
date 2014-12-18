@@ -17,7 +17,11 @@ public class FloorStatusService extends ElevatorService<IFloorStatusListener> {
     private Set<Floor> floorCache;
 
     public FloorStatusService(IElevatorAdapter adapter) {
-        super(IFloorStatusListener.class);
+        this(adapter, 100);
+    }
+
+    public FloorStatusService(IElevatorAdapter adapter, int sleepTimeMs) {
+        super(IFloorStatusListener.class, sleepTimeMs);
         mAdapter = adapter;
         floorCache = new HashSet<Floor>();
     }

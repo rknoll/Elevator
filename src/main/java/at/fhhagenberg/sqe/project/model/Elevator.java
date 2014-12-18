@@ -149,14 +149,14 @@ public class Elevator {
     }
 
 	/**
-	 * @return the mAutomaticMode
+	 * @return true if it is in AutomaticMode
 	 */
 	public boolean isAutomaticMode() {
 		return mAutomaticMode;
 	}
 
 	/**
-	 * @param mAutomaticMode the mAutomaticMode to set
+	 * @param automaticMode true to set it to AutomaticMode
 	 */
 	public void setAutomaticMode(boolean automaticMode) {
 		this.mAutomaticMode = automaticMode;

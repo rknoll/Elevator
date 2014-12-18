@@ -9,13 +9,10 @@ import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
-import sqlelevator.IElevator;
+import sqelevator.IElevator;
 
 import javax.swing.*;
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 
 /**
  * Main Entry Class for the Elevator Project
@@ -28,10 +25,10 @@ public class ElevatorProgram {
      */
     public static void main(String[] args) {
         try {
-            //IElevator rmi = (IElevator) Naming.lookup("rmi://localhost/ElevatorSim");
-            //IElevatorAdapter adapter = new RMIElevator(rmi);
+            IElevator rmi = (IElevator) Naming.lookup("rmi://10.211.55.3/ElevatorSim");
+            IElevatorAdapter adapter = new RMIElevator(rmi);
 
-            IElevatorAdapter adapter = new DummyElevator();
+            //IElevatorAdapter adapter = new DummyElevator();
 
             Building building = new Building(adapter);
 

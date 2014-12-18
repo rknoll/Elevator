@@ -1,7 +1,7 @@
 package at.fhhagenberg.sqe.project.connection;
 
 import at.fhhagenberg.sqe.project.model.Elevator;
-import sqlelevator.IElevator;
+import sqelevator.IElevator;
 
 import java.rmi.RemoteException;
 
@@ -202,9 +202,18 @@ public class RMIElevator implements IElevatorAdapter {
     }
 
     @Override
-    public void setCommittedDirection(int elevatorNumber, int direction) throws ElevatorConnectionLostException {
+    public void setCommittedDirection(int elevatorNumber, Elevator.Direction direction) throws ElevatorConnectionLostException {
         try {
-            mElevatorConnection.setCommittedDirection(elevatorNumber, direction);
+            int dir = IElevator.ELEVATOR_DIRECTION_UNCOMMITTED;
+            switch (direction) {
+                case UP:
+                    dir = IElevator.ELEVATOR_DIRECTION_UP;
+                    break;
+                case DOWN:
+                    dir = IElevator.ELEVATOR_DIRECTION_DOWN;
+                    break;
+            }
+            mElevatorConnection.setCommittedDirection(elevatorNumber, dir);
         } catch (RemoteException e) {
             throw new ElevatorConnectionLostException(e);
         }

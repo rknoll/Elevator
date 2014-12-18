@@ -15,8 +15,10 @@ public abstract class ElevatorService<T extends IElevatorListener> {
 
     private UpdateThread mThread;
     private Class<T> tClass;
+    private int mSleepTimeMs;
 
-    public ElevatorService(Class<T> clazz) {
+    public ElevatorService(Class<T> clazz, int sleepTimeMs) {
+        mSleepTimeMs = sleepTimeMs;
         tClass = clazz;
         mListener = Collections.newSetFromMap(new ConcurrentHashMap<T, Boolean>());
     }
@@ -80,7 +82,7 @@ public abstract class ElevatorService<T extends IElevatorListener> {
                 }
                 endUpdate();
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(mSleepTimeMs);
                 } catch (InterruptedException ignored) {
                 }
             }

@@ -38,6 +38,9 @@ public class FloorStatusComponent extends JComponent implements IFloorStatusList
         gc.gridy = 1;
         mButtonDown = new JCheckBox("Down");
         add(mButtonDown, gc);
+        mButtonDown.setFocusable(false);
+
+        setPreferredSize(new Dimension(150, 60));
 
         building.addListener(this);
     }

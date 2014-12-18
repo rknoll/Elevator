@@ -3,7 +3,6 @@ package at.fhhagenberg.sqe.project.connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import sqlelevator.IElevator;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
@@ -122,25 +121,6 @@ public class DummyAdapter implements IElevatorAdapter
 	}
 
 	@Override
-	public void setCommittedDirection(int elevatorNumber, int direction) throws ElevatorConnectionLostException {
-		Direction dir;
-		switch(direction)
-		{
-		case IElevator.ELEVATOR_DIRECTION_UP:
-			dir = Direction.UP;
-			break;
-		case IElevator.ELEVATOR_DIRECTION_DOWN:
-			dir = Direction.DOWN;
-			break;
-		case IElevator.ELEVATOR_DIRECTION_UNCOMMITTED:
-		default:
-			dir = Direction.UNCOMMITTED;	
-		}
-		
-		mElevators.get(elevatorNumber).setDirection(dir);	
-	}
-
-	@Override
 	public void setServicesFloors(int elevatorNumber, int floor, boolean service) throws ElevatorConnectionLostException {
 		mElevators.get(elevatorNumber).setService(mFloors.get(floor), service);		
 	}
@@ -153,6 +133,12 @@ public class DummyAdapter implements IElevatorAdapter
 	@Override
 	public long getClockTick() throws ElevatorConnectionLostException {
 		return 0;
+	}
+
+	@Override
+	public void setCommittedDirection(int elevatorNumber, Direction direction)	throws ElevatorConnectionLostException {
+		mElevators.get(elevatorNumber).setDirection(direction);
+		
 	}
 
 }

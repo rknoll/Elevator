@@ -25,7 +25,7 @@ public class ElevatorProgram {
      */
     public static void main(String[] args) {
         try {
-            IElevator rmi = (IElevator) Naming.lookup("rmi://10.211.55.3/ElevatorSim");
+            IElevator rmi = (IElevator) Naming.lookup("rmi://localhost/ElevatorSim");
             IElevatorAdapter adapter = new RMIElevator(rmi);
 
             //IElevatorAdapter adapter = new DummyElevator();

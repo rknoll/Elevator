@@ -12,7 +12,7 @@ import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
 
 /**
  * Created by rknoll on 15/12/14.
- * Modified by Thomas Zöchbauer on 18/12/14
+ * Modified by Thomas Zoechbauer on 18/12/14
  */
 public class ElevatorTest {
 

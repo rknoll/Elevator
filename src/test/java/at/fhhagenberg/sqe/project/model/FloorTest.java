@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Thomas Zöchbauer on 18/12/14.
+ * Created by Thomas Zoechbauer on 18/12/14.
  */
 public class FloorTest {
 

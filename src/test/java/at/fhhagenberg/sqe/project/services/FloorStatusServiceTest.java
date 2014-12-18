@@ -1,6 +1,7 @@
 package at.fhhagenberg.sqe.project.services;
 
 import at.fhhagenberg.sqe.project.connection.DummyElevator;
+import at.fhhagenberg.sqe.project.connection.TestElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.ElevatorInfoService;
@@ -19,20 +20,40 @@ import static org.easymock.EasyMock.createMockBuilder;
  */
 public class FloorStatusServiceTest extends TestCase {
 
-    FloorStatusService service;
+    private FloorStatusService service;
+    private Floor floor;
+    private CustomElevatorAdapter customElevator;
 
-    private class CustomAdapter extends DummyElevator {
+    private class CustomElevatorAdapter extends TestElevatorAdapter {
+        private Floor mFloor;
+        private int mCallCount;
 
+        public CustomElevatorAdapter(Floor floor) {
+            mFloor = floor;
+        }
+
+        @Override
+        public boolean getFloorButtonUp(int floorNumber) {
+            assertEquals(mFloor.getFloorNumber(), floorNumber);
+            mCallCount++;
+            return true;
+        }
+
+        public int getCallCount() {
+            return mCallCount;
+        }
     }
 
     public void setUp() {
-        service = new FloorStatusService(new CustomAdapter(), 100);
+        floor = new Floor(0, "Floor 0");
+        customElevator = new CustomElevatorAdapter(floor);
+        service = new FloorStatusService(customElevator, 100);
         service.start();
     }
 
-    public void testNotifications() {
-        Floor floor = new Floor(0, "Floor 0");
-        Thread t = Thread.currentThread();
+    public void testNotifications() throws InterruptedException {
+        final boolean[] gotCalled = {false};
+        Object o = new Object();
         service.addListener(new IFloorStatusListener() {
             @Override
             public Floor getFloor() {
@@ -40,14 +61,23 @@ public class FloorStatusServiceTest extends TestCase {
             }
             @Override
             public void update() {
-                t.interrupt();
+                assertTrue(floor.isButtonUp());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
             }
         });
-        try {
-            Thread.sleep(1000);
-            fail("Timeout for Notification");
-        } catch (InterruptedException ignored) {
+
+        synchronized(o) {
+            o.wait(1000);
         }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }
+
+        assertEquals(1, customElevator.getCallCount());
     }
 
 }

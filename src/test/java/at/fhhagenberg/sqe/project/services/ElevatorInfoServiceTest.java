@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.connection.TestElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener;
+import at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
@@ -15,16 +16,40 @@ import static org.easymock.EasyMock.createMock;
  */
 public class ElevatorInfoServiceTest extends TestCase {
 
-    ElevatorInfoService service;
+    private ElevatorInfoService service;
+    private Elevator elevator;
+    private CustomElevatorAdapter customElevator;
+
+    private class CustomElevatorAdapter extends TestElevatorAdapter {
+        private Elevator mElevator;
+        private int mCallCount;
+
+        public CustomElevatorAdapter(Elevator elevator) {
+            mElevator = elevator;
+        }
+
+        @Override
+        public int getElevatorPosition(int elevatorNumber) {
+            assertEquals(mElevator.getElevatorNumber(), elevatorNumber);
+            mCallCount++;
+            return 1;
+        }
+
+        public int getCallCount() {
+            return mCallCount;
+        }
+    }
 
     public void setUp() {
-        service = new ElevatorInfoService(new TestElevatorAdapter(), 100);
+        elevator = new Elevator(0, "Elevator 0", new ArrayList<Floor>());
+        customElevator = new CustomElevatorAdapter(elevator);
+        service = new ElevatorInfoService(customElevator, 100);
         service.start();
     }
 
-    public void testNotifications() {
-        Elevator elevator = new Elevator(0, "Elevator 0", new ArrayList<Floor>());
-        Thread t = Thread.currentThread();
+    public void testNotifications() throws InterruptedException {
+        final boolean[] gotCalled = {false};
+        Object o = new Object();
         service.addListener(new IElevatorInfoListener() {
             @Override
             public Elevator getElevator() {
@@ -32,14 +57,23 @@ public class ElevatorInfoServiceTest extends TestCase {
             }
             @Override
             public void update() {
-                t.interrupt();
+                assertEquals(1, elevator.getPosition());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
             }
         });
-        try {
-            Thread.sleep(1000);
-            fail("Timeout for Notification");
-        } catch (InterruptedException ignored) {
+
+        synchronized(o) {
+            o.wait(1000);
         }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }
+
+        assertEquals(1, customElevator.getCallCount());
     }
 
 }

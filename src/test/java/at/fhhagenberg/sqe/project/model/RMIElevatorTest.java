@@ -7,13 +7,14 @@ import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
 
 import java.rmi.RemoteException;
 
+import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 
-import sqlelevator.IElevator;
+import sqelevator.IElevator;
 
 public class RMIElevatorTest {
 	IElevator mMock;
@@ -29,7 +30,7 @@ public class RMIElevatorTest {
 	@Test
 	public void testGetCommittedDirection() {
 		try{
-			mMock.getCommittedDirection(0);
+			EasyMock.expect(mMock.getCommittedDirection(0)).andReturn(0);
 		}
 		catch (RemoteException e){
 			System.out.println(e.getMessage());
@@ -46,11 +47,11 @@ public class RMIElevatorTest {
 		
 		verify(mMock);
 	}
-	
+
 	@Test
 	public void testGetElevatorAccel() {
 		try{
-			mMock.getElevatorAccel(0);
+			EasyMock.expect(mMock.getElevatorAccel(0)).andReturn(0);
 		}
 		catch (RemoteException e){
 			System.out.println(e.getMessage());
@@ -71,7 +72,7 @@ public class RMIElevatorTest {
 	@Test
 	public void testGetElevatorButton() {
 		try{
-			mMock.getElevatorButton(0,0);
+			EasyMock.expect(mMock.getElevatorButton(0,0)).andReturn(false);
 		}
 		catch (RemoteException e){
 			System.out.println(e.getMessage());
@@ -92,7 +93,7 @@ public class RMIElevatorTest {
 	@Test
 	public void testGetElevatorDoorStatus() {
 		try{
-			mMock.getElevatorDoorStatus(0);
+			EasyMock.expect(mMock.getElevatorDoorStatus(0)).andReturn(0);
 		}
 		catch (RemoteException e){
 			System.out.println(e.getMessage());

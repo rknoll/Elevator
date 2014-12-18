@@ -1,5 +1,7 @@
 package sqlelevator;
 
+import at.fhhagenberg.sqe.project.model.Elevator;
+
 /**
  * High-level interface to access and control the elevator system.
  * 

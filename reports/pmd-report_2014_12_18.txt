@@ -1,0 +1,1316 @@
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:7:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.connection.DummyElevator'
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:20:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:26:	Consider using varargs for methods or constructors which take an array the last parameter.
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:26:	Parameter 'args' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:28:	Local variable 'rmi' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:29:	Local variable 'adapter' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:33:	Local variable 'building' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:36:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/main/java/at/fhhagenberg/sqe/project/ElevatorProgram.java:37:	Avoid printStackTrace(); use a logger call instead.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:16:	Private field 'mFloors' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:16:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:17:	Private field 'mElevators' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:19:	Private field 'mNumElevators' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:20:	Private field 'mNumFloors' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:20:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:21:	Private field 'mFloorHeight' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:21:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:23:	Parameter 'numElevators' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:23:	Parameter 'numFloors' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:23:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:34:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:39:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:44:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:44:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:45:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:49:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:49:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:50:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:54:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:54:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:54:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:55:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:59:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:59:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:60:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:64:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:64:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:65:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:65:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:69:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:74:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:74:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:75:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:79:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:79:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:80:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:84:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:84:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:85:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:89:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:89:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:90:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:94:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:94:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:95:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:99:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:99:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:100:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:104:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:109:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:114:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:114:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:114:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:115:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:119:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:119:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:120:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:120:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:124:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:124:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:124:	Parameter 'service' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:124:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:125:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:129:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:129:	Parameter 'target' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:129:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:130:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:134:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:139:	Parameter 'direction' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:139:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:139:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyAdapter.java:140:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:9:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:9:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:11:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:12:	To be compliant to J2EE, a webapp should not use any thread.
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:18:	Use bitwise inversion to invert boolean values
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:24:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:24:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:29:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:29:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:34:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:34:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:34:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:39:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:39:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:44:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:44:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:49:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:54:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:54:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:59:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:59:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:64:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:64:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:69:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:69:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:74:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:74:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:79:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:79:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:84:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:89:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:94:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:94:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:94:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:99:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:99:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:104:	Document empty method
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:104:	Parameter 'direction' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:104:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:104:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:109:	Document empty method
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:109:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:109:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:109:	Parameter 'service' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:109:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:114:	Document empty method
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:114:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:114:	Parameter 'target' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:114:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/DummyElevator.java:119:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:8:	Document empty constructor
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:8:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:8:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:11:	Parameter 'message' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:11:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:15:	Parameter 'cause' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:15:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:19:	Parameter 'cause' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:19:	Parameter 'message' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/ElevatorConnectionLostException.java:19:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:10:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:10:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:12:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:12:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:14:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:14:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:16:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:16:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:18:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:18:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:20:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:20:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:22:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:22:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:24:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:24:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:26:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:26:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:28:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:28:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:30:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:30:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:32:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:32:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:34:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:34:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:36:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:36:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:38:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:38:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:40:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:40:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:42:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:42:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:44:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:44:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:46:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:46:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:48:	Avoid modifiers which are implied by the context
+src/main/java/at/fhhagenberg/sqe/project/connection/IElevatorAdapter.java:48:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:1:	Possible God class (WMC=49, ATFD=35, TCC=0.0)
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:13:	Avoid excessively long variable names like mElevatorConnection
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:13:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:13:	Private field 'mElevatorConnection' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:13:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:15:	Avoid excessively long variable names like elevatorConnection
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:15:	Parameter 'elevatorConnection' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:15:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:20:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:20:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:23:	Found 'DU'-anomaly for variable 'ret' (lines '23'-'32').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:28:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:29:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:35:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:35:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:38:	Found 'DU'-anomaly for variable 'ret' (lines '38'-'43').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:46:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:46:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:46:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:49:	Found 'DU'-anomaly for variable 'ret' (lines '49'-'54').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:57:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:57:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:60:	Found 'DU'-anomaly for variable 'ret' (lines '60'-'70').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:65:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:66:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:67:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:73:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:73:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:76:	Found 'DU'-anomaly for variable 'ret' (lines '76'-'81').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:84:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:87:	Found 'DU'-anomaly for variable 'ret' (lines '87'-'92').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:95:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:95:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:98:	Found 'DU'-anomaly for variable 'ret' (lines '98'-'103').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:106:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:106:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:109:	Found 'DU'-anomaly for variable 'ret' (lines '109'-'114').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:117:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:117:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:120:	Found 'DU'-anomaly for variable 'ret' (lines '120'-'125').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:128:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:128:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:131:	Found 'DU'-anomaly for variable 'ret' (lines '131'-'136').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:139:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:139:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:142:	Found 'DU'-anomaly for variable 'ret' (lines '142'-'147').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:150:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:150:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:153:	Found 'DU'-anomaly for variable 'ret' (lines '153'-'158').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:161:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:164:	Found 'DU'-anomaly for variable 'ret' (lines '164'-'169').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:172:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:175:	Found 'DU'-anomaly for variable 'ret' (lines '175'-'180').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:183:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:183:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:183:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:186:	Found 'DU'-anomaly for variable 'ret' (lines '186'-'191').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:194:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:194:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:197:	Found 'DU'-anomaly for variable 'ret' (lines '197'-'202').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:205:	Parameter 'direction' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:205:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:205:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:207:	Found 'DD'-anomaly for variable 'dir' (lines '207'-'210').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:207:	Found 'DD'-anomaly for variable 'dir' (lines '207'-'213').
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:208:	A switch with less than three branches is inefficient, use a if statement instead.
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:208:	Switch statements should have a default label
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:223:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:223:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:223:	Parameter 'service' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:223:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:232:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:232:	Parameter 'target' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:232:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:241:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/connection/RMIElevator.java:244:	Found 'DU'-anomaly for variable 'ret' (lines '244'-'249').
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:17:	Private field 'mAdapter' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:19:	Private field 'mElevatorServices' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:21:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:22:	Avoid excessively long variable names like mNumberOfElevators
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:22:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:22:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:23:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:25:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:25:	Private field 'mElevators' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:25:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:26:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:26:	Private field 'mFloors' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:26:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:28:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:28:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:41:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:45:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:48:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:48:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:59:	Local variable 'service' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:64:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:68:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:72:	Found 'UR'-anomaly for variable 'service' (lines '72'-'74').
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:72:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:72:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:73:	Local variable 'service' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:80:	Found 'UR'-anomaly for variable 'service' (lines '80'-'82').
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:80:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:80:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:81:	Local variable 'service' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:88:	Found 'UR'-anomaly for variable 'service' (lines '88'-'90').
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:88:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:89:	Local variable 'service' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:94:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:99:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:103:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:108:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:108:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:108:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:111:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:111:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:115:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:115:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:115:	Parameter 'services' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:115:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:118:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Building.java:118:	Avoid empty catch blocks
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:11:	enumCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:15:	enumCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:19:	Private field 'mElevatorNumber' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:20:	Private field 'mDescription' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:20:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:22:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:22:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:23:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:24:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:25:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:25:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:26:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:26:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:27:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:27:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:28:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:28:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:29:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:29:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:30:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:30:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:32:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:32:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:34:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:34:	Private field 'mFloorServices' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:34:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:35:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:35:	Private field 'mFloorButtons' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:35:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:37:	Parameter 'description' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:37:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:37:	Parameter 'floors' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:37:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:42:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:48:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:52:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:52:	Parameter 'service' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:52:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:56:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:56:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:60:	Parameter 'button' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:60:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:60:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:64:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:64:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:68:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:72:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:76:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:80:	Parameter 'currentFloor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:80:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:84:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:88:	Parameter 'position' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:88:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:92:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:96:	Parameter 'target' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:96:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:100:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:104:	Parameter 'doorStatus' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:104:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:108:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:112:	Parameter 'speed' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:112:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:116:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:120:	Parameter 'acceleration' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:120:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:124:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:128:	Parameter 'capacity' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:128:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:135:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:139:	Parameter 'weight' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:139:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:143:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:147:	Parameter 'direction' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:147:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Elevator.java:161:	Parameter 'automaticMode' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:8:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:8:	Private field 'mFloorNumber' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:8:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:9:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:9:	Private field 'mDescription' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:9:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:11:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:11:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:12:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:12:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:14:	Parameter 'description' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:14:	Parameter 'floorNumber' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:14:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:19:	Parameter 'buttonUp' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:19:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:23:	Parameter 'buttonDown' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:23:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:27:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:31:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:35:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/model/Floor.java:39:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:18:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:21:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:21:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:25:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:25:	Parameter 'sleepTimeMs' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:25:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:32:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:37:	Found 'UR'-anomaly for variable 'f' (lines '37'-'50').
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:37:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:37:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:38:	Avoid variables with short names like e
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:38:	Local variable 'e' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:42:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:45:	Local variable 'elevatorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:45:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:46:	Local variable 'floors' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:49:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:49:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:50:	Local variable 'floorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:51:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:52:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:56:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:57:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:58:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:59:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:60:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:61:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:62:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorInfoService.java:63:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:6:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Floor'
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:7:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener'
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:18:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:21:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:21:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:25:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:25:	Parameter 'sleepTimeMs' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:25:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:32:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:37:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:37:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:38:	Avoid variables with short names like e
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:38:	Local variable 'e' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:42:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:45:	Local variable 'elevatorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:45:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorPositionService.java:48:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:12:	Abstract classes should be named AbstractXXX
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:12:	This class has too many methods, consider refactoring it.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:14:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:14:	Private field 'mListener' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:14:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:16:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:17:	Private field 'tClass' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:18:	Private field 'mSleepTimeMs' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:18:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:20:	Parameter 'clazz' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:20:	Parameter 'sleepTimeMs' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:20:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:26:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:26:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:30:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:30:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:34:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:38:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:38:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:42:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:43:	Avoid using if statements without curly braces
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:48:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:49:	Avoid using if statements without curly braces
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:51:	Assigning an Object to null is a code smell.  Consider refactoring.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:54:	An empty method in an abstract class should be abstract instead
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:54:	Document empty method
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:54:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:55:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:56:	An empty method in an abstract class should be abstract instead
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:56:	Document empty method
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:56:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:58:	Each class should declare at least one constructor
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:58:	To be compliant to J2EE, a webapp should not use any thread.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:58:	headerCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:59:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:59:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:61:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:62:	Avoid using if statements without curly braces
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:64:	To be compliant to J2EE, a webapp should not use any thread.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:67:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:68:	Avoid using if statements without curly braces
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:72:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:77:	Found 'UR'-anomaly for variable 'l' (lines '77'-'81').
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:77:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorService.java:80:	Local variable 'l' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:7:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener'
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:8:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener'
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:21:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:22:	Avoid excessively long variable names like elevatorFloorCache
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:22:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:22:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:24:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:24:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:28:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:28:	Parameter 'sleepTimeMs' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:28:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:35:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:40:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:40:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:41:	Avoid variables with short names like e
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:41:	Local variable 'e' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:42:	Avoid variables with short names like f
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:42:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:44:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:46:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:49:	Local variable 'elevatorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:49:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:50:	Local variable 'floorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:50:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:53:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorService.java:63:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:16:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:19:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:19:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:23:	Parameter 'adapter' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:23:	Parameter 'sleepTimeMs' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:23:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:30:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:35:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:35:	protectedMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:36:	Avoid variables with short names like f
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:36:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:40:	A method should have only one exit point, and that should be the last statement in the method
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:43:	Local variable 'floorNumber' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:43:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/FloorStatusService.java:47:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IElevatorInfoListener.java:9:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IElevatorListener.java:7:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IElevatorPositionListener.java:9:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IElevatorServicesFloorListener.java:10:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IElevatorServicesFloorListener.java:11:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/services/listeners/IFloorStatusListener.java:9:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:16:	Private field 'mFrame' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:16:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:17:	Private field 'mBuilding' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:19:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:19:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:25:	Overridable method 'selectOverview' called during object construction
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:33:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:33:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/ElevatorWindow.java:41:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:6:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:11:	Avoid unused imports such as 'java.util.Random'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:18:	Private field 'mBuilding' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:18:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:19:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:20:	Private field 'mFloor' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:20:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:22:	Avoid excessively long variable names like mServeFloorCheckBox
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:22:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:22:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:24:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:24:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:24:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:24:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:24:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:30:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:30:	Local variable 'gc' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:36:	Local variable 'elevatorSetting' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:43:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:43:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:43:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:45:	Avoid excessively long variable names like pnlElevatorSettings
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:45:	Local variable 'pnlElevatorSettings' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:46:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:46:	Local variable 'gc' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:53:	Local variable 'callButton' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:76:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:81:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorFloorComponent.java:86:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:3:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Building'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:8:	Avoid unused imports such as 'javax.swing.event.ChangeEvent'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:9:	Avoid unused imports such as 'javax.swing.event.ChangeListener'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:16:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:16:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:16:	Parameter 'listener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:16:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:18:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:22:	Local variable 'button' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:30:	Local variable 'checkBox' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:35:	Local variable 'abstractButton' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:36:	Local variable 'buttonModel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:37:	Local variable 'selected' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:41:	System.out.println is used
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorModeComponent.java:47:	Comment is too large: Line too long
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:5:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Floor'
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:19:	Private field 'mBuilding' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:19:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:20:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:20:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:21:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:23:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:23:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:23:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:23:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:29:	Local variable 'positionPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:37:	Local variable 'rand' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:39:	Avoid variables with short names like r
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:39:	Local variable 'r' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:40:	Avoid variables with short names like g
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:40:	Local variable 'g' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:41:	Avoid variables with short names like b
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:41:	Local variable 'b' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:45:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:47:	Local variable 'pnlFloorPosition' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:61:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:65:	Each class should declare at least one constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:65:	headerCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:67:	Avoid variables with short names like e
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:67:	Parameter 'e' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:67:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:68:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:68:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:69:	Local variable 'floorHeight' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:69:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:70:	Local variable 'elevatorPos' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:71:	Local variable 'pos' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:71:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:71:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:77:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:78:	Local variable 'floorHeight' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:79:	Local variable 'elevatorPos' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java:80:	Local variable 'pos' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:15:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:15:	Private field 'mFloor' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:15:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:16:	Private field 'mButtonUp' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:16:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:17:	Private field 'mButtonDown' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:17:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:19:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:19:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:19:	Parameter 'floor' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:19:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:23:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:23:	Local variable 'gc' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:50:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/components/FloorStatusComponent.java:55:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:12:	Avoid unused imports such as 'java.util.HashMap'
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:13:	Avoid unused imports such as 'java.util.Map'
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:20:	Private field 'mBuilding' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:20:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:21:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:21:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:23:	Private field 'mDescriptionLabel' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:23:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:25:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:25:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:26:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:26:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:27:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:27:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:28:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:28:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:29:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:29:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:30:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:30:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:31:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:31:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:32:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:32:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:33:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:33:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:34:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:34:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:36:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:36:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:38:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:38:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:38:	Parameter 'elevator' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:38:	Parameter 'selectListener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:38:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:50:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:50:	Parameter 'selectListener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:52:	Local variable 'mainPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:53:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:59:	Local variable 'returnButton' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:71:	Local variable 'detailInfo' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:84:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:86:	Local variable 'infoPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:87:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:167:	Found 'UR'-anomaly for variable 'f' (lines '167'-'186').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:167:	The method showDetails() has an NPath complexity of 9375
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:171:	Avoid if (x != y) ..; else ..;
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:171:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:171:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:171:	The String literal "None" appears 4 times in this file; the first occurrence is on line 171
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:172:	Do not add empty strings
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:173:	Avoid if (x != y) ..; else ..;
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:173:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:173:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:174:	Avoid if (x != y) ..; else ..;
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:174:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:174:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:175:	Avoid if (x != y) ..; else ..;
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:175:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:175:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:176:	Do not add empty strings
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:177:	Do not add empty strings
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:178:	Do not add empty strings
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:179:	Do not add empty strings
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:181:	Avoid variables with short names like sb
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:181:	Local variable 'sb' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:181:	StringBuffer constructor is initialized with size 16, but has at least 37 characters appended.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:182:	StringBuffer (or StringBuilder).append is called 2 consecutive times with literal Strings. Use a single append with a single combined String.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:182:	StringBuffer (or StringBuilder).append is called consecutively without reusing the target variable.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:184:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:196:	Avoid unused private methods such as 'CreateComponentButtonPessedOverview()'.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:196:	Found 'UR'-anomaly for variable 'f' (lines '196'-'201').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:196:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:198:	Local variable 'buttonPressed' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:199:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:201:	Avoid unnecessary comparisons in boolean expressions
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:204:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:204:	Local variable 'floorLabel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:212:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorDetailView.java:217:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:6:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener'
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:14:	Avoid unused imports such as 'javax.swing.border.Border'
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:23:	Private field 'mBuilding' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:23:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:24:	Private field 'mMainScrollPane' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:24:	fieldCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:26:	It is a good practice to call super() in a constructor
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:26:	Parameter 'building' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:26:	Parameter 'selectListener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:26:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:33:	Local variable 'topPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:36:	Local variable 'leftPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:40:	Found 'UR'-anomaly for variable 'e' (lines '40'-'54').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:40:	Found 'UR'-anomaly for variable 'f' (lines '40'-'60').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:40:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:41:	Local variable 'mainPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:43:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:50:	Local variable 'e' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:54:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:59:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:60:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:67:	Local variable 'scroll' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:73:	Found 'UR'-anomaly for variable 'e' (lines '73'-'85').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:73:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:73:	Parameter 'selectListener' is not assigned and could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:74:	Local variable 'mainPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:76:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:84:	Local variable 'e' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:85:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:85:	Local variable 'selElevators' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:86:	Potential violation of Law of Demeter (object not created locally)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:90:	Local variable 'scroll' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:93:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:93:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:93:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:96:	Avoid variables with short names like p
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:96:	Local variable 'p' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:97:	Local variable 'space' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:106:	Found 'UR'-anomaly for variable 'f' (lines '106'-'120').
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:106:	Method names should not start with capital letters
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:107:	Local variable 'mainPanel' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:109:	Avoid variables with short names like gc
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:119:	Local variable 'f' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:120:	Avoid instantiating new objects inside loops
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:124:	Local variable 'scroll' could be declared final
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:127:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:127:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/ElevatorOverviewView.java:127:	Potential violation of Law of Demeter (method chain calls)
+src/main/java/at/fhhagenberg/sqe/project/ui/views/listeners/IElevatorDetailSelectListener.java:9:	publicMethodCommentRequirement Required
+src/main/java/at/fhhagenberg/sqe/project/ui/views/listeners/IElevatorOverviewSelectListener.java:7:	publicMethodCommentRequirement Required
+src/main/java/sqelevator/IElevator.java:3:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Elevator'
+src/main/java/sqelevator/IElevator.java:5:	Comment is too large: Too many lines
+src/main/java/sqelevator/IElevator.java:10:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:12:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:14:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:15:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:16:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:17:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:19:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:20:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:22:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:24:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:30:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:31:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:32:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:33:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:34:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:35:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:36:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:41:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:44:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:46:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:47:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:48:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:50:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:51:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:52:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:53:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:54:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:55:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:57:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:58:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:60:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:61:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:67:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:68:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:69:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:71:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:72:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:73:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:74:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:75:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:76:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:78:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:79:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:89:	Avoid excessively long variable names like ELEVATOR_DOORS_OPEN
+src/main/java/sqelevator/IElevator.java:89:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:91:	Avoid excessively long variable names like ELEVATOR_DOORS_CLOSED
+src/main/java/sqelevator/IElevator.java:91:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:93:	Avoid excessively long variable names like ELEVATOR_DOORS_OPENING
+src/main/java/sqelevator/IElevator.java:93:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:95:	Avoid excessively long variable names like ELEVATOR_DOORS_CLOSING
+src/main/java/sqelevator/IElevator.java:95:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:98:	Avoid excessively long variable names like ELEVATOR_DIRECTION_UP
+src/main/java/sqelevator/IElevator.java:98:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:100:	Avoid excessively long variable names like ELEVATOR_DIRECTION_DOWN
+src/main/java/sqelevator/IElevator.java:100:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:102:	Avoid excessively long variable names like ELEVATOR_DIRECTION_UNCOMMITTED
+src/main/java/sqelevator/IElevator.java:102:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:105:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:106:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:107:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:110:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:115:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:118:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:124:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:127:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:130:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:132:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:135:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:143:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:150:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:153:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:155:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:158:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:163:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:166:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:174:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:177:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:182:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:190:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:198:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:205:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:212:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:215:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:217:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:218:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:221:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:229:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:232:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:237:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:240:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:243:	Comment is too large: Line too long
+src/main/java/sqelevator/IElevator.java:246:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:254:	Avoid modifiers which are implied by the context
+src/main/java/sqelevator/IElevator.java:261:	Avoid modifiers which are implied by the context
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:8:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:10:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:10:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:15:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:15:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:20:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:20:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:20:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:25:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:25:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:30:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:30:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:35:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:40:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:40:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:45:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:45:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:50:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:50:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:55:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:55:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:60:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:60:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:65:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:65:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:70:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:75:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:80:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:80:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:80:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:85:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:85:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:90:	Document empty method
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:90:	Parameter 'direction' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:90:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:90:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:95:	Document empty method
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:95:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:95:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:95:	Parameter 'service' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:95:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:100:	Document empty method
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:100:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:100:	Parameter 'target' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:100:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/connection/TestElevatorAdapter.java:105:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:16:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:18:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:21:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:22:	Local variable 'numElevators' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:23:	Local variable 'numFloors' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:24:	Local variable 'adapter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:30:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:31:	Local variable 'elevatorIterable' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:32:	Local variable 'elevatorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:32:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:34:	Found 'DD'-anomaly for variable 'elevCount' (lines '34'-'38').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:37:	Avoid unused local variables such as 'e'.
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:37:	Avoid variables with short names like e
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:37:	Found 'DD'-anomaly for variable 'e' (lines '37'-'37').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:37:	Found 'DU'-anomaly for variable 'e' (lines '37'-'41').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:37:	Local variable 'e' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:38:	Found 'DD'-anomaly for variable 'elevCount' (lines '38'-'38').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:44:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:45:	Local variable 'floorIterable' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:46:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:48:	Found 'DD'-anomaly for variable 'floorCount' (lines '48'-'52').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:51:	Avoid unused local variables such as 'f'.
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:51:	Avoid variables with short names like f
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:51:	Found 'DD'-anomaly for variable 'f' (lines '51'-'51').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:51:	Found 'DU'-anomaly for variable 'f' (lines '51'-'55').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:51:	Local variable 'f' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:52:	Found 'DD'-anomaly for variable 'floorCount' (lines '52'-'52').
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:58:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:59:	Local variable 'listener' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:61:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:70:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:71:	Local variable 'listener' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:73:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:77:	Local variable 'listener2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:79:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:90:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/BuildingTest.java:95:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:17:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:17:	This class has too many methods, consider refactoring it.
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:19:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:20:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:23:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:31:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:31:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:32:	Local variable 'floorList' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:33:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:33:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:34:	Local variable 'floor1' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:35:	Local variable 'floor2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:43:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:43:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:44:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:44:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:45:	Local variable 'floor1' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:46:	Local variable 'floor2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:69:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:69:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:70:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:70:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:71:	Local variable 'floor1' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:72:	Local variable 'floor2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:96:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:101:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:106:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:106:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:107:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:107:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:108:	Local variable 'floor1' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:109:	Local variable 'floor2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:121:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:121:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:134:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:134:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:135:	Local variable 'floorIter' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:135:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:136:	Local variable 'floor1' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:137:	Local variable 'floor2' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:147:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:147:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:162:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:168:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:174:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:174:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:181:	Avoid empty catch blocks
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:181:	Avoid empty catch blocks
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:189:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:195:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:195:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:207:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/ElevatorTest.java:207:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:11:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:13:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:13:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:16:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:21:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:21:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:29:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:29:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:38:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/FloorTest.java:43:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:5:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Elevator.Direction'
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:19:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:19:	headerCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:20:	Use explicit scoping instead of the default package private level
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:20:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:21:	Use explicit scoping instead of the default package private level
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:21:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:22:	Use explicit scoping instead of the default package private level
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:22:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:25:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:31:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:33:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:33:	Unnecessary use of fully qualified name 'EasyMock.expect' due to existing import 'org.easymock.EasyMock'
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:36:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:45:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:52:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:54:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:54:	Unnecessary use of fully qualified name 'EasyMock.expect' due to existing import 'org.easymock.EasyMock'
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:57:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:66:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:73:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:75:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:75:	Unnecessary use of fully qualified name 'EasyMock.expect' due to existing import 'org.easymock.EasyMock'
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:78:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:87:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:94:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:96:	Potential violation of Law of Demeter (method chain calls)
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:96:	Unnecessary use of fully qualified name 'EasyMock.expect' due to existing import 'org.easymock.EasyMock'
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:99:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/model/RMIElevatorTest.java:108:	System.out.println is used
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:7:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener'
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:12:	Avoid unused imports such as 'org.easymock.EasyMock.createMock'
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:17:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:19:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:20:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:21:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:23:	headerCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:24:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:24:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:25:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:25:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:27:	It is a good practice to call super() in a constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:27:	Parameter 'elevator' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:27:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:32:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:32:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:38:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:43:	JUnit 4 tests that set up tests should use the @Before annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:43:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	Found 'UR'-anomaly for variable 'o' (lines '50'-'50').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	Found 'UR'-anomaly for variable 'o' (lines '50'-'50').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	Found 'UR'-anomaly for variable 'o' (lines '50'-'50').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:50:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:51:	Found 'DU'-anomaly for variable 'gotCalled' (lines '51'-'77').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:51:	Found 'DU'-anomaly for variable 'gotCalled' (lines '51'-'77').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:51:	Found 'DU'-anomaly for variable 'gotCalled' (lines '51'-'77').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:52:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:52:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:55:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:59:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:63:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java:69:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:14:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:16:	headerCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:17:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:17:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:18:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:20:	It is a good practice to call super() in a constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:20:	Parameter 'elevator' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:20:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:25:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:25:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:31:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:36:	Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:36:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:36:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:37:	Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:37:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:37:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:38:	Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:38:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:38:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:40:	JUnit 4 tests that set up tests should use the @Before annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:40:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:47:	Found 'UR'-anomaly for variable 'o' (lines '47'-'47').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:47:	Found 'UR'-anomaly for variable 'o' (lines '47'-'47').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:47:	Found 'UR'-anomaly for variable 'o' (lines '47'-'47').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:47:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:47:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:48:	Found 'DU'-anomaly for variable 'gotCalled' (lines '48'-'72').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:48:	Found 'DU'-anomaly for variable 'gotCalled' (lines '48'-'72').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:48:	Found 'DU'-anomaly for variable 'gotCalled' (lines '48'-'72').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:49:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:49:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:52:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:56:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:60:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:66:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	Found 'UR'-anomaly for variable 'o' (lines '74'-'74').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	Found 'UR'-anomaly for variable 'o' (lines '74'-'74').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	Found 'UR'-anomaly for variable 'o' (lines '74'-'74').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	Found 'UR'-anomaly for variable 'o' (lines '74'-'74').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	Found 'UR'-anomaly for variable 'o' (lines '74'-'74').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:74:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:75:	Found 'DU'-anomaly for variable 'gotCalled' (lines '75'-'118').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:75:	Found 'DU'-anomaly for variable 'gotCalled' (lines '75'-'118').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:75:	Found 'DU'-anomaly for variable 'gotCalled' (lines '75'-'118').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:75:	Found 'DU'-anomaly for variable 'gotCalled' (lines '75'-'118').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:75:	Found 'DU'-anomaly for variable 'gotCalled' (lines '75'-'118').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:76:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:76:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:79:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:83:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:87:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:94:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:98:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:102:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:109:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:120:	Found 'UR'-anomaly for variable 'o' (lines '120'-'120').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:120:	Found 'UR'-anomaly for variable 'o' (lines '120'-'120').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:120:	Found 'UR'-anomaly for variable 'o' (lines '120'-'120').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:120:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:120:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:121:	Found 'DU'-anomaly for variable 'gotCalled' (lines '121'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:121:	Found 'DU'-anomaly for variable 'gotCalled' (lines '121'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:121:	Found 'DU'-anomaly for variable 'gotCalled' (lines '121'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:122:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:122:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:123:	Avoid variables with short names like l
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:123:	Found 'DU'-anomaly for variable 'l' (lines '123'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:123:	Found 'DU'-anomaly for variable 'l' (lines '123'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:123:	Found 'DU'-anomaly for variable 'l' (lines '123'-'155').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:123:	Local variable 'l' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:125:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:129:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:132:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:139:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java:150:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:6:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener'
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:8:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener'
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:14:	Avoid unused imports such as 'org.easymock.EasyMock.createMock'
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:19:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:21:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:22:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:22:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:23:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:24:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:26:	headerCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:27:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:27:	Private field 'mElevator' could be made final; it is only initialized in the declaration or constructor.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:27:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:28:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:28:	Private field 'mFloor' could be made final; it is only initialized in the declaration or constructor.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:28:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:29:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:29:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:31:	It is a good practice to call super() in a constructor
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:31:	Parameter 'elevator' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:31:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:31:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:37:	Parameter 'elevatorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:37:	Parameter 'floorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:37:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:44:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:49:	JUnit 4 tests that set up tests should use the @Before annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:49:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:51:	Local variable 'list' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	Found 'UR'-anomaly for variable 'o' (lines '59'-'59').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	Found 'UR'-anomaly for variable 'o' (lines '59'-'59').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	Found 'UR'-anomaly for variable 'o' (lines '59'-'59').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	Found 'UR'-anomaly for variable 'o' (lines '59'-'59').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:59:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:60:	Found 'DU'-anomaly for variable 'gotCalled' (lines '60'-'90').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:60:	Found 'DU'-anomaly for variable 'gotCalled' (lines '60'-'90').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:60:	Found 'DU'-anomaly for variable 'gotCalled' (lines '60'-'90').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:60:	Found 'DU'-anomaly for variable 'gotCalled' (lines '60'-'90').
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:61:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:61:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:64:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:68:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:72:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:76:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java:82:	Potential violation of Law of Demeter (object not created locally)
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:3:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.connection.DummyElevator'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:5:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.model.Elevator'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:7:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.ElevatorInfoService'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:7:	No need to import a type that lives in the same package
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:8:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:9:	Avoid unused imports such as 'at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:13:	Avoid unused imports such as 'java.util.ArrayList'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:15:	Avoid unused imports such as 'org.easymock.EasyMock.createMock'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:16:	Avoid unused imports such as 'org.easymock.EasyMock.createMockBuilder'
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:21:	Each class should declare at least one constructor
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:23:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:23:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:24:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:24:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:25:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:25:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:27:	headerCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:28:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:28:	Private field 'mFloor' could be made final; it is only initialized in the declaration or constructor.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:28:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:29:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:29:	fieldCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:31:	It is a good practice to call super() in a constructor
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:31:	Parameter 'floor' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:31:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:36:	Parameter 'floorNumber' is not assigned and could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:36:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:42:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:47:	JUnit 4 tests that set up tests should use the @Before annotation
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:47:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	Found 'UR'-anomaly for variable 'o' (lines '54'-'54').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	Found 'UR'-anomaly for variable 'o' (lines '54'-'54').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	Found 'UR'-anomaly for variable 'o' (lines '54'-'54').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	JUnit 4 tests that execute tests should use the @Test annotation
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	JUnit tests should not contain more than 1 assert(s).
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:54:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:55:	Found 'DU'-anomaly for variable 'gotCalled' (lines '55'-'81').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:55:	Found 'DU'-anomaly for variable 'gotCalled' (lines '55'-'81').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:55:	Found 'DU'-anomaly for variable 'gotCalled' (lines '55'-'81').
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:56:	Avoid variables with short names like o
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:56:	Local variable 'o' could be declared final
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:59:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:63:	publicMethodCommentRequirement Required
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:67:	Call Thread.notifyAll() rather than Thread.notify()
+src/test/java/at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java:73:	Potential violation of Law of Demeter (object not created locally)

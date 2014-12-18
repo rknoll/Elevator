@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0" sequence="1" timestamp="1418936863585" analysisTimestamp="1418936860576" release="">
+  <Project projectName="elevator">
+    <Jar>E:\SQE3\workspace\elevator\bin</Jar>
+    <AuxClasspathEntry>E:\SQE3\workspace\elevator\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Thomas\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Thomas\.gradle\caches\modules-2\files-2.1\org.easymock\easymock\3.1\3e127311a86fc2e8f550ef8ee4abe094bbcf7e7e\easymock-3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Thomas\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Thomas\.gradle\caches\modules-2\files-2.1\cglib\cglib-nodep\2.2.2\d456bb230c70c0b95c76fb28e429d42f275941\cglib-nodep-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Thomas\.gradle\caches\modules-2\files-2.1\org.objenesis\objenesis\1.2\bfcb0539a071a4c5a30690388903ac48c0667f2a\objenesis-1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_25\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>E:\SQE3\workspace\elevator\src\main\java</SrcDir>
+    <SrcDir>E:\SQE3\workspace\elevator\src\test\java</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.connection.RMIElevator">
+      <SourceLine classname="at.fhhagenberg.sqe.project.connection.RMIElevator" sourcefile="RMIElevator.java" sourcepath="at/fhhagenberg/sqe/project/connection/RMIElevator.java"/>
+    </Class>
+    <Method classname="at.fhhagenberg.sqe.project.connection.RMIElevator" name="setCommittedDirection" signature="(ILat/fhhagenberg/sqe/project/model/Elevator$Direction;)V" isStatic="false">
+      <SourceLine classname="at.fhhagenberg.sqe.project.connection.RMIElevator" start="207" end="220" startBytecode="0" endBytecode="217" sourcefile="RMIElevator.java" sourcepath="at/fhhagenberg/sqe/project/connection/RMIElevator.java"/>
+    </Method>
+    <SourceLine classname="at.fhhagenberg.sqe.project.connection.RMIElevator" start="208" end="213" startBytecode="10" endBytecode="38" sourcefile="RMIElevator.java" sourcepath="at/fhhagenberg/sqe/project/connection/RMIElevator.java"/>
+    <SourceLine classname="at.fhhagenberg.sqe.project.connection.RMIElevator" start="208" end="213" startBytecode="10" endBytecode="38" sourcefile="RMIElevator.java" sourcepath="at/fhhagenberg/sqe/project/connection/RMIElevator.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.model.RMIElevatorTest">
+      <SourceLine classname="at.fhhagenberg.sqe.project.model.RMIElevatorTest" sourcefile="RMIElevatorTest.java" sourcepath="at/fhhagenberg/sqe/project/model/RMIElevatorTest.java"/>
+    </Class>
+    <Field classname="at.fhhagenberg.sqe.project.model.RMIElevatorTest" name="status" signature="Lat/fhhagenberg/sqe/project/model/Elevator$DoorStatus;" isStatic="false">
+      <SourceLine classname="at.fhhagenberg.sqe.project.model.RMIElevatorTest" start="22" end="22" startBytecode="0" endBytecode="0" sourcefile="RMIElevatorTest.java" sourcepath="at/fhhagenberg/sqe/project/model/RMIElevatorTest.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.services.ElevatorInfoServiceTest$CustomElevatorAdapter">
+      <SourceLine classname="at.fhhagenberg.sqe.project.services.ElevatorInfoServiceTest$CustomElevatorAdapter" start="27" end="39" sourcefile="ElevatorInfoServiceTest.java" sourcepath="at/fhhagenberg/sqe/project/services/ElevatorInfoServiceTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$CustomElevatorAdapter">
+      <SourceLine classname="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$CustomElevatorAdapter" start="20" end="32" sourcefile="ElevatorPositionServiceTest.java" sourcepath="at/fhhagenberg/sqe/project/services/ElevatorPositionServiceTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorServiceTest$CustomElevatorAdapter">
+      <SourceLine classname="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorServiceTest$CustomElevatorAdapter" start="31" end="45" sourcefile="ElevatorServicesFloorServiceTest.java" sourcepath="at/fhhagenberg/sqe/project/services/ElevatorServicesFloorServiceTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.services.FloorStatusServiceTest$CustomElevatorAdapter">
+      <SourceLine classname="at.fhhagenberg.sqe.project.services.FloorStatusServiceTest$CustomElevatorAdapter" start="31" end="43" sourcefile="FloorStatusServiceTest.java" sourcepath="at/fhhagenberg/sqe/project/services/FloorStatusServiceTest.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent">
+      <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    </Class>
+    <Method classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" name="update" signature="()V" isStatic="false">
+      <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" start="78" end="82" startBytecode="0" endBytecode="148" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    </Method>
+    <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" start="78" end="78" startBytecode="12" endBytecode="12" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" start="78" end="78" startBytecode="12" endBytecode="12" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+  </BugInstance>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" first="1">
+    <Class classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener">
+      <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    </Class>
+    <Method classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" name="componentResized" signature="(Ljava/awt/event/ComponentEvent;)V" isStatic="false">
+      <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" start="68" end="73" startBytecode="0" endBytecode="217" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    </Method>
+    <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" start="69" end="69" startBytecode="50" endBytecode="50" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+    <SourceLine classname="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" start="69" end="69" startBytecode="50" endBytecode="50" sourcefile="ElevatorPositionComponent.java" sourcepath="at/fhhagenberg/sqe/project/ui/components/ElevatorPositionComponent.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 18 Dec 2014 21:56:52 +0100" total_classes="56" referenced_classes="377" total_bugs="8" total_size="1757" num_packages="10" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="23.42" clock_seconds="67.31" peak_mbytes="438.72" alloc_mbytes="455.50" gc_seconds="0.94" priority_2="8">
+    <PackageStats package="at.fhhagenberg.sqe.project" total_bugs="0" total_types="1" total_size="12">
+      <ClassStats class="at.fhhagenberg.sqe.project.ElevatorProgram" sourceFile="ElevatorProgram.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.connection" total_bugs="1" total_types="6" total_size="311" priority_2="1">
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.DummyAdapter" sourceFile="DummyAdapter.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.DummyElevator" sourceFile="DummyElevator.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException" sourceFile="ElevatorConnectionLostException.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.IElevatorAdapter" sourceFile="IElevatorAdapter.java" interface="true" size="21" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.RMIElevator" sourceFile="RMIElevator.java" interface="false" size="121" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.connection.TestElevatorAdapter" sourceFile="TestElevatorAdapter.java" interface="false" size="43" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.model" total_bugs="1" total_types="12" total_size="489" priority_2="1">
+      <ClassStats class="at.fhhagenberg.sqe.project.model.Building" sourceFile="Building.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.BuildingTest" sourceFile="BuildingTest.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.BuildingTest$1" sourceFile="BuildingTest.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.BuildingTest$2" sourceFile="BuildingTest.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.BuildingTest$3" sourceFile="BuildingTest.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.Elevator" sourceFile="Elevator.java" interface="false" size="93" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.Elevator$Direction" sourceFile="Elevator.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.Elevator$DoorStatus" sourceFile="Elevator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.ElevatorTest" sourceFile="ElevatorTest.java" interface="false" size="136" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.Floor" sourceFile="Floor.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.FloorTest" sourceFile="FloorTest.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.model.RMIElevatorTest" sourceFile="RMIElevatorTest.java" interface="false" size="58" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.services" total_bugs="4" total_types="21" total_size="491" priority_2="4">
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorInfoService" sourceFile="ElevatorInfoService.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorInfoServiceTest" sourceFile="ElevatorInfoServiceTest.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorInfoServiceTest$1" sourceFile="ElevatorInfoServiceTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorInfoServiceTest$CustomElevatorAdapter" sourceFile="ElevatorInfoServiceTest.java" interface="false" size="14" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionService" sourceFile="ElevatorPositionService.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$1" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$2" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$3" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$4" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorPositionServiceTest$CustomElevatorAdapter" sourceFile="ElevatorPositionServiceTest.java" interface="false" size="14" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorService" sourceFile="ElevatorService.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorService$UpdateThread" sourceFile="ElevatorService.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorService" sourceFile="ElevatorServicesFloorService.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorServiceTest" sourceFile="ElevatorServicesFloorServiceTest.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorServiceTest$1" sourceFile="ElevatorServicesFloorServiceTest.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.ElevatorServicesFloorServiceTest$CustomElevatorAdapter" sourceFile="ElevatorServicesFloorServiceTest.java" interface="false" size="17" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.FloorStatusService" sourceFile="FloorStatusService.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.FloorStatusServiceTest" sourceFile="FloorStatusServiceTest.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.FloorStatusServiceTest$1" sourceFile="FloorStatusServiceTest.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.FloorStatusServiceTest$CustomElevatorAdapter" sourceFile="FloorStatusServiceTest.java" interface="false" size="14" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.services.listeners" total_bugs="0" total_types="5" total_size="11">
+      <ClassStats class="at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener" sourceFile="IElevatorInfoListener.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.listeners.IElevatorListener" sourceFile="IElevatorListener.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener" sourceFile="IElevatorPositionListener.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.listeners.IElevatorServicesFloorListener" sourceFile="IElevatorServicesFloorListener.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener" sourceFile="IFloorStatusListener.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.ui" total_bugs="0" total_types="1" total_size="24">
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.ElevatorWindow" sourceFile="ElevatorWindow.java" interface="false" size="24" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.ui.components" total_bugs="2" total_types="5" total_size="164" priority_2="2">
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.components.ElevatorFloorComponent" sourceFile="ElevatorFloorComponent.java" interface="false" size="50" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.components.ElevatorModeComponent" sourceFile="ElevatorModeComponent.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent" sourceFile="ElevatorPositionComponent.java" interface="false" size="42" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent$ResizeListener" sourceFile="ElevatorPositionComponent.java" interface="false" size="11" bugs="1" priority_2="1"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.components.FloorStatusComponent" sourceFile="FloorStatusComponent.java" interface="false" size="32" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.ui.views" total_bugs="0" total_types="2" total_size="223">
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.views.ElevatorDetailView" sourceFile="ElevatorDetailView.java" interface="false" size="149" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.views.ElevatorOverviewView" sourceFile="ElevatorOverviewView.java" interface="false" size="74" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="at.fhhagenberg.sqe.project.ui.views.listeners" total_bugs="0" total_types="2" total_size="4">
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener" sourceFile="IElevatorDetailSelectListener.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorOverviewSelectListener" sourceFile="IElevatorOverviewSelectListener.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="sqelevator" total_bugs="0" total_types="1" total_size="28">
+      <ClassStats class="sqelevator.IElevator" sourceFile="IElevator.java" interface="true" size="28" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="489" invocations="1697" avgMicrosecondsPerInvocation="288" maxMicrosecondsPerInvocation="40960" standardDeviationMircosecondsPerInvocation="1311"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="327" invocations="377" avgMicrosecondsPerInvocation="869" maxMicrosecondsPerInvocation="57651" standardDeviationMircosecondsPerInvocation="3264"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="191" invocations="1012" avgMicrosecondsPerInvocation="189" maxMicrosecondsPerInvocation="12036" standardDeviationMircosecondsPerInvocation="469"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="189" invocations="2" avgMicrosecondsPerInvocation="94740" maxMicrosecondsPerInvocation="96581" standardDeviationMircosecondsPerInvocation="1841"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="113" invocations="1701" avgMicrosecondsPerInvocation="66" maxMicrosecondsPerInvocation="924" standardDeviationMircosecondsPerInvocation="45"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="92" invocations="318" avgMicrosecondsPerInvocation="291" maxMicrosecondsPerInvocation="26022" standardDeviationMircosecondsPerInvocation="1525"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="87" invocations="216" avgMicrosecondsPerInvocation="406" maxMicrosecondsPerInvocation="46522" standardDeviationMircosecondsPerInvocation="3161"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="76" invocations="318" avgMicrosecondsPerInvocation="239" maxMicrosecondsPerInvocation="7059" standardDeviationMircosecondsPerInvocation="545"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="71" invocations="377" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="13606" standardDeviationMircosecondsPerInvocation="1100"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="69" invocations="368" avgMicrosecondsPerInvocation="189" maxMicrosecondsPerInvocation="5049" standardDeviationMircosecondsPerInvocation="465"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="69" invocations="314" avgMicrosecondsPerInvocation="221" maxMicrosecondsPerInvocation="4564" standardDeviationMircosecondsPerInvocation="459"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="69" invocations="352" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="3629" standardDeviationMircosecondsPerInvocation="390"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="69" invocations="377" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="3777" standardDeviationMircosecondsPerInvocation="343"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="58" invocations="1654" avgMicrosecondsPerInvocation="35" maxMicrosecondsPerInvocation="1073" standardDeviationMircosecondsPerInvocation="65"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="56" invocations="377" avgMicrosecondsPerInvocation="148" maxMicrosecondsPerInvocation="18232" standardDeviationMircosecondsPerInvocation="946"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="52" invocations="377" avgMicrosecondsPerInvocation="138" maxMicrosecondsPerInvocation="2052" standardDeviationMircosecondsPerInvocation="219"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="44" invocations="429" avgMicrosecondsPerInvocation="104" maxMicrosecondsPerInvocation="1217" standardDeviationMircosecondsPerInvocation="144"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="43" invocations="377" avgMicrosecondsPerInvocation="116" maxMicrosecondsPerInvocation="2848" standardDeviationMircosecondsPerInvocation="248"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="43" invocations="377" avgMicrosecondsPerInvocation="115" maxMicrosecondsPerInvocation="2020" standardDeviationMircosecondsPerInvocation="231"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="42" invocations="56" avgMicrosecondsPerInvocation="763" maxMicrosecondsPerInvocation="26217" standardDeviationMircosecondsPerInvocation="3446"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1418936863584" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

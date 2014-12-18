@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<pmd-cpd>
+   <duplication lines="32" tokens="101">
+      <file line="77"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\connection\TestElevatorAdapter.java"/>
+      <file line="91"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\DummyElevator.java"/>
+      <codefragment><![CDATA[    }
+
+    @Override
+    public boolean getServicesFloors(int elevatorNumber, int floor) throws ElevatorConnectionLostException {
+        return false;
+    }
+
+    @Override
+    public int getTarget(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public void setCommittedDirection(int elevatorNumber, Elevator.Direction direction) throws ElevatorConnectionLostException {
+
+    }
+
+    @Override
+    public void setServicesFloors(int elevatorNumber, int floor, boolean service) throws ElevatorConnectionLostException {
+
+    }
+
+    @Override
+    public void setTarget(int elevatorNumber, int target) throws ElevatorConnectionLostException {
+
+    }
+
+    @Override
+    public long getClockTick() throws ElevatorConnectionLostException {
+        return 0;
+    }
+}]]></codefragment>
+   </duplication>
+   <duplication lines="28" tokens="93">
+      <file line="9"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\connection\TestElevatorAdapter.java"/>
+      <file line="23"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\DummyElevator.java"/>
+      <codefragment><![CDATA[    @Override
+    public Elevator.Direction getCommittedDirection(int elevatorNumber) throws ElevatorConnectionLostException {
+        return null;
+    }
+
+    @Override
+    public int getElevatorAccel(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public boolean getElevatorButton(int elevatorNumber, int floor) throws ElevatorConnectionLostException {
+        return false;
+    }
+
+    @Override
+    public Elevator.DoorStatus getElevatorDoorStatus(int elevatorNumber) throws ElevatorConnectionLostException {
+        return null;
+    }
+
+    @Override
+    public int getElevatorFloor(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public int getElevatorNum() throws ElevatorConnectionLostException {
+        return 0;]]></codefragment>
+   </duplication>
+   <duplication lines="22" tokens="78">
+      <file line="50"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="53"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {
+                assertEquals(1, elevator.getPosition());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
+            }
+        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="25" tokens="74">
+      <file line="37"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\connection\TestElevatorAdapter.java"/>
+      <file line="51"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\DummyElevator.java"/>
+      <codefragment><![CDATA[    }
+
+    @Override
+    public int getElevatorPosition(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public int getElevatorSpeed(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public int getElevatorWeight(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public int getElevatorCapacity(int elevatorNumber) throws ElevatorConnectionLostException {
+        return 0;
+    }
+
+    @Override
+    public boolean getFloorButtonDown(int floor) throws ElevatorConnectionLostException {
+        return false;]]></codefragment>
+   </duplication>
+   <duplication lines="20" tokens="61">
+      <file line="64"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="60"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[                assertTrue(floor.isButtonUp());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
+            }
+        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }
+
+        assertEquals(1, customElevator.getCallCount());
+    }
+
+}]]></codefragment>
+   </duplication>
+   <duplication lines="20" tokens="60">
+      <file line="64"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="73"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorServicesFloorServiceTest.java"/>
+      <file line="60"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[                assertTrue(floor.isButtonUp());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
+            }
+        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }
+
+        assertEquals(1, customElevator.getCallCount());
+    }
+
+}]]></codefragment>
+   </duplication>
+   <duplication lines="19" tokens="58">
+      <file line="16"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="23"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[    private class CustomElevatorAdapter extends TestElevatorAdapter {
+        private Elevator mElevator;
+        private int mCallCount;
+
+        public CustomElevatorAdapter(Elevator elevator) {
+            mElevator = elevator;
+        }
+
+        @Override
+        public int getElevatorPosition(int elevatorNumber) {
+            assertEquals(mElevator.getElevatorNumber(), elevatorNumber);
+            mCallCount++;
+            return 1;
+        }
+
+        public int getCallCount() {
+            return mCallCount;
+        }
+    }]]></codefragment>
+   </duplication>
+   <duplication lines="15" tokens="49">
+      <file line="64"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="57"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[                assertTrue(floor.isButtonUp());
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
+            }
+        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="15" tokens="48">
+      <file line="73"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorServicesFloorServiceTest.java"/>
+      <file line="57"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[                assertTrue(elevator.getService(floor));
+                gotCalled[0] = true;
+                synchronized(o) {
+                    o.notify();
+                }
+            }
+        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="10" tokens="43">
+      <file line="73"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <file line="106"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <codefragment><![CDATA[	private Component CreateTopPanel(IElevatorDetailSelectListener selectListener) {
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.fill = GridBagConstraints.BOTH;
+
+		gc.anchor = GridBagConstraints.CENTER;
+
+		gc.gridx = 0;
+		gc.gridy = 0;]]></codefragment>
+   </duplication>
+   <duplication lines="12" tokens="40">
+      <file line="37"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="39"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorServicesFloorServiceTest.java"/>
+      <codefragment><![CDATA[            assertEquals(mFloor.getFloorNumber(), floorNumber);
+            mCallCount++;
+            return true;
+        }
+
+        public int getCallCount() {
+            return mCallCount;
+        }
+    }
+
+    public void setUp() {
+        floor = new Floor(0, "Floor 0");]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="40">
+      <file line="50"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="55"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorServicesFloorServiceTest.java"/>
+      <file line="43"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="46"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[        service = new FloorStatusService(customElevator, 100);
+        service.start();
+    }
+
+    public void testNotifications() throws InterruptedException {
+        final boolean[] gotCalled = {false};
+        Object o = new Object();
+        service.addListener(new IFloorStatusListener() {]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="40">
+      <file line="40"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <file line="106"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <codefragment><![CDATA[	private JScrollPane CreateMainPanel() {
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.fill = GridBagConstraints.BOTH;
+
+		gc.anchor = GridBagConstraints.CENTER;
+
+		gc.gridx = 0;]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="39">
+      <file line="40"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <file line="73"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <codefragment><![CDATA[	private JScrollPane CreateMainPanel() {
+		JPanel mainPanel = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.fill = GridBagConstraints.BOTH;
+
+		gc.anchor = GridBagConstraints.CENTER;
+
+		gc.gridx = 0;]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="38">
+      <file line="43"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <file line="69"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <codefragment><![CDATA[	public void testSetAndGetService() {
+		Iterator<Floor> floorIter = elevator.getFloors().iterator();
+		Floor floor1 = floorIter.next();
+		Floor floor2 = floorIter.next();
+		
+		assertFalse(elevator.getService(floor1));	// Service must be false per default]]></codefragment>
+   </duplication>
+   <duplication lines="12" tokens="38">
+      <file line="26"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorPositionService.java"/>
+      <file line="26"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorInfoService.java"/>
+      <codefragment><![CDATA[        super(IElevatorPositionListener.class, sleepTimeMs);
+        mAdapter = adapter;
+        elevatorCache = new HashSet<Elevator>();
+    }
+
+    @Override
+    protected void beginUpdate() {
+        elevatorCache.clear();
+    }
+
+    @Override
+    protected void update(IElevatorPositionListener listener) {]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="37">
+      <file line="48"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="75"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[        final boolean[] gotCalled = {false};
+        Object o = new Object();
+        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {]]></codefragment>
+   </duplication>
+   <duplication lines="10" tokens="37">
+      <file line="33"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="54"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="96"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			EasyMock.expect(mMock.getCommittedDirection(0)).andReturn(0);
+		}
+		catch (RemoteException e){
+			System.out.println(e.getMessage());
+		}
+		
+		replay(mMock);
+		
+		try{
+			mTestObj.getCommittedDirection(0);]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="36">
+      <file line="106"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <file line="134"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <codefragment><![CDATA[	public void testSetAndGetCurrentFloor() {
+		Iterator<Floor> floorIter = elevator.getFloors().iterator();
+		Floor floor1 = floorIter.next();
+		Floor floor2 = floorIter.next();
+		
+		elevator.setCurrentFloor(floor2);]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="36">
+      <file line="37"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorPositionService.java"/>
+      <file line="37"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorInfoService.java"/>
+      <codefragment><![CDATA[    protected void update(IElevatorPositionListener listener) {
+        Elevator e = listener.getElevator();
+
+        if (elevatorCache.contains(e)) {
+            listener.update();
+            return;
+        }
+
+        int elevatorNumber = e.getElevatorNumber();]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="34">
+      <file line="43"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <file line="69"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <file line="106"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <file line="134"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\ElevatorTest.java"/>
+      <codefragment><![CDATA[	public void testSetAndGetService() {
+		Iterator<Floor> floorIter = elevator.getFloors().iterator();
+		Floor floor1 = floorIter.next();
+		Floor floor2 = floorIter.next();]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="34">
+      <file line="52"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="45"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\ElevatorFloorComponent.java"/>
+      <codefragment><![CDATA[		JPanel mainPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
+		gc.gridx = 0;
+		gc.gridy = 0;
+		gc.anchor = GridBagConstraints.CENTER;
+
+		JButton returnButton = new JButton("Return");]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="33">
+      <file line="40"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="43"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[    public void setUp() {
+        elevator = new Elevator(0, "Elevator 0", new ArrayList<Floor>());
+        customElevator = new CustomElevatorAdapter(elevator);
+        service = new ElevatorPositionService(customElevator, 100);]]></codefragment>
+   </duplication>
+   <duplication lines="11" tokens="32">
+      <file line="42"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="63"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			mTestObj.getCommittedDirection(0);
+		}
+		catch (ElevatorConnectionLostException e){
+			System.out.println(e.getMessage());
+		}
+		
+		verify(mMock);
+	}
+
+	@Test
+	public void testGetElevatorAccel() {]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="32">
+      <file line="52"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="86"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="45"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\ElevatorFloorComponent.java"/>
+      <codefragment><![CDATA[		JPanel mainPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
+		gc.gridx = 0;
+		gc.gridy = 0;
+		gc.anchor = GridBagConstraints.CENTER;]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="31">
+      <file line="76"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="91"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[        Object o = new Object();
+        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {
+                gotCalled[0] = true;]]></codefragment>
+   </duplication>
+   <duplication lines="11" tokens="31">
+      <file line="42"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="63"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="84"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			mTestObj.getCommittedDirection(0);
+		}
+		catch (ElevatorConnectionLostException e){
+			System.out.println(e.getMessage());
+		}
+		
+		verify(mMock);
+	}
+
+	@Test
+	public void testGetElevatorAccel() {]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="30">
+      <file line="77"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="123"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {
+                gotCalled[0] = true;]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="30">
+      <file line="52"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="22"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\FloorStatusComponent.java"/>
+      <file line="45"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\ElevatorFloorComponent.java"/>
+      <codefragment><![CDATA[		JPanel mainPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
+		gc.gridx = 0;
+		gc.gridy = 0;
+		gc.anchor = GridBagConstraints.CENTER;]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="30">
+      <file line="97"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="104"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <codefragment><![CDATA[		infoPanel.add(mAutomaticMode, gc);
+		gc.gridx -= 1;
+		gc.gridy += 1;
+
+		infoPanel.add(new JLabel("Position:"), gc);
+		gc.gridx += 1;]]></codefragment>
+   </duplication>
+   <duplication lines="3" tokens="30">
+      <file line="69"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\ElevatorPositionComponent.java"/>
+      <file line="78"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\ElevatorPositionComponent.java"/>
+      <codefragment><![CDATA[            double floorHeight = e.getComponent().getHeight() / mBuilding.getNumberOfFloors();
+            double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
+            double pos = e.getComponent().getHeight() - floorHeight - elevatorPos * e.getComponent().getHeight();]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="29">
+      <file line="49"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="91"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[        Object o = new Object();
+        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {]]></codefragment>
+   </duplication>
+   <duplication lines="10" tokens="29">
+      <file line="33"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="54"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="75"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="96"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			EasyMock.expect(mMock.getCommittedDirection(0)).andReturn(0);
+		}
+		catch (RemoteException e){
+			System.out.println(e.getMessage());
+		}
+		
+		replay(mMock);
+		
+		try{
+			mTestObj.getCommittedDirection(0);]]></codefragment>
+   </duplication>
+   <duplication lines="7" tokens="29">
+      <file line="86"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorDetailView.java"/>
+      <file line="22"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\components\FloorStatusComponent.java"/>
+      <codefragment><![CDATA[		JPanel infoPanel = new JPanel(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
+
+		gc.gridx = 0;
+		gc.gridy = 0;
+
+		gc.anchor = GridBagConstraints.WEST;]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="28">
+      <file line="42"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="63"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="105"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			mTestObj.getCommittedDirection(0);
+		}
+		catch (ElevatorConnectionLostException e){
+			System.out.println(e.getMessage());
+		}
+		
+		verify(mMock);
+	}]]></codefragment>
+   </duplication>
+   <duplication lines="7" tokens="28">
+      <file line="87"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <file line="121"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\ui\views\ElevatorOverviewView.java"/>
+      <codefragment><![CDATA[			gc.gridx += 1;
+		}
+
+		JScrollPane scroll = new JScrollPane(mainPanel);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll.getHorizontalScrollBar().setModel(mMainScrollPane.getHorizontalScrollBar().getModel());]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="27">
+      <file line="70"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\FloorStatusServiceTest.java"/>
+      <file line="79"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorServicesFloorServiceTest.java"/>
+      <file line="63"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="136"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="66"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorInfoServiceTest.java"/>
+      <codefragment><![CDATA[        });
+
+        synchronized(o) {
+            o.wait(1000);
+        }
+
+        if (!gotCalled[0]) {
+            fail("Timeout for Notification");
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="27">
+      <file line="84"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <file line="105"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\model\RMIElevatorTest.java"/>
+      <codefragment><![CDATA[			mTestObj.getElevatorButton(0,0);
+		}
+		catch (ElevatorConnectionLostException e){
+			System.out.println(e.getMessage());
+		}
+		
+		verify(mMock);
+	}]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="26">
+      <file line="92"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <file line="123"
+            path="E:\SQE3\workspace\elevator\src\test\java\at\fhhagenberg\sqe\project\services\ElevatorPositionServiceTest.java"/>
+      <codefragment><![CDATA[        service.addListener(new IElevatorPositionListener() {
+            @Override
+            public Elevator getElevator() {
+                return elevator;
+            }
+            @Override
+            public void update() {
+                gotCalled[1] = true;]]></codefragment>
+   </duplication>
+   <duplication lines="10" tokens="26">
+      <file line="48"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorPositionService.java"/>
+      <file line="63"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\services\ElevatorInfoService.java"/>
+      <codefragment><![CDATA[            e.setPosition(mAdapter.getElevatorPosition(elevatorNumber));
+
+            listener.update();
+        } catch (ElevatorConnectionLostException ignored) {
+            return;
+        }
+
+        elevatorCache.add(e);
+    }
+}]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="25">
+      <file line="72"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\model\Building.java"/>
+      <file line="80"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\model\Building.java"/>
+      <codefragment><![CDATA[    public void addListener(IElevatorListener listener) {
+        for (ElevatorService service : mElevatorServices) {
+            if (service.isCompatibleListener(listener)) {
+                service.addListener(listener);]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="25">
+      <file line="23"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\RMIElevator.java"/>
+      <file line="60"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\RMIElevator.java"/>
+      <codefragment><![CDATA[            ret = mElevatorConnection.getCommittedDirection(elevatorNumber);
+        } catch (RemoteException e) {
+            throw new ElevatorConnectionLostException(e);
+        }
+        switch (ret) {
+            case IElevator.ELEVATOR_DIRECTION_UP: return Elevator.Direction.UP;]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="25">
+      <file line="49"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\RMIElevator.java"/>
+      <file line="186"
+            path="E:\SQE3\workspace\elevator\src\main\java\at\fhhagenberg\sqe\project\connection\RMIElevator.java"/>
+      <codefragment><![CDATA[            ret = mElevatorConnection.getElevatorButton(elevatorNumber, floor);
+        } catch (RemoteException e) {
+            throw new ElevatorConnectionLostException(e);
+        }
+        return ret;
+    }
+
+    @Override
+    public Elevator.DoorStatus getElevatorDoorStatus(int elevatorNumber) throws ElevatorConnectionLostException {]]></codefragment>
+   </duplication>
+</pmd-cpd>

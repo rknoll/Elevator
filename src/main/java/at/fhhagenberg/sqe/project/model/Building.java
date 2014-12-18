@@ -24,9 +24,6 @@ public class Building {
 
     private List<Elevator> mElevators;
     private List<Floor> mFloors;
-    
-    //private List<ChangeListener<JCheckBox>> mModeChangedListener;
-    
 
     public Building(IElevatorAdapter adapter) {
         mAdapter = adapter;
@@ -46,7 +43,6 @@ public class Building {
 
             for (int i = 0; i < mNumberOfElevators; ++i) {
                 mElevators.add(new Elevator(i, "Elevator " + (i + 1), mFloors));
-                //mModeChangedListener.add(new ChangeListener<JCheckBox>());                
             }
 
         } catch (ElevatorConnectionLostException ignored) {

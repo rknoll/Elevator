@@ -5,6 +5,9 @@ import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener;
 
 import javax.swing.*;
+
+import sun.awt.IconInfo;
+
 import java.awt.*;
 
 /**
@@ -12,39 +15,44 @@ import java.awt.*;
  */
 public class FloorStatusComponent extends JComponent implements IFloorStatusListener {
 
-    private Floor mFloor;
-    private JCheckBox mButtonUp;
-    private JCheckBox mButtonDown;
+    private Floor mFloor;    
+    private JLabel mLabelButtonState;
+    
+    private ImageIcon[][] mIcons;	// [Down][Up]
 
     public FloorStatusComponent(Building building, Floor floor) {
         mFloor = floor;
+        
+        // Create Icons 
+        mIcons = new ImageIcon[2][2];	// [Down][Up]
+        mIcons[0][0] = new ImageIcon("img/Down0Up0.png", "IconDown0Up0");
+        mIcons[0][1] = new ImageIcon("img/Down0Up1.png", "IconDown0Up1");
+        mIcons[1][0] = new ImageIcon("img/Down1Up0.png", "IconDown1Up0");
+        mIcons[1][1] = new ImageIcon("img/Down1Up1.png", "IconDown1Up1");
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
+        // -- Spalte 1 -----------------------------------------
         gc.gridx = 0;
         gc.gridy = 0;
-
-        gc.anchor = GridBagConstraints.CENTER;
-        gc.gridheight = 2;
-        add(new JLabel(floor.getDescription()), gc);
-
-        // -- Spalte 2 -----------------------------------------
         gc.anchor = GridBagConstraints.WEST;
-        gc.gridheight = 1;
-        gc.gridx = 1;
-        mButtonUp = new JCheckBox("Up");
-        add(mButtonUp, gc);
-        gc.gridy = 1;
-        mButtonDown = new JCheckBox("Down");
-        add(mButtonDown, gc);
-        mButtonDown.setFocusable(false);
+        add(new JLabel(floor.getDescription()), gc);
+        
+        // -- Spalte 2 -----------------------------------------
+        gc.anchor = GridBagConstraints.EAST;
+        gc.gridx += 1;
+        add(new JLabel("   "));	// spacer
+
+        // -- Spalte 3 -----------------------------------------
+        gc.anchor = GridBagConstraints.EAST;
+        gc.gridx += 1;
+        mLabelButtonState = new JLabel();
+        add(mLabelButtonState, gc);
 
         setPreferredSize(new Dimension(150, 60));
-
         building.addListener(this);
     }
-
 
     @Override
     public Floor getFloor() {
@@ -52,8 +60,10 @@ public class FloorStatusComponent extends JComponent implements IFloorStatusList
     }
 
     @Override
-    public void update() {
-        mButtonUp.setSelected(mFloor.isButtonUp());
-        mButtonDown.setSelected(mFloor.isButtonDown());
+    public void update() {    	
+    	boolean buttonUp = mFloor.isButtonUp();
+    	boolean buttonDown = mFloor.isButtonDown();
+    	
+    	mLabelButtonState.setIcon(mIcons[(buttonDown ? 1 : 0)][(buttonUp ? 1 : 0)]);
     }
 }

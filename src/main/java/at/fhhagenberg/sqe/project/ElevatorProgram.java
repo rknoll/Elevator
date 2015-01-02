@@ -4,7 +4,7 @@
 
 package at.fhhagenberg.sqe.project;
 
-import at.fhhagenberg.sqe.project.connection.DummyElevator;
+//import at.fhhagenberg.sqe.project.connection.DummyElevator;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 import at.fhhagenberg.sqe.project.model.Building;

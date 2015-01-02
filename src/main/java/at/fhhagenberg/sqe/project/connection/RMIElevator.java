@@ -212,6 +212,8 @@ public class RMIElevator implements IElevatorAdapter {
                 case DOWN:
                     dir = IElevator.ELEVATOR_DIRECTION_DOWN;
                     break;
+                default:
+                	break;
             }
             mElevatorConnection.setCommittedDirection(elevatorNumber, dir);
         } catch (RemoteException e) {

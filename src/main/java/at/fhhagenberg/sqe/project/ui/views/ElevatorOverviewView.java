@@ -13,6 +13,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -24,12 +26,15 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 	private Building mBuilding;
 	private JScrollPane mMainScrollPane;
 	private IElevatorDetailSelectListener mSelectListener;
+	private JPanel mVerticalScrollBarSpace;
+	private JPanel mHorizontalScrollBarSpace;
 
 	public ElevatorOverviewView(Building building, IElevatorDetailSelectListener selectListener) {
 		mBuilding = building;
 		mSelectListener = selectListener;
 
 		setLayout(new BorderLayout());
+		addComponentListener(new ResizeListener());
 
 		refreshView();
 
@@ -114,6 +119,12 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 		p.add(space, BorderLayout.LINE_START);
 		p.add(scroll, BorderLayout.CENTER);
 
+		mHorizontalScrollBarSpace = new JPanel();
+		mHorizontalScrollBarSpace.setPreferredSize(new Dimension((int)mMainScrollPane.getVerticalScrollBar().getPreferredSize().getWidth(), 60));
+		mHorizontalScrollBarSpace.setVisible(false);
+
+		p.add(mHorizontalScrollBarSpace, BorderLayout.LINE_END);
+
 		return p;
 	}
 
@@ -142,7 +153,31 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 		scroll.getVerticalScrollBar().setModel(mMainScrollPane.getVerticalScrollBar().getModel());
 		scroll.setBorder(BorderFactory.createEmptyBorder());
 
-		return scroll;
+		JPanel p = new JPanel(new BorderLayout());
+		mVerticalScrollBarSpace = new JPanel();
+		mVerticalScrollBarSpace.setPreferredSize(new Dimension(150, (int)mMainScrollPane.getHorizontalScrollBar().getPreferredSize().getHeight()));
+		mVerticalScrollBarSpace.setVisible(false);
+
+		p.add(mVerticalScrollBarSpace, BorderLayout.PAGE_END);
+		p.add(scroll, BorderLayout.CENTER);
+
+		return p;
+	}
+
+	class ResizeListener extends ComponentAdapter {
+		@Override
+		public void componentResized(ComponentEvent e) {
+			if (mMainScrollPane.getHorizontalScrollBar().isVisible()) {
+				mVerticalScrollBarSpace.setVisible(true);
+			} else {
+				mVerticalScrollBarSpace.setVisible(false);
+			}
+			if (mMainScrollPane.getVerticalScrollBar().isVisible()) {
+				mHorizontalScrollBarSpace.setVisible(true);
+			} else {
+				mHorizontalScrollBarSpace.setVisible(false);
+			}
+		}
 	}
 
 	@Override

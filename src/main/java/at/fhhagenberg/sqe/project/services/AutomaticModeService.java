@@ -31,6 +31,7 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
         mElevator.addPropertyChangeListener(Elevator.PROP_SPEED, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
+        mElevator.addPropertyChangeListener(Elevator.PROP_DIRECTION, this);
     }
 
     @Override
@@ -69,6 +70,7 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
                     floor = mElevator.getCurrentFloor().getFloorNumber() - 1;
                     if (floor == -1) {
                         mNextGoal = mElevator.getCurrentFloor();
+                        mElevator.setDirection(Elevator.Direction.UNCOMMITTED);
                         break;
                     }
                 } else if (floor == -1) {
@@ -76,9 +78,11 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
                     floor = mElevator.getCurrentFloor().getFloorNumber() + 1;
                     if (floor == mBuilding.getNumberOfFloors()) {
                         mNextGoal = mElevator.getCurrentFloor();
+                        mElevator.setDirection(Elevator.Direction.UNCOMMITTED);
                         break;
                     }
                 }
+                mElevator.setDirection(mUpwards ? Elevator.Direction.UP : Elevator.Direction.DOWN);
                 setNextGoal(floor);
             } while (!mElevator.getService(mNextGoal));
             mElevator.setTarget(mNextGoal);

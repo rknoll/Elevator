@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -20,9 +21,13 @@ public class ElevatorPositionComponent extends JComponent implements PropertyCha
     private Elevator mElevator;
     private JPanel mElevatorPanel;
 
+    private Color mElevatorColor;
+
     public ElevatorPositionComponent(Building building, Elevator elevator) {
         mBuilding = building;
         mElevator = elevator;
+
+        mElevatorColor = createColorCode(elevator.getElevatorNumber(), mBuilding.getNumberOfElevators());
 
         setLayout(new BorderLayout());
 
@@ -33,13 +38,15 @@ public class ElevatorPositionComponent extends JComponent implements PropertyCha
         elevator.addPropertyChangeListener(Elevator.PROP_POSITION, this);
     }
 
-    private Color randomColor() {
-        Random rand = new Random();
-        // Java 'Color' class takes 3 floats, from 0 to 1.
-        float r = rand.nextFloat();
-        float g = rand.nextFloat();
-        float b = rand.nextFloat();
-        return new Color(r, g, b);
+    private Color createColorCode(int colorIndex, int numColors) {
+        float hueMax = (float) 0.85;
+        float sat = (float) 0.8;
+        float hue = hueMax * colorIndex / numColors;
+        if (colorIndex % 2 == 0) {
+            return Color.getHSBColor(hue, sat, (float) 0.9);
+        } else {
+            return Color.getHSBColor(hue, sat, (float) 0.7);
+        }
     }
 
     private Component CreateComponentElevatorPosition()
@@ -47,10 +54,12 @@ public class ElevatorPositionComponent extends JComponent implements PropertyCha
         JPanel pnlFloorPosition = new JPanel(null);
 
         pnlFloorPosition.setPreferredSize(new Dimension(30, 30));
+        pnlFloorPosition.setBackground(Color.lightGray);
+        pnlFloorPosition.setBorder(BorderFactory.createLineBorder(Color.black));
 
         mElevatorPanel = new JPanel();
-        mElevatorPanel.setBackground(randomColor());
-        mElevatorPanel.setBounds(0, 0, 30, 60);
+        mElevatorPanel.setBackground(mElevatorColor);
+        mElevatorPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         pnlFloorPosition.add(mElevatorPanel);
 

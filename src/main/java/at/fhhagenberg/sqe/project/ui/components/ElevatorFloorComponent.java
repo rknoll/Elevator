@@ -32,7 +32,7 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
 
         Component elevatorSetting = CreateComponentElevatorSettings(elevator, floor);
         add(elevatorSetting, gc);
-        setPreferredSize(new Dimension(120, 60));
+        setPreferredSize(new Dimension(90, 60));
 
         elevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
     }

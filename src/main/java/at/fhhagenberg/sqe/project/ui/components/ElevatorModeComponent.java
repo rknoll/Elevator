@@ -1,12 +1,9 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -17,7 +14,7 @@ import java.beans.PropertyChangeListener;
 public class ElevatorModeComponent extends JComponent implements PropertyChangeListener {
 
     private Elevator mElevator;
-    private JCheckBox mAutomaticModeCheckBox;
+    private AbstractButton mAutomaticModeToggleButton;
 
     public ElevatorModeComponent(Elevator elevator, IElevatorDetailSelectListener listener) {
         mElevator = elevator;
@@ -26,43 +23,36 @@ public class ElevatorModeComponent extends JComponent implements PropertyChangeL
         GridBagConstraints gc = new GridBagConstraints();
         gc.gridy = 0;
         gc.gridx = 0;
+        gc.anchor = GridBagConstraints.CENTER;
+
+        setBackground(Color.black);
 
         JButton button = new JButton(elevator.getDescription());
-        button.addActionListener(event -> {
-            listener.elevatorSelected(elevator);
-        });
+        button.addActionListener(event -> listener.elevatorSelected(elevator));
+
         add(button, gc);
 
         gc.gridy += 1;
 
-        mAutomaticModeCheckBox = new JCheckBox("automatic");
-        mAutomaticModeCheckBox.setName(elevator.getDescription() + " AutomaticMode");
-        mAutomaticModeCheckBox.setSelected(elevator.isAutomaticMode());
+        mAutomaticModeToggleButton = new OnOffButtonComponent("Auto", "Manual");
+        mAutomaticModeToggleButton.setSelected(elevator.isAutomaticMode());
 
-        mAutomaticModeCheckBox.addChangeListener(event -> {
-            AbstractButton abstractButton = (AbstractButton)event.getSource();
-            ButtonModel buttonModel = abstractButton.getModel();
-            boolean selected = buttonModel.isSelected();
-
-            if (selected != elevator.isAutomaticMode())
-            {
-                System.out.println(abstractButton.getName() + " Changed: " + selected);
+        mAutomaticModeToggleButton.addChangeListener(event -> {
+            boolean selected = mAutomaticModeToggleButton.isSelected();
+            if (selected != elevator.isAutomaticMode()) {
                 elevator.setAutomaticMode(selected);
             }
         });
 
-        // TODO: Der Listener funktioniert so nicht.
-        // 		 Im Building muss es f�r jeden Elevator einen ModeChangedListener geben, das dieser Funktion �bergeben wird.
+        add(mAutomaticModeToggleButton, gc);
 
-        add(mAutomaticModeCheckBox, gc);
-
-        setPreferredSize(new Dimension(150, 60));
+        setPreferredSize(new Dimension(120, 60));
 
         mElevator.addPropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        mAutomaticModeCheckBox.setSelected(mElevator.isAutomaticMode());
+        mAutomaticModeToggleButton.setSelected(mElevator.isAutomaticMode());
     }
 }

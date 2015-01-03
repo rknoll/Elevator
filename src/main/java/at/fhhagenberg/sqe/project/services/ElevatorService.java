@@ -23,6 +23,7 @@ public class ElevatorService implements IService, PropertyChangeListener {
         mElevator = elevator;
         mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_TARGET, this);
+        mElevator.addPropertyChangeListener(Elevator.PROP_DIRECTION, this);
     }
 
     @Override
@@ -74,8 +75,10 @@ public class ElevatorService implements IService, PropertyChangeListener {
                     mElevator.setCurrentFloor(currentFloor);
                 }
             }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DIRECTION) > 0) {
+            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DIRECTION) > 1) {
+                mIsUpdating = true;
                 mElevator.setDirection(mAdapter.getCommittedDirection(mElevator.getElevatorNumber()));
+                mIsUpdating = false;
             }
             if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DOOR_STATUS) > 0) {
                 mElevator.setDoorStatus(mAdapter.getElevatorDoorStatus(mElevator.getElevatorNumber()));
@@ -106,6 +109,9 @@ public class ElevatorService implements IService, PropertyChangeListener {
                     break;
                 case Elevator.PROP_TARGET:
                     mAdapter.setTarget(mElevator.getElevatorNumber(), mElevator.getTarget().getFloorNumber());
+                    break;
+                case Elevator.PROP_DIRECTION:
+                    mAdapter.setCommittedDirection(mElevator.getElevatorNumber(), mElevator.getDirection());
                     break;
             }
         } catch (ElevatorConnectionLostException ignored) {

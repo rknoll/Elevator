@@ -36,7 +36,10 @@ public class DummyAdapter implements IElevatorAdapter
 		
 		for (int i = 0; i < mNumElevators; i++)
 		{
-			mElevators.add(new Elevator(i, "E"+i, mFloors));
+			Elevator e = new Elevator(i, "E"+i, mFloors);
+			e.setTarget(mFloors.get(0));
+			e.setCurrentFloor(mFloors.get(0));
+			mElevators.add(e);
 		}		
 	}
 	

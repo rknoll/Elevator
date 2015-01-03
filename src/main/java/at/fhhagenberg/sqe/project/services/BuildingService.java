@@ -56,6 +56,7 @@ public class BuildingService implements IService {
 
         for (Elevator elevator : mBuilding.getElevators()) {
             mSubServices.add(new ElevatorService(mAdapter, elevator));
+            mSubServices.add(new AutomaticModeService(mBuilding, elevator));
         }
 
         mConnected = true;

@@ -2,21 +2,19 @@ package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
-import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
+import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Random;
 
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorPositionComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
+public class ElevatorPositionComponent extends DynamicUIComponent implements PropertyChangeListener {
 
     private Building mBuilding;
     private Elevator mElevator;

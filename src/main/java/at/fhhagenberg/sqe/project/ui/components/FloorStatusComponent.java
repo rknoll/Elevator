@@ -1,7 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
+import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 
 import javax.swing.*;
 
@@ -12,7 +12,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class FloorStatusComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
+public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
 
     private Floor mFloor;    
     private JLabel mLabelButtonState;

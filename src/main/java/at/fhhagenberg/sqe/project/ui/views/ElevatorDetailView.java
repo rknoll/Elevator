@@ -3,7 +3,7 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
+import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorOverviewSelectListener;
 
 import javax.swing.*;
@@ -15,7 +15,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 16/12/14.
  */
-public class ElevatorDetailView extends JComponent implements PropertyChangeListener, IDynamicUIControl {
+public class ElevatorDetailView extends DynamicUIComponent implements PropertyChangeListener {
 
 	private Building mBuilding;
 	private Elevator mElevator;

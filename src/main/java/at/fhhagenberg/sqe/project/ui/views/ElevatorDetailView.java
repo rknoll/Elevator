@@ -3,19 +3,18 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.services.listeners.IElevatorInfoListener;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorOverviewSelectListener;
 
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created by rknoll on 16/12/14.
  */
-public class ElevatorDetailView extends JComponent implements IElevatorInfoListener {
+public class ElevatorDetailView extends JComponent implements PropertyChangeListener {
 
 	private Building mBuilding;
 	private Elevator mElevator;
@@ -44,7 +43,7 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 
 		add(CreateMainPanel(selectListener));
 
-		building.addListener(this);
+		elevator.addPropertyChangeListener(this);
 	}
 
 	private JPanel CreateMainPanel(IElevatorOverviewSelectListener selectListener)
@@ -57,9 +56,7 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 		gc.anchor = GridBagConstraints.CENTER;
 
 		JButton returnButton = new JButton("Return");
-		returnButton.addActionListener(event -> {
-			selectListener.selectOverview();
-		});
+		returnButton.addActionListener(event -> selectListener.selectOverview());
 		mainPanel.add(returnButton);
 
 		gc.gridx += 1;
@@ -193,28 +190,8 @@ public class ElevatorDetailView extends JComponent implements IElevatorInfoListe
 		mElevatorButtons.setText(sb.toString());
 	}
 
-	private Component CreateComponentButtonPessedOverview()
-	{
-		JPanel buttonPressed = new JPanel(new FlowLayout());
-		for (Floor f : mBuilding.getFloors())
-		{
-			if (mElevator.getButton(f) == true)
-			{
-				// Add floor
-				JLabel floorLabel = new JLabel(f.getDescription());
-				buttonPressed.add(floorLabel);
-			}
-		}
-		return buttonPressed;
-	}
-
 	@Override
-	public Elevator getElevator() {
-		return mElevator;
-	}
-
-	@Override
-	public void update() {
+	public void propertyChange(PropertyChangeEvent evt) {
 		showDetails();
 	}
 }

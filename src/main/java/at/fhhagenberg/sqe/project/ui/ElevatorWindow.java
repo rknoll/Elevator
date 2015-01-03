@@ -31,7 +31,7 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
 
     @Override
     public void elevatorSelected(Elevator elevator) {
-        mBuilding.removeAllListeners();
+        //mBuilding.removeAllListeners();
         mFrame.setContentPane(new ElevatorDetailView(mBuilding, elevator, this));
         mFrame.revalidate();
         mFrame.repaint();
@@ -39,7 +39,7 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
 
     @Override
     public void selectOverview() {
-        mBuilding.removeAllListeners();
+        //mBuilding.removeAllListeners();
         mFrame.setContentPane(new ElevatorOverviewView(mBuilding, this));
         mFrame.revalidate();
         mFrame.repaint();

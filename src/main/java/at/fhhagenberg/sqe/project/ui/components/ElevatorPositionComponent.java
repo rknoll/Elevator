@@ -2,19 +2,19 @@ package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
-import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Random;
 
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorPositionComponent extends JComponent implements IElevatorPositionListener {
+public class ElevatorPositionComponent extends JComponent implements PropertyChangeListener {
 
     private Building mBuilding;
     private Elevator mElevator;
@@ -30,7 +30,7 @@ public class ElevatorPositionComponent extends JComponent implements IElevatorPo
         add(positionPanel, BorderLayout.CENTER);
 
         addComponentListener(new ResizeListener());
-        building.addListener(this);
+        elevator.addPropertyChangeListener(Elevator.PROP_POSITION, this);
     }
 
     private Color randomColor() {
@@ -58,8 +58,11 @@ public class ElevatorPositionComponent extends JComponent implements IElevatorPo
     }
 
     @Override
-    public Elevator getElevator() {
-        return mElevator;
+    public void propertyChange(PropertyChangeEvent evt) {
+        double floorHeight = this.getHeight() / mBuilding.getNumberOfFloors();
+        double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
+        double pos = this.getHeight() - floorHeight - elevatorPos * this.getHeight();
+        mElevatorPanel.setLocation(0, (int)pos);
     }
 
     class ResizeListener extends ComponentAdapter {
@@ -73,11 +76,4 @@ public class ElevatorPositionComponent extends JComponent implements IElevatorPo
         }
     }
 
-    @Override
-    public void update() {
-        double floorHeight = this.getHeight() / mBuilding.getNumberOfFloors();
-        double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
-        double pos = this.getHeight() - floorHeight - elevatorPos * this.getHeight();
-        mElevatorPanel.setLocation(0, (int)pos);
-    }
 }

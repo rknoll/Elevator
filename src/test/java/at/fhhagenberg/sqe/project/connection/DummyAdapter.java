@@ -9,7 +9,7 @@ import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
 import at.fhhagenberg.sqe.project.model.Floor;
 
 /**
- * Created by Thomas Zöchbauer on 18/12/14.
+ * Created by Thomas Zoechbauer on 18/12/14.
  */
 public class DummyAdapter implements IElevatorAdapter 
 {	

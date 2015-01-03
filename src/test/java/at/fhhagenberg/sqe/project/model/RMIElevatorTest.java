@@ -1,8 +1,6 @@
 package at.fhhagenberg.sqe.project.model;
 
-import static org.junit.Assert.*;
 import static org.easymock.EasyMock.*;
-import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
 
 import java.rmi.RemoteException;

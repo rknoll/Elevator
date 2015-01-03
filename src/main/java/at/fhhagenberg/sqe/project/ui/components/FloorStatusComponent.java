@@ -1,26 +1,24 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.services.listeners.IFloorStatusListener;
 
 import javax.swing.*;
 
-import sun.awt.IconInfo;
-
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created by rknoll on 17/12/14.
  */
-public class FloorStatusComponent extends JComponent implements IFloorStatusListener {
+public class FloorStatusComponent extends JComponent implements PropertyChangeListener {
 
     private Floor mFloor;    
     private JLabel mLabelButtonState;
     
     private ImageIcon[][] mIcons;	// [Down][Up]
 
-    public FloorStatusComponent(Building building, Floor floor) {
+    public FloorStatusComponent(Floor floor) {
         mFloor = floor;
         
         // Create Icons 
@@ -51,19 +49,21 @@ public class FloorStatusComponent extends JComponent implements IFloorStatusList
         add(mLabelButtonState, gc);
 
         setPreferredSize(new Dimension(150, 60));
-        building.addListener(this);
+
+        refreshView();
+
+        floor.addPropertyChangeListener(this);
     }
 
     @Override
-    public Floor getFloor() {
-        return mFloor;
+    public void propertyChange(PropertyChangeEvent evt) {
+        refreshView();
     }
 
-    @Override
-    public void update() {    	
-    	boolean buttonUp = mFloor.isButtonUp();
-    	boolean buttonDown = mFloor.isButtonDown();
-    	
-    	mLabelButtonState.setIcon(mIcons[(buttonDown ? 1 : 0)][(buttonUp ? 1 : 0)]);
+    private void refreshView() {
+        boolean buttonUp = mFloor.isButtonUp();
+        boolean buttonDown = mFloor.isButtonDown();
+
+        mLabelButtonState.setIcon(mIcons[(buttonDown ? 1 : 0)][(buttonUp ? 1 : 0)]);
     }
 }

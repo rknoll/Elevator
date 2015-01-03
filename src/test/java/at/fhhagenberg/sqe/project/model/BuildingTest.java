@@ -3,15 +3,16 @@ package at.fhhagenberg.sqe.project.model;
 import static org.junit.Assert.*;
 
 import java.util.Iterator;
+
+import at.fhhagenberg.sqe.project.services.BuildingService;
 import org.junit.Before;
 import org.junit.Test;
 
 import at.fhhagenberg.sqe.project.connection.DummyAdapter;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
-import at.fhhagenberg.sqe.project.services.listeners.IElevatorListener;
 
 /**
- * Created by Thomas Zöchbauer on 18/12/14.
+ * Created by Thomas Zoechbauer on 18/12/14.
  */
 public class BuildingTest {
 	
@@ -21,9 +22,10 @@ public class BuildingTest {
 	public void setUp() throws Exception {
 		int numElevators = 2;
 		int numFloors = 5;
-		IElevatorAdapter adapter = new DummyAdapter(numElevators, numFloors);	
-		
-		building = new Building(adapter);
+		IElevatorAdapter adapter = new DummyAdapter(numElevators, numFloors);
+		building = new Building();
+		BuildingService service = new BuildingService(adapter, building);
+		service.refresh();
 	}
 
 	@Test
@@ -52,38 +54,6 @@ public class BuildingTest {
 			floorCount++;
 		}
 		assertEquals(5, floorCount);	
-	}
-
-	@Test
-	public void testAddAndRemoveListener() {
-		IElevatorListener listener = new IElevatorListener() {
-			@Override
-			public void update() {
-				// do nothing
-			}
-		};
-		building.addListener(listener);
-		building.removeListener(listener);
-	}
-
-	@Test
-	public void testRemoveAllListeners() {
-		IElevatorListener listener = new IElevatorListener() {
-			@Override
-			public void update() {
-				// do nothing
-			}
-		};
-		IElevatorListener listener2 = new IElevatorListener() {
-			@Override
-			public void update() {
-				// do nothing
-			}
-		};
-		
-		building.addListener(listener);
-		building.addListener(listener2);
-		building.removeAllListeners();
 	}
 
 	@Test

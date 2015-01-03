@@ -1,23 +1,23 @@
 package at.fhhagenberg.sqe.project.model;
 
-import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
-import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
-import at.fhhagenberg.sqe.project.services.*;
-
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeListenerProxy;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.fhhagenberg.sqe.project.services.listeners.IElevatorListener;
-
 /**
- * Created by rknoll on 16/12/14.
+ * A representation of a whole Building with Floors and Elevators
  */
 public class Building {
+    /* Support Class for Property Change Listeners */
+    private final PropertyChangeSupport pcs;
 
-    private IElevatorAdapter mAdapter;
+    /* All possible Properties */
+    public static final String PROP_NUMBER_OF_ELEVATORS = "numberOfElevators";
+    public static final String PROP_NUMBER_OF_FLOORS = "numberOfFloors";
+    public static final String PROP_HEIGHT = "height";
 
-    private List<ElevatorService> mElevatorServices;
-    
     private int mNumberOfFloors;
     private int mNumberOfElevators;
     private int mHeight;
@@ -25,98 +25,94 @@ public class Building {
     private List<Elevator> mElevators;
     private List<Floor> mFloors;
 
-    public Building(IElevatorAdapter adapter) {
-        mAdapter = adapter;
-
+    public Building() {
+        pcs = new PropertyChangeSupport(this);
         mElevators = new ArrayList<Elevator>();
         mFloors = new ArrayList<Floor>();
-
-        // TODO: do this in a new Thread
-        try {
-        	mNumberOfFloors = mAdapter.getFloorNum();
-        	mNumberOfElevators = mAdapter.getElevatorNum();
-            mHeight = mAdapter.getFloorHeight() * mNumberOfFloors;
-
-            for (int i = 0; i < mNumberOfFloors; ++i) {
-                mFloors.add(new Floor(i, "Flooor " + (i + 1)));
-            }
-
-            for (int i = 0; i < mNumberOfElevators; ++i) {
-                mElevators.add(new Elevator(i, "Elevator " + (i + 1), mFloors));
-            }
-
-        } catch (ElevatorConnectionLostException ignored) {
-            // TODO: error handling :D
-        }
-
-        mElevatorServices = new ArrayList<ElevatorService>();
-
-        mElevatorServices.add(new ElevatorInfoService(mAdapter));
-        mElevatorServices.add(new FloorStatusService(mAdapter));
-        mElevatorServices.add(new ElevatorPositionService(mAdapter));
-        mElevatorServices.add(new ElevatorServicesFloorService(mAdapter));
-
-        for (ElevatorService service : mElevatorServices) {
-            service.start();
-        }
     }
 
-    public Iterable<Elevator> getElevators() {
-        return mElevators;
+    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(property, listener);
+    }
+
+    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(property, listener);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+    }
+
+    public int getPropertyChangeListenersCount(String property) {
+        int totalNumber = 0;
+        for (PropertyChangeListener listener : pcs.getPropertyChangeListeners()) {
+            if (listener instanceof PropertyChangeListenerProxy) {
+                PropertyChangeListenerProxy proxy = (PropertyChangeListenerProxy) listener;
+                if (proxy.getPropertyName().equals(property)) ++totalNumber;
+            } else {
+                ++totalNumber;
+            }
+        }
+        return totalNumber;
+    }
+
+    public void setNumberOfFloorsAndElevators(int numberOfFloors, int numberOfElevators) {
+        int oldNumberOfFloors = mNumberOfFloors;
+        int oldNumberOfElevators = mNumberOfElevators;
+
+        mNumberOfFloors = numberOfFloors;
+        mNumberOfElevators = numberOfElevators;
+        mElevators.clear();
+        mFloors.clear();
+        for (int i = 0; i < numberOfFloors; ++i) {
+            mFloors.add(new Floor(i, getFloorDescription(i)));
+        }
+        for (int i = 0; i < numberOfElevators; ++i) {
+            mElevators.add(new Elevator(i, getElevatorDescription(i), mFloors));
+        }
+        pcs.firePropertyChange(PROP_NUMBER_OF_FLOORS, oldNumberOfFloors, numberOfFloors);
+        pcs.firePropertyChange(PROP_NUMBER_OF_ELEVATORS, oldNumberOfElevators, numberOfElevators);
+    }
+
+    public void setHeight(int height) {
+        int oldValue = mHeight;
+        mHeight = height;
+        pcs.firePropertyChange(PROP_HEIGHT, oldValue, mHeight);
+    }
+
+    protected String getFloorDescription(int floorNumber) {
+        return "Floor " + (floorNumber + 1);
+    }
+
+    protected String getElevatorDescription(int elevatorNumber) {
+        return "Elevator " + (elevatorNumber + 1);
     }
 
     public Iterable<Floor> getFloors() {
         return mFloors;
     }
 
-    public void addListener(IElevatorListener listener) {
-        for (ElevatorService service : mElevatorServices) {
-            if (service.isCompatibleListener(listener)) {
-                service.addListener(listener);
-            }
-        }
+    public Iterable<Elevator> getElevators() {
+        return mElevators;
     }
 
-    public void removeListener(IElevatorListener listener) {
-        for (ElevatorService service : mElevatorServices) {
-            if (service.isCompatibleListener(listener)) {
-                service.removeListener(listener);
-            }
-        }
-    }
-
-    public void removeAllListeners() {
-        for (ElevatorService service : mElevatorServices) {
-            service.removeAllListeners();
-        }
+    public int getNumberOfFloors()
+    {
+        return mNumberOfFloors;
     }
 
     public int getNumberOfElevators()
     {
     	return mNumberOfElevators;
     }
-    
-    public int getNumberOfFloors()
-    {
-    	return mNumberOfFloors;
-    }
+
     public int getHeight()
     {
         return mHeight;
-    }
-
-    public void callElevator(Elevator elevator, Floor floor) {
-        try {
-            mAdapter.setTarget(elevator.getElevatorNumber(), floor.getFloorNumber());
-        } catch (ElevatorConnectionLostException ignored) {
-        }
-    }
-
-    public void setServicesFloor(Elevator elevator, Floor floor, boolean services) {
-        try {
-            mAdapter.setServicesFloors(elevator.getElevatorNumber(), floor.getFloorNumber(), services);
-        } catch (ElevatorConnectionLostException ignored) {
-        }
     }
 
 }

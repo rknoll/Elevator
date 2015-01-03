@@ -3,7 +3,6 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.services.listeners.IElevatorPositionListener;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorFloorComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorModeComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent;
@@ -14,27 +13,43 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created by rknoll on 16/12/14.
  */
-public class ElevatorOverviewView extends JComponent {
+public class ElevatorOverviewView extends JComponent implements PropertyChangeListener {
 
 	private Building mBuilding;
 	private JScrollPane mMainScrollPane;
+	private IElevatorDetailSelectListener mSelectListener;
 
 	public ElevatorOverviewView(Building building, IElevatorDetailSelectListener selectListener) {
 		mBuilding = building;
+		mSelectListener = selectListener;
+
 		setLayout(new BorderLayout());
+
+		refreshView();
+
+		building.addPropertyChangeListener(this);
+	}
+
+	private void refreshView() {
+		removeAll();
 
 		mMainScrollPane = CreateMainPanel();
 		add(mMainScrollPane, BorderLayout.CENTER);
 
-		Component topPanel = CreateTopPanel(selectListener);
+		Component topPanel = CreateTopPanel(mSelectListener);
 		add(topPanel, BorderLayout.PAGE_START);
 
 		Component leftPanel = CreateLeftPanel();
 		add(leftPanel, BorderLayout.LINE_START);
+
+		revalidate();
+		repaint();
 	}
 
 	private JScrollPane CreateMainPanel() {
@@ -57,7 +72,7 @@ public class ElevatorOverviewView extends JComponent {
 			gc.gridx += 1;
 			gc.gridy = mBuilding.getNumberOfFloors() - 1;
 			for (Floor f : mBuilding.getFloors()) {
-				mainPanel.add(new ElevatorFloorComponent(mBuilding, e, f), gc);
+				mainPanel.add(new ElevatorFloorComponent(e, f), gc);
 				gc.gridy -= 1;
 			}
 
@@ -117,7 +132,7 @@ public class ElevatorOverviewView extends JComponent {
 		gc.gridheight = 1;
 
 		for (Floor f : mBuilding.getFloors()) {
-			mainPanel.add(new FloorStatusComponent(mBuilding, f), gc);
+			mainPanel.add(new FloorStatusComponent(f), gc);
 			gc.gridy -= 1;
 		}
 
@@ -128,5 +143,10 @@ public class ElevatorOverviewView extends JComponent {
 		scroll.setBorder(BorderFactory.createEmptyBorder());
 
 		return scroll;
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		refreshView();
 	}
 }

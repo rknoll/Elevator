@@ -1,5 +1,8 @@
 package at.fhhagenberg.sqe.project.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeListenerProxy;
+import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +10,22 @@ import java.util.Map;
  * Created by rknoll on 15/12/14.
  */
 public class Elevator {
+    /* Support Class for Property Change Listeners */
+    private final PropertyChangeSupport pcs;
+
+    /* All possible Properties */
+    public static final String PROP_BUTTON = "button";
+    public static final String PROP_SERVICE = "service";
+    public static final String PROP_CURRENT_FLOOR = "currentFloor";
+    public static final String PROP_POSITION = "position";
+    public static final String PROP_TARGET = "target";
+    public static final String PROP_DOOR_STATUS = "doorStatus";
+    public static final String PROP_SPEED = "speed";
+    public static final String PROP_ACCELERATION = "acceleration";
+    public static final String PROP_CAPACITY = "capacity";
+    public static final String PROP_WEIGHT = "weight";
+    public static final String PROP_DIRECTION = "direction";
+    public static final String PROP_AUTOMATIC_MODE = "automaticMode";
 
     public enum Direction {
         UP, DOWN, UNCOMMITTED
@@ -35,6 +54,7 @@ public class Elevator {
     private Map<Floor, Boolean> mFloorButtons;
 
     public Elevator(int elevatorNumber, String description, Iterable<Floor> floors) {
+        pcs = new PropertyChangeSupport(this);
         mElevatorNumber = elevatorNumber;
         mDescription = description;
         mFloorServices = new HashMap<Floor, Boolean>();
@@ -45,24 +65,37 @@ public class Elevator {
         }
     }
 
+    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(property, listener);
+    }
+
+    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(property, listener);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+    }
+
+    public int getPropertyChangeListenersCount(String property) {
+        int totalNumber = 0;
+        for (PropertyChangeListener listener : pcs.getPropertyChangeListeners()) {
+            if (listener instanceof PropertyChangeListenerProxy) {
+                PropertyChangeListenerProxy proxy = (PropertyChangeListenerProxy) listener;
+                if (proxy.getPropertyName().equals(property)) ++totalNumber;
+            } else {
+                ++totalNumber;
+            }
+        }
+        return totalNumber;
+    }
+
     public Iterable<Floor> getFloors() {
         return mFloorButtons.keySet();
-    }
-
-    public void setService(Floor floor, boolean service) {
-        mFloorServices.replace(floor, service);
-    }
-
-    public boolean getService(Floor floor) {
-        return mFloorServices.get(floor);
-    }
-
-    public void setButton(Floor floor, boolean button) {
-        mFloorButtons.replace(floor, button);
-    }
-
-    public boolean getButton(Floor floor) {
-        return mFloorButtons.get(floor);
     }
 
     public int getElevatorNumber() {
@@ -73,12 +106,35 @@ public class Elevator {
         return mDescription;
     }
 
+
+    public boolean getService(Floor floor) {
+        return mFloorServices.get(floor);
+    }
+
+    public void setService(Floor floor, boolean service) {
+        Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorServices);
+        mFloorServices.replace(floor, service);
+        pcs.firePropertyChange(PROP_SERVICE, oldValue, mFloorServices);
+    }
+
+    public boolean getButton(Floor floor) {
+        return mFloorButtons.get(floor);
+    }
+
+    public void setButton(Floor floor, boolean button) {
+        Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorButtons);
+        mFloorButtons.replace(floor, button);
+        pcs.firePropertyChange(PROP_BUTTON, oldValue, mFloorButtons);
+    }
+
     public Floor getCurrentFloor() {
         return mCurrentFloor;
     }
 
     public void setCurrentFloor(Floor currentFloor) {
+        Floor oldValue = mCurrentFloor;
         this.mCurrentFloor = currentFloor;
+        pcs.firePropertyChange(PROP_CURRENT_FLOOR, oldValue, mCurrentFloor);
     }
 
     public int getPosition() {
@@ -86,7 +142,9 @@ public class Elevator {
     }
 
     public void setPosition(int position) {
+        int oldValue = mPosition;
         this.mPosition = position;
+        pcs.firePropertyChange(PROP_POSITION, oldValue, mPosition);
     }
 
     public Floor getTarget() {
@@ -94,7 +152,9 @@ public class Elevator {
     }
 
     public void setTarget(Floor target) {
+        Floor oldValue = mTarget;
         this.mTarget = target;
+        pcs.firePropertyChange(PROP_TARGET, oldValue, mTarget);
     }
 
     public DoorStatus getDoorStatus() {
@@ -102,7 +162,9 @@ public class Elevator {
     }
 
     public void setDoorStatus(DoorStatus doorStatus) {
+        DoorStatus oldValue = mDoorStatus;
         this.mDoorStatus = doorStatus;
+        pcs.firePropertyChange(PROP_DOOR_STATUS, oldValue, mDoorStatus);
     }
 
     public int getSpeed() {
@@ -110,7 +172,9 @@ public class Elevator {
     }
 
     public void setSpeed(int speed) {
+        int oldValue = mSpeed;
         this.mSpeed = speed;
+        pcs.firePropertyChange(PROP_SPEED, oldValue, mSpeed);
     }
 
     public int getAcceleration() {
@@ -118,7 +182,9 @@ public class Elevator {
     }
 
     public void setAcceleration(int acceleration) {
+        int oldValue = mAcceleration;
         this.mAcceleration = acceleration;
+        pcs.firePropertyChange(PROP_ACCELERATION, oldValue, mAcceleration);
     }
 
     public int getCapacity() {
@@ -129,7 +195,9 @@ public class Elevator {
         if (capacity < 0) {
         	throw new IllegalArgumentException();
         }
+        int oldValue = mCapacity;
     	this.mCapacity = capacity;
+        pcs.firePropertyChange(PROP_CAPACITY, oldValue, mCapacity);
     }
 
     public int getWeight() {
@@ -137,7 +205,9 @@ public class Elevator {
     }
 
     public void setWeight(int weight) {
+        int oldValue = mWeight;
         this.mWeight = weight;
+        pcs.firePropertyChange(PROP_WEIGHT, oldValue, mWeight);
     }
 
     public Direction getDirection() {
@@ -145,7 +215,9 @@ public class Elevator {
     }
 
     public void setDirection(Direction direction) {
+        Direction oldValue = mDirection;
         this.mDirection = direction;
+        pcs.firePropertyChange(PROP_DIRECTION, oldValue, mDirection);
     }
 
 	/**
@@ -159,7 +231,9 @@ public class Elevator {
 	 * @param automaticMode true to set it to AutomaticMode
 	 */
 	public void setAutomaticMode(boolean automaticMode) {
+        boolean oldValue = mAutomaticMode;
 		this.mAutomaticMode = automaticMode;
+        pcs.firePropertyChange(PROP_AUTOMATIC_MODE, oldValue, mAutomaticMode);
 	}
 
 }

@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Floor;
 
 import java.beans.PropertyChangeEvent;
@@ -58,32 +59,35 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
 
     private void setNextGoal() {
         if (mElevator.getSpeed() == 0 && mElevator.getDoorStatus() == Elevator.DoorStatus.OPEN) {
-            int floor = mElevator.getCurrentFloor().getFloorNumber();
+            int nextFloor = mElevator.getCurrentFloor().getFloorNumber();
+
             do {
                 if (mUpwards) {
-                    ++floor;
+                    ++nextFloor;
                 } else {
-                    --floor;
+                    --nextFloor;
                 }
-                if (floor == mBuilding.getNumberOfFloors()) {
+                if (nextFloor == mBuilding.getNumberOfFloors()) {
                     mUpwards = false;
-                    floor = mElevator.getCurrentFloor().getFloorNumber() - 1;
-                    if (floor == -1) {
+                    nextFloor = mElevator.getCurrentFloor().getFloorNumber() - 1;
+                    if (nextFloor == -1) {
                         mNextGoal = mElevator.getCurrentFloor();
                         mElevator.setDirection(Elevator.Direction.UNCOMMITTED);
                         break;
                     }
-                } else if (floor == -1) {
+                } else if (nextFloor == -1) {
                     mUpwards = true;
-                    floor = mElevator.getCurrentFloor().getFloorNumber() + 1;
-                    if (floor == mBuilding.getNumberOfFloors()) {
+                    nextFloor = mElevator.getCurrentFloor().getFloorNumber() + 1;
+                    if (nextFloor == mBuilding.getNumberOfFloors()) {
                         mNextGoal = mElevator.getCurrentFloor();
                         mElevator.setDirection(Elevator.Direction.UNCOMMITTED);
                         break;
                     }
                 }
                 mElevator.setDirection(mUpwards ? Elevator.Direction.UP : Elevator.Direction.DOWN);
-                setNextGoal(floor);
+
+                // set next goal
+                setNextGoal(nextFloor);
             } while (!mElevator.getService(mNextGoal));
             mElevator.setTarget(mNextGoal);
         }

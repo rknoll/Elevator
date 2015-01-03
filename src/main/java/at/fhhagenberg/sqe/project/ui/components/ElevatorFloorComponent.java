@@ -1,23 +1,27 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Floor;
 
 import javax.swing.*;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorFloorComponent extends JComponent implements PropertyChangeListener {
+public class ElevatorFloorComponent extends JComponent implements PropertyChangeListener, ActionListener {
 
     private Elevator mElevator;
     private Floor mFloor;
 
     private JCheckBox mServeFloorCheckBox;
+    private JButton mCallButton;
 
     public ElevatorFloorComponent(Elevator elevator, Floor floor) {
         mElevator = elevator;
@@ -34,7 +38,13 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
         add(elevatorSetting, gc);
         setPreferredSize(new Dimension(90, 60));
 
-        elevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
+        // property changed listeners
+        mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
+        mElevator.addPropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
+        
+    	// action listeners
+        mCallButton.addActionListener(this);
+        mServeFloorCheckBox.addActionListener(this);
     }
 
     private Component CreateComponentElevatorSettings(Elevator elevator, Floor floor)
@@ -47,26 +57,53 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
 
         gc.anchor = GridBagConstraints.CENTER;
 
-        JButton callButton = new JButton("Call");
-        callButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
-        pnlElevatorSettings.add(callButton, gc);
-
-        callButton.addActionListener(event -> mElevator.setTarget(floor));
+        mCallButton = new JButton("Call");
+        mCallButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
+        pnlElevatorSettings.add(mCallButton, gc);
 
         gc.gridy = 1;
         mServeFloorCheckBox = new JCheckBox("Serve");
         mServeFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
         mServeFloorCheckBox.setSelected(elevator.getService(floor));
-
-        mServeFloorCheckBox.addActionListener(event -> mElevator.setService(mFloor, mServeFloorCheckBox.isSelected()));
-
+        
+        mCallButton.setEnabled(!mElevator.isAutomaticMode());
+    	
         pnlElevatorSettings.add(mServeFloorCheckBox, gc);
 
         return pnlElevatorSettings;
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    	if (e.getSource() == mCallButton) {
+    		int targetFloor = mFloor.getFloorNumber();
+    		int currentFloor =  mElevator.getCurrentFloor().getFloorNumber();
+
+    		// set direction
+    		if (targetFloor > currentFloor) {
+            	mElevator.setDirection(Direction.UP);
+            } else if (targetFloor < currentFloor) {
+            	mElevator.setDirection(Direction.DOWN);
+            } else {
+            	mElevator.setDirection(Direction.UNCOMMITTED);
+            }
+
+            // set new target
+            mElevator.setTarget(mFloor);
+    	} else if (e.getSource() == mServeFloorCheckBox) {
+    		mElevator.setService(mFloor, mServeFloorCheckBox.isSelected());
+    	}        
+    }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        mServeFloorCheckBox.setSelected(mElevator.getService(mFloor));
+        switch (evt.getPropertyName()) {
+            case Elevator.PROP_SERVICE:
+                mServeFloorCheckBox.setSelected(mElevator.getService(mFloor));
+                break;
+            case Elevator.PROP_AUTOMATIC_MODE:
+                mCallButton.setEnabled(!mElevator.isAutomaticMode());
+                break;
+        }
     }
 }

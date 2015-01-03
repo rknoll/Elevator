@@ -99,11 +99,11 @@ public class OnOffButtonComponent extends AbstractButton {
         int lx;
 
         if(isSelected()) {
-            x = 0;
-            lx = thumbBounds.width + (max - trueLength) / 2;
-        } else {
             x = max + gap;
-            lx = (max - falseLength) / 2;
+            lx = (max - trueLength) / 2;
+        } else {
+            x = 0;
+            lx = thumbBounds.width + (max - falseLength) / 2;
         }
 
         int y = 0;

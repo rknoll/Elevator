@@ -3,6 +3,7 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorFloorComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorModeComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent;
@@ -17,11 +18,13 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by rknoll on 16/12/14.
  */
-public class ElevatorOverviewView extends JComponent implements PropertyChangeListener {
+public class ElevatorOverviewView extends JComponent implements PropertyChangeListener, IDynamicUIControl {
 
 	private Building mBuilding;
 	private JScrollPane mMainScrollPane;
@@ -29,10 +32,12 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 	private JPanel mVerticalScrollBarSpace;
 	private JPanel mHorizontalScrollBarSpace;
 
+	private List<IDynamicUIControl> mChildControls;
+
 	public ElevatorOverviewView(Building building, IElevatorDetailSelectListener selectListener) {
 		mBuilding = building;
 		mSelectListener = selectListener;
-
+		mChildControls = new ArrayList<IDynamicUIControl>();
 		setLayout(new BorderLayout());
 		addComponentListener(new ResizeListener());
 
@@ -71,13 +76,17 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 			gc.gridy = 0;
 			gc.gridheight = mBuilding.getNumberOfFloors();
 
-			mainPanel.add(new ElevatorPositionComponent(mBuilding, e), gc);
+			ElevatorPositionComponent component = new ElevatorPositionComponent(mBuilding, e);
+			mChildControls.add(component);
+			mainPanel.add(component, gc);
 
 			gc.gridheight = 1;
 			gc.gridx += 1;
 			gc.gridy = mBuilding.getNumberOfFloors() - 1;
 			for (Floor f : mBuilding.getFloors()) {
-				mainPanel.add(new ElevatorFloorComponent(e, f), gc);
+				ElevatorFloorComponent efComponent = new ElevatorFloorComponent(e, f);
+				mChildControls.add(efComponent);
+				mainPanel.add(efComponent, gc);
 				gc.gridy -= 1;
 			}
 
@@ -102,8 +111,9 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 		gc.gridy = 0;
 
 		for (Elevator e : mBuilding.getElevators()) {
-			Component selElevators = new ElevatorModeComponent(e, selectListener);
-			mainPanel.add(selElevators, gc);
+			ElevatorModeComponent component = new ElevatorModeComponent(e, selectListener);
+			mChildControls.add(component);
+			mainPanel.add(component, gc);
 			gc.gridx += 1;
 		}
 
@@ -143,7 +153,9 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 		gc.gridheight = 1;
 
 		for (Floor f : mBuilding.getFloors()) {
-			mainPanel.add(new FloorStatusComponent(f), gc);
+			FloorStatusComponent component = new FloorStatusComponent(f);
+			mChildControls.add(component);
+			mainPanel.add(component, gc);
 			gc.gridy -= 1;
 		}
 
@@ -162,6 +174,14 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 		p.add(scroll, BorderLayout.CENTER);
 
 		return p;
+	}
+
+	@Override
+	public void unload() {
+		mBuilding.removePropertyChangeListener(this);
+		for (IDynamicUIControl control : mChildControls) {
+			control.unload();
+		}
 	}
 
 	class ResizeListener extends ComponentAdapter {

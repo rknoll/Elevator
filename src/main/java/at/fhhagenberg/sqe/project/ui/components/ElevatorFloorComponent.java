@@ -3,6 +3,7 @@ package at.fhhagenberg.sqe.project.ui.components;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
 
 import javax.swing.*;
 
@@ -15,7 +16,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorFloorComponent extends JComponent implements PropertyChangeListener, ActionListener {
+public class ElevatorFloorComponent extends JComponent implements PropertyChangeListener, ActionListener, IDynamicUIControl {
 
     private Elevator mElevator;
     private Floor mFloor;
@@ -105,5 +106,11 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
                 mCallButton.setEnabled(!mElevator.isAutomaticMode());
                 break;
         }
+    }
+
+    @Override
+    public void unload() {
+        mElevator.removePropertyChangeListener(Elevator.PROP_SERVICE, this);
+        mElevator.removePropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
     }
 }

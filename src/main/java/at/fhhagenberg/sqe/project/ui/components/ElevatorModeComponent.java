@@ -1,6 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorModeComponent extends JComponent implements PropertyChangeListener {
+public class ElevatorModeComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
 
     private Elevator mElevator;
     private AbstractButton mAutomaticModeToggleButton;
@@ -54,5 +55,10 @@ public class ElevatorModeComponent extends JComponent implements PropertyChangeL
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         mAutomaticModeToggleButton.setSelected(mElevator.isAutomaticMode());
+    }
+
+    @Override
+    public void unload() {
+        mElevator.removePropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
     }
 }

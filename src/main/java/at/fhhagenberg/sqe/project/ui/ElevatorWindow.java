@@ -15,32 +15,38 @@ import javax.swing.*;
 public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
     private JFrame mFrame;
     private Building mBuilding;
+    private IDynamicUIControl mCurrentPane;
 
     public ElevatorWindow(Building building) {
         mBuilding = building;
 
-        mFrame = new JFrame("ElevatorControl - Overview");
+        mFrame = new JFrame("ElevatorControl");
         mFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         selectOverview();
 
         mFrame.setSize(800, 600);
-        //mFrame.pack();
         mFrame.setVisible(true);
     }
 
     @Override
     public void elevatorSelected(Elevator elevator) {
-        //mBuilding.removeAllListeners();
-        mFrame.setContentPane(new ElevatorDetailView(mBuilding, elevator, this));
+        if (mCurrentPane != null) mCurrentPane.unload();
+        ElevatorDetailView view = new ElevatorDetailView(mBuilding, elevator, this);
+        mCurrentPane = view;
+        mFrame.setContentPane(view);
+        mFrame.setTitle("ElevatorControl - Elevator Details");
         mFrame.revalidate();
         mFrame.repaint();
     }
 
     @Override
     public void selectOverview() {
-        //mBuilding.removeAllListeners();
-        mFrame.setContentPane(new ElevatorOverviewView(mBuilding, this));
+        if (mCurrentPane != null) mCurrentPane.unload();
+        ElevatorOverviewView view = new ElevatorOverviewView(mBuilding, this);
+        mCurrentPane = view;
+        mFrame.setContentPane(view);
+        mFrame.setTitle("ElevatorControl - Overview");
         mFrame.revalidate();
         mFrame.repaint();
     }

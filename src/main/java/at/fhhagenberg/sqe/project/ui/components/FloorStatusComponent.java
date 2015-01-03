@@ -1,6 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
 
 import javax.swing.*;
 
@@ -11,7 +12,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class FloorStatusComponent extends JComponent implements PropertyChangeListener {
+public class FloorStatusComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
 
     private Floor mFloor;    
     private JLabel mLabelButtonState;
@@ -65,5 +66,10 @@ public class FloorStatusComponent extends JComponent implements PropertyChangeLi
         boolean buttonDown = mFloor.isButtonDown();
 
         mLabelButtonState.setIcon(mIcons[(buttonDown ? 1 : 0)][(buttonUp ? 1 : 0)]);
+    }
+
+    @Override
+    public void unload() {
+        mFloor.removePropertyChangeListener(this);
     }
 }

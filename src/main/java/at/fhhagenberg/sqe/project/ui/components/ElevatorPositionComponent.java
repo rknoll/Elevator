@@ -2,6 +2,7 @@ package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,7 +16,7 @@ import java.util.Random;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorPositionComponent extends JComponent implements PropertyChangeListener {
+public class ElevatorPositionComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
 
     private Building mBuilding;
     private Elevator mElevator;
@@ -72,6 +73,11 @@ public class ElevatorPositionComponent extends JComponent implements PropertyCha
         double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
         double pos = this.getHeight() - floorHeight - elevatorPos * this.getHeight();
         mElevatorPanel.setLocation(0, (int)pos);
+    }
+
+    @Override
+    public void unload() {
+        mElevator.removePropertyChangeListener(Elevator.PROP_POSITION, this);
     }
 
     class ResizeListener extends ComponentAdapter {

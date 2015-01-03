@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Iterator;
 
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.services.BuildingService;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +25,12 @@ public class BuildingTest {
 		int numFloors = 5;
 		IElevatorAdapter adapter = new DummyAdapter(numElevators, numFloors);
 		building = new Building();
-		BuildingService service = new BuildingService(adapter, building);
+		BuildingService service = new BuildingService(building) {
+			@Override
+			protected IElevatorAdapter connect() throws ElevatorConnectionLostException {
+				return adapter;
+			}
+		};
 		service.refresh();
 	}
 

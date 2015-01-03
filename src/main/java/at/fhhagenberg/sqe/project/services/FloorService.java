@@ -22,15 +22,12 @@ public class FloorService implements IService {
     }
 
     @Override
-    public void refresh() {
-        try {
-            if (mFloor.getPropertyChangeListenersCount(Floor.PROP_BUTTON_UP) > 0) {
-                mFloor.setButtonUp(mAdapter.getFloorButtonUp(mFloor.getFloorNumber()));
-            }
-            if (mFloor.getPropertyChangeListenersCount(Floor.PROP_BUTTON_DOWN) > 0) {
-                mFloor.setButtonDown(mAdapter.getFloorButtonDown(mFloor.getFloorNumber()));
-            }
-        } catch (ElevatorConnectionLostException ignored) {
+    public void refresh() throws ElevatorConnectionLostException{
+        if (mFloor.getPropertyChangeListenersCount(Floor.PROP_BUTTON_UP) > 0) {
+            mFloor.setButtonUp(mAdapter.getFloorButtonUp(mFloor.getFloorNumber()));
+        }
+        if (mFloor.getPropertyChangeListenersCount(Floor.PROP_BUTTON_DOWN) > 0) {
+            mFloor.setButtonDown(mAdapter.getFloorButtonDown(mFloor.getFloorNumber()));
         }
     }
 }

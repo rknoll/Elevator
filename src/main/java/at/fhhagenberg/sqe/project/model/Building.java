@@ -17,10 +17,12 @@ public class Building {
     public static final String PROP_NUMBER_OF_ELEVATORS = "numberOfElevators";
     public static final String PROP_NUMBER_OF_FLOORS = "numberOfFloors";
     public static final String PROP_HEIGHT = "height";
+    public static final String PROP_CONNECTED = "connected";
 
     private int mNumberOfFloors;
     private int mNumberOfElevators;
     private int mHeight;
+    private boolean mConnected;
 
     private List<Elevator> mElevators;
     private List<Floor> mFloors;
@@ -113,6 +115,17 @@ public class Building {
     public int getHeight()
     {
         return mHeight;
+    }
+
+    public void setConnected(boolean connected) {
+        boolean oldValue = mConnected;
+        mConnected = connected;
+        pcs.firePropertyChange(PROP_CONNECTED, oldValue, mConnected);
+    }
+
+    public boolean isConnected()
+    {
+        return mConnected;
     }
 
 }

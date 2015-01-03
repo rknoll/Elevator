@@ -6,6 +6,7 @@ package at.fhhagenberg.sqe.project;
 
 //import at.fhhagenberg.sqe.project.connection.DummyElevator;
 import at.fhhagenberg.sqe.project.connection.DummyElevator;
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 import at.fhhagenberg.sqe.project.model.Building;
@@ -29,18 +30,25 @@ public class ElevatorProgram {
      * Main Entry function to the Elevator Project
      * @param args command line arguments
      */
-    public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
-        // Create the Remote Connection
-        IElevator rmi = (IElevator) Naming.lookup("rmi://localhost/ElevatorSim");
-        IElevatorAdapter adapter = new RMIElevator(rmi);
-
-        //IElevatorAdapter adapter = new DummyElevator();
-
+    public static void main(String[] args) {
         // Create the Base Data Model
         Building building = new Building();
 
         // Bind the Building Service
-        BuildingService buildingService = new BuildingService(adapter, building);
+        BuildingService buildingService = new BuildingService(building) {
+            @Override
+            protected IElevatorAdapter connect() throws ElevatorConnectionLostException {
+                //return new DummyElevator();
+
+                // Create the Remote Connection
+                try {
+                    IElevator rmi = (IElevator) Naming.lookup("rmi://localhost/ElevatorSim");
+                    return new RMIElevator(rmi);
+                } catch (Exception e) {
+                    throw new ElevatorConnectionLostException(e);
+                }
+            }
+        };
 
         // Start the Update Thread
         UpdateThread updateThread = new UpdateThread(buildingService, 100);

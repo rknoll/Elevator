@@ -1,5 +1,6 @@
 package at.fhhagenberg.sqe.project.ui.views;
 
+import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 
 import javax.swing.*;
@@ -13,27 +14,45 @@ import java.beans.PropertyChangeListener;
  */
 public class BuildingStatusView extends DynamicUIComponent implements PropertyChangeListener {
 
-    public BuildingStatusView() {
+    private Building mBuilding;
+
+    private JLabel mConnectionStatusLabel;
+
+    public BuildingStatusView(Building building) {
+        mBuilding = building;
+
         setLayout(new BorderLayout());
 
         JPanel statusPanel = new JPanel();
         statusPanel.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
         statusPanel.setPreferredSize(new Dimension(0, 18));
         statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
-        JLabel statusLabel = new JLabel("Status: Connected");
-        statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        statusPanel.add(statusLabel);
+        mConnectionStatusLabel = new JLabel();
+        mConnectionStatusLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        statusPanel.add(mConnectionStatusLabel);
 
         add(statusPanel, BorderLayout.CENTER);
+
+        updateStatus();
+
+        mBuilding.addPropertyChangeListener(Building.PROP_CONNECTED, this);
     }
 
     @Override
     public void unload() {
+        mBuilding.removePropertyChangeListener(Building.PROP_CONNECTED, this);
+    }
 
+    private void updateStatus() {
+        if (mBuilding.isConnected()) {
+            mConnectionStatusLabel.setText("Status: Connected");
+        } else {
+            mConnectionStatusLabel.setText("Status: Disconnected");
+        }
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        updateStatus();
     }
 }

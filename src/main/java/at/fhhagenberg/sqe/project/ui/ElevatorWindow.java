@@ -27,7 +27,7 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
         mFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         mContentPane = new JPanel(new BorderLayout());
-        mContentPane.add(new BuildingStatusView(), BorderLayout.PAGE_END);
+        mContentPane.add(new BuildingStatusView(mBuilding), BorderLayout.PAGE_END);
 
         mFrame.setContentPane(mContentPane);
 

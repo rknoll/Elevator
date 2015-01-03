@@ -7,5 +7,5 @@ import at.fhhagenberg.sqe.project.model.Floor;
  * Created by rknoll on 03/01/15.
  */
 interface IService {
-    void refresh();
+    void refresh() throws ElevatorConnectionLostException;
 }

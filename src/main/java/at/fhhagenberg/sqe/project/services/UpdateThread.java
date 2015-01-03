@@ -1,5 +1,7 @@
 package at.fhhagenberg.sqe.project.services;
 
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
+
 /**
  * Created by rknoll on 03/01/15.
  */
@@ -20,6 +22,7 @@ public class UpdateThread extends Thread {
                 mService.refresh();
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
+            } catch (ElevatorConnectionLostException ignored) {
             }
         }
     }

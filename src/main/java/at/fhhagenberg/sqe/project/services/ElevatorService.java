@@ -27,69 +27,66 @@ public class ElevatorService implements IService, PropertyChangeListener {
     }
 
     @Override
-    public void refresh() {
-        try {
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_BUTTON) > 0) {
-                for (Floor floor : mElevator.getFloors()) {
-                    mElevator.setButton(floor, mAdapter.getElevatorButton(mElevator.getElevatorNumber(), floor.getFloorNumber()));
-                }
+    public void refresh() throws ElevatorConnectionLostException {
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_BUTTON) > 0) {
+            for (Floor floor : mElevator.getFloors()) {
+                mElevator.setButton(floor, mAdapter.getElevatorButton(mElevator.getElevatorNumber(), floor.getFloorNumber()));
             }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_SERVICE) > 1) {
-                for (Floor floor : mElevator.getFloors()) {
-                    boolean service = mAdapter.getServicesFloors(mElevator.getElevatorNumber(), floor.getFloorNumber());
-                    mIsUpdating = true;
-                    mElevator.setService(floor, service);
-                    mIsUpdating = false;
-                }
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_TARGET) > 1) {
-                int target = mAdapter.getTarget(mElevator.getElevatorNumber());
-                Floor targetFloor = null;
-                for (Floor floor : mElevator.getFloors()) {
-                    targetFloor = floor;
-                    if (floor.getFloorNumber() == target) break;
-                }
-                if (targetFloor != null && targetFloor.getFloorNumber() == target) {
-                    mIsUpdating = true;
-                    mElevator.setTarget(targetFloor);
-                    mIsUpdating = false;
-                }
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_POSITION) > 0) {
-                mElevator.setPosition(mAdapter.getElevatorPosition(mElevator.getElevatorNumber()));
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_ACCELERATION) > 0) {
-                mElevator.setAcceleration(mAdapter.getElevatorAccel(mElevator.getElevatorNumber()));
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_CAPACITY) > 0) {
-                mElevator.setCapacity(mAdapter.getElevatorCapacity(mElevator.getElevatorNumber()));
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_CURRENT_FLOOR) > 0) {
-                int current = mAdapter.getElevatorFloor(mElevator.getElevatorNumber());
-                Floor currentFloor = null;
-                for (Floor floor : mElevator.getFloors()) {
-                    currentFloor = floor;
-                    if (floor.getFloorNumber() == current) break;
-                }
-                if (currentFloor != null && currentFloor.getFloorNumber() == current) {
-                    mElevator.setCurrentFloor(currentFloor);
-                }
-            }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DIRECTION) > 1) {
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_SERVICE) > 1) {
+            for (Floor floor : mElevator.getFloors()) {
+                boolean service = mAdapter.getServicesFloors(mElevator.getElevatorNumber(), floor.getFloorNumber());
                 mIsUpdating = true;
-                mElevator.setDirection(mAdapter.getCommittedDirection(mElevator.getElevatorNumber()));
+                mElevator.setService(floor, service);
                 mIsUpdating = false;
             }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DOOR_STATUS) > 0) {
-                mElevator.setDoorStatus(mAdapter.getElevatorDoorStatus(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_TARGET) > 1) {
+            int target = mAdapter.getTarget(mElevator.getElevatorNumber());
+            Floor targetFloor = null;
+            for (Floor floor : mElevator.getFloors()) {
+                targetFloor = floor;
+                if (floor.getFloorNumber() == target) break;
             }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_SPEED) > 0) {
-                mElevator.setSpeed(mAdapter.getElevatorSpeed(mElevator.getElevatorNumber()));
+            if (targetFloor != null && targetFloor.getFloorNumber() == target) {
+                mIsUpdating = true;
+                mElevator.setTarget(targetFloor);
+                mIsUpdating = false;
             }
-            if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_WEIGHT) > 0) {
-                mElevator.setWeight(mAdapter.getElevatorWeight(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_POSITION) > 0) {
+            mElevator.setPosition(mAdapter.getElevatorPosition(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_ACCELERATION) > 0) {
+            mElevator.setAcceleration(mAdapter.getElevatorAccel(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_CAPACITY) > 0) {
+            mElevator.setCapacity(mAdapter.getElevatorCapacity(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_CURRENT_FLOOR) > 0) {
+            int current = mAdapter.getElevatorFloor(mElevator.getElevatorNumber());
+            Floor currentFloor = null;
+            for (Floor floor : mElevator.getFloors()) {
+                currentFloor = floor;
+                if (floor.getFloorNumber() == current) break;
             }
-        } catch (ElevatorConnectionLostException ignored) {
+            if (currentFloor != null && currentFloor.getFloorNumber() == current) {
+                mElevator.setCurrentFloor(currentFloor);
+            }
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DIRECTION) > 1) {
+            mIsUpdating = true;
+            mElevator.setDirection(mAdapter.getCommittedDirection(mElevator.getElevatorNumber()));
+            mIsUpdating = false;
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_DOOR_STATUS) > 0) {
+            mElevator.setDoorStatus(mAdapter.getElevatorDoorStatus(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_SPEED) > 0) {
+            mElevator.setSpeed(mAdapter.getElevatorSpeed(mElevator.getElevatorNumber()));
+        }
+        if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_WEIGHT) > 0) {
+            mElevator.setWeight(mAdapter.getElevatorWeight(mElevator.getElevatorNumber()));
         }
     }
 

@@ -1,7 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
 import at.fhhagenberg.sqe.project.model.Elevator;
-import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
+import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 
 import javax.swing.*;
@@ -12,7 +12,7 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by rknoll on 17/12/14.
  */
-public class ElevatorModeComponent extends JComponent implements PropertyChangeListener, IDynamicUIControl {
+public class ElevatorModeComponent extends DynamicUIComponent implements PropertyChangeListener {
 
     private Elevator mElevator;
     private AbstractButton mAutomaticModeToggleButton;

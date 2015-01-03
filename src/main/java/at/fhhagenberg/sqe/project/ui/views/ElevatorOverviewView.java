@@ -3,7 +3,7 @@ package at.fhhagenberg.sqe.project.ui.views;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
-import at.fhhagenberg.sqe.project.ui.IDynamicUIControl;
+import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorFloorComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorModeComponent;
 import at.fhhagenberg.sqe.project.ui.components.ElevatorPositionComponent;
@@ -11,7 +11,6 @@ import at.fhhagenberg.sqe.project.ui.components.FloorStatusComponent;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
@@ -24,7 +23,7 @@ import java.util.List;
 /**
  * Created by rknoll on 16/12/14.
  */
-public class ElevatorOverviewView extends JComponent implements PropertyChangeListener, IDynamicUIControl {
+public class ElevatorOverviewView extends DynamicUIComponent implements PropertyChangeListener {
 
 	private Building mBuilding;
 	private JScrollPane mMainScrollPane;
@@ -32,12 +31,12 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 	private JPanel mVerticalScrollBarSpace;
 	private JPanel mHorizontalScrollBarSpace;
 
-	private List<IDynamicUIControl> mChildControls;
+	private List<DynamicUIComponent> mChildControls;
 
 	public ElevatorOverviewView(Building building, IElevatorDetailSelectListener selectListener) {
 		mBuilding = building;
 		mSelectListener = selectListener;
-		mChildControls = new ArrayList<IDynamicUIControl>();
+		mChildControls = new ArrayList<DynamicUIComponent>();
 		setLayout(new BorderLayout());
 		addComponentListener(new ResizeListener());
 
@@ -179,7 +178,7 @@ public class ElevatorOverviewView extends JComponent implements PropertyChangeLi
 	@Override
 	public void unload() {
 		mBuilding.removePropertyChangeListener(this);
-		for (IDynamicUIControl control : mChildControls) {
+		for (DynamicUIComponent control : mChildControls) {
 			control.unload();
 		}
 	}

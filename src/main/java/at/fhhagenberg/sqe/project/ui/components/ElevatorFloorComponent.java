@@ -1,6 +1,5 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
 
@@ -18,6 +17,7 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
     private Floor mFloor;
 
     private JCheckBox mServeFloorCheckBox;
+    private JButton mCallButton;
 
     public ElevatorFloorComponent(Elevator elevator, Floor floor) {
         mElevator = elevator;
@@ -47,18 +47,22 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
 
         gc.anchor = GridBagConstraints.CENTER;
 
-        JButton callButton = new JButton("Call");
-        callButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
-        pnlElevatorSettings.add(callButton, gc);
+        mCallButton = new JButton("Call");
+        mCallButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
+        pnlElevatorSettings.add(mCallButton, gc);
 
-        callButton.addActionListener(event -> mElevator.setTarget(floor));
+        mCallButton.addActionListener(event -> mElevator.setTarget(floor));
 
         gc.gridy = 1;
         mServeFloorCheckBox = new JCheckBox("Serve");
         mServeFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
         mServeFloorCheckBox.setSelected(elevator.getService(floor));
+        
+        mCallButton.setEnabled(!mElevator.isAutomaticMode());
+    	mServeFloorCheckBox.setEnabled(!mElevator.isAutomaticMode());
 
         mServeFloorCheckBox.addActionListener(event -> mElevator.setService(mFloor, mServeFloorCheckBox.isSelected()));
+        mElevator.addPropertyChangeListener(this);
 
         pnlElevatorSettings.add(mServeFloorCheckBox, gc);
 
@@ -68,5 +72,11 @@ public class ElevatorFloorComponent extends JComponent implements PropertyChange
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         mServeFloorCheckBox.setSelected(mElevator.getService(mFloor));
+        
+        if (evt.getPropertyName() == Elevator.PROP_AUTOMATIC_MODE) 
+        {
+        	mCallButton.setEnabled(!mElevator.isAutomaticMode());
+        	mServeFloorCheckBox.setEnabled(!mElevator.isAutomaticMode());
+        }
     }
 }

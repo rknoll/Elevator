@@ -1,12 +1,9 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -46,13 +43,10 @@ public class ElevatorModeComponent extends JComponent implements PropertyChangeL
 
             if (selected != elevator.isAutomaticMode())
             {
-                System.out.println(abstractButton.getName() + " Changed: " + selected);
+                //System.out.println(abstractButton.getName() + " Changed: " + selected);
                 elevator.setAutomaticMode(selected);
             }
         });
-
-        // TODO: Der Listener funktioniert so nicht.
-        // 		 Im Building muss es f�r jeden Elevator einen ModeChangedListener geben, das dieser Funktion �bergeben wird.
 
         add(mAutomaticModeCheckBox, gc);
 

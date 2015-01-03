@@ -48,7 +48,7 @@ public class Elevator {
     private int mWeight;
     private Direction mDirection;
     
-    private boolean mAutomaticMode;
+    private boolean mAutomaticMode = false;		// set manual mode per default
 
     private Map<Floor, Boolean> mFloorServices;
     private Map<Floor, Boolean> mFloorButtons;

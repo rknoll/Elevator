@@ -4,6 +4,7 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Floor;
 
 import java.beans.PropertyChangeEvent;
@@ -30,6 +31,7 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
         mElevator.addPropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_SPEED, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
+//        mElevator.addPropertyChangeListener(Elevator.PROP_DIRECTION, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
     }
 
@@ -48,6 +50,7 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
             case Elevator.PROP_CURRENT_FLOOR:
             case Elevator.PROP_SPEED:
             case Elevator.PROP_DOOR_STATUS:
+//            case Elevator.PROP_DIRECTION:
             case Elevator.PROP_SERVICE:
                 if (!mElevator.isAutomaticMode()) break;
                 if (mNextGoal == mElevator.getCurrentFloor()) setNextGoal();
@@ -58,28 +61,47 @@ public class AutomaticModeService implements IService, PropertyChangeListener {
     private void setNextGoal() {
         if (mElevator.getSpeed() == 0 && mElevator.getDoorStatus() == Elevator.DoorStatus.OPEN) {
             int floor = mElevator.getCurrentFloor().getFloorNumber();
+            int nextFloor = floor;
+
             do {
                 if (mUpwards) {
-                    ++floor;
+                    ++nextFloor;
                 } else {
-                    --floor;
+                    --nextFloor;
                 }
-                if (floor == mBuilding.getNumberOfFloors()) {
+                if (nextFloor == mBuilding.getNumberOfFloors()) {
                     mUpwards = false;
-                    floor = mElevator.getCurrentFloor().getFloorNumber() - 1;
-                    if (floor == -1) {
+                    nextFloor = mElevator.getCurrentFloor().getFloorNumber() - 1;
+                    if (nextFloor == -1) {
                         mNextGoal = mElevator.getCurrentFloor();
                         break;
                     }
-                } else if (floor == -1) {
+                } else if (nextFloor == -1) {
                     mUpwards = true;
-                    floor = mElevator.getCurrentFloor().getFloorNumber() + 1;
-                    if (floor == mBuilding.getNumberOfFloors()) {
+                    nextFloor = mElevator.getCurrentFloor().getFloorNumber() + 1;
+                    if (nextFloor == mBuilding.getNumberOfFloors()) {
                         mNextGoal = mElevator.getCurrentFloor();
                         break;
                     }
                 }
-                setNextGoal(floor);
+                
+//                // set direction
+//                if (nextFloor > floor)
+//                {
+//                	mElevator.setDirection(Direction.UP);
+//                }
+//                else if (nextFloor < floor)
+//                {
+//                	mElevator.setDirection(Direction.DOWN);
+//                }
+//                else
+//                {
+//                	mElevator.setDirection(Direction.UNCOMMITTED);
+//                }
+                
+                // set next goal
+                setNextGoal(nextFloor);
+                
             } while (!mElevator.getService(mNextGoal));
             mElevator.setTarget(mNextGoal);
         }

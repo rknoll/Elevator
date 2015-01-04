@@ -12,7 +12,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Created by rknoll on 17/12/14.
+ * GUI Component to show the current Position of an Elevator in the Building.
  */
 public class ElevatorPositionComponent extends DynamicUIComponent implements PropertyChangeListener {
 
@@ -48,8 +48,7 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
         }
     }
 
-    private Component CreateComponentElevatorPosition()
-    {
+    private Component CreateComponentElevatorPosition() {
         JPanel pnlFloorPosition = new JPanel(null);
 
         pnlFloorPosition.setPreferredSize(new Dimension(30, 30));
@@ -68,9 +67,9 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         double floorHeight = this.getHeight() / mBuilding.getNumberOfFloors();
-        double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
+        double elevatorPos = (double) mElevator.getPosition() / mBuilding.getHeight();
         double pos = this.getHeight() - floorHeight - elevatorPos * this.getHeight();
-        mElevatorPanel.setLocation(0, (int)pos);
+        mElevatorPanel.setLocation(0, (int) pos);
     }
 
     @Override
@@ -83,9 +82,9 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
         public void componentResized(ComponentEvent e) {
             mElevatorPanel.setBounds(0, 0, 30, e.getComponent().getHeight() / mBuilding.getNumberOfFloors());
             double floorHeight = e.getComponent().getHeight() / mBuilding.getNumberOfFloors();
-            double elevatorPos = (double)mElevator.getPosition() / mBuilding.getHeight();
+            double elevatorPos = (double) mElevator.getPosition() / mBuilding.getHeight();
             double pos = e.getComponent().getHeight() - floorHeight - elevatorPos * e.getComponent().getHeight();
-            mElevatorPanel.setLocation(0, (int)pos);
+            mElevatorPanel.setLocation(0, (int) pos);
         }
     }
 

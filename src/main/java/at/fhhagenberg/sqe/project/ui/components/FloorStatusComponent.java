@@ -4,26 +4,25 @@ import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Created by rknoll on 17/12/14.
+ * GUI Component to show the current Buttons that are pressed in a Floor
  */
 public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
 
     private Floor mFloor;
     private JLabel mLabelButtonState;
 
-    private ImageIcon[][] mIcons;	// [Down][Up]
+    private ImageIcon[][] mIcons;    // [Down][Up]
 
     public FloorStatusComponent(Floor floor) {
         mFloor = floor;
 
         // Create Icons
-        mIcons = new ImageIcon[2][2];	// [Down][Up]
+        mIcons = new ImageIcon[2][2];    // [Down][Up]
         mIcons[0][0] = new ImageIcon(this.getClass().getResource("Down0Up0.png"));
         mIcons[0][1] = new ImageIcon(this.getClass().getResource("Down0Up1.png"));
         mIcons[1][0] = new ImageIcon(this.getClass().getResource("Down1Up0.png"));
@@ -41,7 +40,7 @@ public class FloorStatusComponent extends DynamicUIComponent implements Property
         // -- Spalte 2 -----------------------------------------
         gc.anchor = GridBagConstraints.EAST;
         gc.gridx += 1;
-        add(new JLabel("   "));	// spacer
+        add(new JLabel("   "));    // spacer
 
         // -- Spalte 3 -----------------------------------------
         gc.anchor = GridBagConstraints.EAST;

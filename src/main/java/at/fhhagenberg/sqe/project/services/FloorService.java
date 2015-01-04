@@ -4,10 +4,6 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Floor;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Objects;
-
 /**
  * Helper Class to Refresh a Floors Data
  */
@@ -22,7 +18,7 @@ public class FloorService implements IService {
     }
 
     @Override
-    public void refresh() throws ElevatorConnectionLostException{
+    public void refresh() throws ElevatorConnectionLostException {
         if (mFloor.getPropertyChangeListenersCount(Floor.PROP_BUTTON_UP) > 0) {
             mFloor.setButtonUp(mAdapter.getFloorButtonUp(mFloor.getFloorNumber()));
         }

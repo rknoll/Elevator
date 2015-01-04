@@ -1,27 +1,23 @@
 package at.fhhagenberg.sqe.project.services;
 
-import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
-import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
-import at.fhhagenberg.sqe.project.model.Elevator.Direction;
 import at.fhhagenberg.sqe.project.model.Floor;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Map;
 
 /**
  * Helper Class for the Automatic Mode
  */
-public class AutomaticModeService implements IService, PropertyChangeListener {
+public class SimpleAutomaticModeService implements IService, PropertyChangeListener {
 
     private Building mBuilding;
     private Elevator mElevator;
     private Floor mNextGoal;
     private boolean mUpwards;
 
-    public AutomaticModeService(Building building, Elevator elevator) {
+    public SimpleAutomaticModeService(Building building, Elevator elevator) {
         mBuilding = building;
         mElevator = elevator;
         mNextGoal = null;

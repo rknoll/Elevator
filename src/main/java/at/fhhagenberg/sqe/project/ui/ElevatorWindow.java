@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by rknoll on 16/12/14.
+ * The Window of the Elevator Program
  */
 public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
     private JFrame mFrame;

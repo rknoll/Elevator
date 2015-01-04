@@ -5,16 +5,19 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * GUI Component for a Simple On/Off Switch
+ */
 public class OnOffButtonComponent extends AbstractButton {
-    private Color colorBright = new Color(220,220,220);
-    private Color colorDark = new Color(150,150,150);
-    private Color black  = new Color(0,0,0,100);
-    private Color white = new Color(255,255,255,100);
-    private Color light = new Color(220,220,220);
+    private Color colorBright = new Color(220, 220, 220);
+    private Color colorDark = new Color(150, 150, 150);
+    private Color black = new Color(0, 0, 0, 100);
+    private Color white = new Color(255, 255, 255, 100);
+    private Color light = new Color(220, 220, 220);
 
-    private Color textColor  = new Color(0,0,0,200);
+    private Color textColor = new Color(0, 0, 0, 200);
     private Color falseColor = Color.lightGray;
-    private Color trueColor = new Color(230,46,46);
+    private Color trueColor = new Color(230, 46, 46);
 
     private Font font = new JLabel().getFont();
     private int gap;
@@ -30,19 +33,19 @@ public class OnOffButtonComponent extends AbstractButton {
     public OnOffButtonComponent(String trueLabel, String falseLabel) {
         this.trueLabel = trueLabel;
         this.falseLabel = falseLabel;
-        trueLength = (int)getFontMetrics( getFont() ).getStringBounds( trueLabel, getGraphics() ).getWidth();
-        falseLength = (int)getFontMetrics( getFont() ).getStringBounds( falseLabel, getGraphics() ).getWidth();
+        trueLength = (int) getFontMetrics(getFont()).getStringBounds(trueLabel, getGraphics()).getWidth();
+        falseLength = (int) getFontMetrics(getFont()).getStringBounds(falseLabel, getGraphics()).getWidth();
         max = Math.max(trueLength, falseLength);
-        gap =  Math.abs(trueLength - falseLength);
-        thumbBounds  = new Dimension(30,18);
-        globalWidth =  max + thumbBounds.width+gap;
-        setModel( new DefaultButtonModel() );
-        setSelected( false );
-        addMouseListener( new MouseAdapter() {
+        gap = Math.abs(trueLength - falseLength);
+        thumbBounds = new Dimension(30, 18);
+        globalWidth = max + thumbBounds.width + gap;
+        setModel(new DefaultButtonModel());
+        setSelected(false);
+        addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseReleased( MouseEvent e ) {
-                if(new Rectangle( getPreferredSize() ).contains( e.getPoint() )) {
-                    setSelected( !isSelected() );
+            public void mouseReleased(MouseEvent e) {
+                if (new Rectangle(getPreferredSize()).contains(e.getPoint())) {
+                    setSelected(!isSelected());
                 }
             }
         });
@@ -54,19 +57,20 @@ public class OnOffButtonComponent extends AbstractButton {
     }
 
     @Override
-    public void setSelected( boolean b ) {
-        if(b){
-            setText( trueLabel );
-            setBackground( trueColor );
+    public void setSelected(boolean b) {
+        if (b) {
+            setText(trueLabel);
+            setBackground(trueColor);
         } else {
-            setBackground( falseColor );
-            setText( falseLabel );
+            setBackground(falseColor);
+            setText(falseLabel);
         }
-        super.setSelected( b );
+        super.setSelected(b);
     }
+
     @Override
-    public void setText( String text ) {
-        super.setText( text );
+    public void setText(String text) {
+        super.setText(text);
     }
 
     @Override
@@ -85,20 +89,20 @@ public class OnOffButtonComponent extends AbstractButton {
     }
 
     @Override
-    protected void paintComponent( Graphics g ) {
-        g.setColor( getBackground() );
-        g.fillRoundRect( 1, 1, getWidth()-2 - 1, getHeight()-2 ,2 ,2 );
-        Graphics2D g2 = (Graphics2D)g;
+    protected void paintComponent(Graphics g) {
+        g.setColor(getBackground());
+        g.fillRoundRect(1, 1, getWidth() - 2 - 1, getHeight() - 2, 2, 2);
+        Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor( black );
-        g2.drawRoundRect( 1, 1, getWidth()-2 - 1, getHeight()-2 - 1, 2,2 );
-        g2.setColor( white );
-        g2.drawRoundRect( 1 + 1, 1 + 1, getWidth()-2 - 3, getHeight()-2 - 3, 2,2 );
+        g2.setColor(black);
+        g2.drawRoundRect(1, 1, getWidth() - 2 - 1, getHeight() - 2 - 1, 2, 2);
+        g2.setColor(white);
+        g2.drawRoundRect(1 + 1, 1 + 1, getWidth() - 2 - 3, getHeight() - 2 - 3, 2, 2);
 
         int x;
         int lx;
 
-        if(isSelected()) {
+        if (isSelected()) {
             x = max + gap;
             lx = (max - trueLength) / 2;
         } else {
@@ -110,37 +114,37 @@ public class OnOffButtonComponent extends AbstractButton {
         int w = thumbBounds.width;
         int h = thumbBounds.height;
 
-        g2.setPaint( new GradientPaint(x, (int)(y-0.1*h), colorDark , x, (int)(y+1.2*h), light) );
-        g2.fillRect( x, y, w, h );
-        g2.setPaint( new GradientPaint(x, (int)(y+.65*h), light , x, (int)(y+1.3*h), colorDark) );
-        g2.fillRect( x, (int)(y+.65*h), w, (int)(h-.65*h) );
+        g2.setPaint(new GradientPaint(x, (int) (y - 0.1 * h), colorDark, x, (int) (y + 1.2 * h), light));
+        g2.fillRect(x, y, w, h);
+        g2.setPaint(new GradientPaint(x, (int) (y + .65 * h), light, x, (int) (y + 1.3 * h), colorDark));
+        g2.fillRect(x, (int) (y + .65 * h), w, (int) (h - .65 * h));
 
-        if (w>14){
+        if (w > 14) {
             int size = 10;
-            g2.setColor( colorBright );
-            g2.fillRect(x+w/2-size/2,y+h/2-size/2, size, size);
-            g2.setColor( new Color(120,120,120));
-            g2.fillRect(x+w/2-4,h/2-4, 2, 2);
-            g2.fillRect(x+w/2-1,h/2-4, 2, 2);
-            g2.fillRect(x+w/2+2,h/2-4, 2, 2);
-            g2.setColor( colorDark );
-            g2.fillRect(x+w/2-4,h/2-2, 2, 6);
-            g2.fillRect(x+w/2-1,h/2-2, 2, 6);
-            g2.fillRect(x+w/2+2,h/2-2, 2, 6);
-            g2.setColor( new Color(170,170,170));
-            g2.fillRect(x+w/2-4,h/2+2, 2, 2);
-            g2.fillRect(x+w/2-1,h/2+2, 2, 2);
-            g2.fillRect(x+w/2+2,h/2+2, 2, 2);
+            g2.setColor(colorBright);
+            g2.fillRect(x + w / 2 - size / 2, y + h / 2 - size / 2, size, size);
+            g2.setColor(new Color(120, 120, 120));
+            g2.fillRect(x + w / 2 - 4, h / 2 - 4, 2, 2);
+            g2.fillRect(x + w / 2 - 1, h / 2 - 4, 2, 2);
+            g2.fillRect(x + w / 2 + 2, h / 2 - 4, 2, 2);
+            g2.setColor(colorDark);
+            g2.fillRect(x + w / 2 - 4, h / 2 - 2, 2, 6);
+            g2.fillRect(x + w / 2 - 1, h / 2 - 2, 2, 6);
+            g2.fillRect(x + w / 2 + 2, h / 2 - 2, 2, 6);
+            g2.setColor(new Color(170, 170, 170));
+            g2.fillRect(x + w / 2 - 4, h / 2 + 2, 2, 2);
+            g2.fillRect(x + w / 2 - 1, h / 2 + 2, 2, 2);
+            g2.fillRect(x + w / 2 + 2, h / 2 + 2, 2, 2);
         }
 
-        g2.setColor( black );
-        g2.drawRoundRect( x, y, w - 1, h - 1, 2,2 );
-        g2.setColor( white );
-        g2.drawRoundRect( x + 1, y + 1, w - 3, h - 3, 2,2 );
+        g2.setColor(black);
+        g2.drawRoundRect(x, y, w - 1, h - 1, 2, 2);
+        g2.setColor(white);
+        g2.drawRoundRect(x + 1, y + 1, w - 3, h - 3, 2, 2);
 
-        g2.setColor( textColor );
-        g2.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON );
-        g2.setFont( getFont() );
-        g2.drawString( getText(), lx + gap / 2, y+h/2+h/4 );
+        g2.setColor(textColor);
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2.setFont(getFont());
+        g2.drawString(getText(), lx + gap / 2, y + h / 2 + h / 4);
     }
 }

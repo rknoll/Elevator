@@ -25,6 +25,7 @@ public class Floor {
 
     /**
      * Constructor for a Floor, identified by it's Floor Number and a Human readable representation
+     *
      * @param floorNumber The Floor Number
      * @param description The Human readable representation, e.g. "Lobby"
      */

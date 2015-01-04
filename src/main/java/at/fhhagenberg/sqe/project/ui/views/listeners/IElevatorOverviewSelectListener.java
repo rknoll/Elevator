@@ -1,7 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.views.listeners;
 
 /**
- * Created by rknoll on 16/12/14.
+ * Listener to switch back to the Overview
  */
 public interface IElevatorOverviewSelectListener {
     void selectOverview();

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by rknoll on 15/12/14.
+ * Represents an Elevator and all its Properties
  */
 public class Elevator {
     /* Support Class for Property Change Listeners */
@@ -47,8 +47,8 @@ public class Elevator {
     private int mCapacity;
     private int mWeight;
     private Direction mDirection;
-    
-    private boolean mAutomaticMode = false;		// set manual mode per default
+
+    private boolean mAutomaticMode = false;        // set manual mode per default
 
     private Map<Floor, Boolean> mFloorServices;
     private Map<Floor, Boolean> mFloorButtons;
@@ -193,10 +193,10 @@ public class Elevator {
 
     public void setCapacity(int capacity) throws IllegalArgumentException {
         if (capacity < 0) {
-        	throw new IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
         int oldValue = mCapacity;
-    	this.mCapacity = capacity;
+        this.mCapacity = capacity;
         pcs.firePropertyChange(PROP_CAPACITY, oldValue, mCapacity);
     }
 
@@ -220,20 +220,20 @@ public class Elevator {
         pcs.firePropertyChange(PROP_DIRECTION, oldValue, mDirection);
     }
 
-	/**
-	 * @return true if it is in AutomaticMode
-	 */
-	public boolean isAutomaticMode() {
-		return mAutomaticMode;
-	}
+    /**
+     * @return true if it is in AutomaticMode
+     */
+    public boolean isAutomaticMode() {
+        return mAutomaticMode;
+    }
 
-	/**
-	 * @param automaticMode true to set it to AutomaticMode
-	 */
-	public void setAutomaticMode(boolean automaticMode) {
+    /**
+     * @param automaticMode true to set it to AutomaticMode
+     */
+    public void setAutomaticMode(boolean automaticMode) {
         boolean oldValue = mAutomaticMode;
-		this.mAutomaticMode = automaticMode;
+        this.mAutomaticMode = automaticMode;
         pcs.firePropertyChange(PROP_AUTOMATIC_MODE, oldValue, mAutomaticMode);
-	}
+    }
 
 }

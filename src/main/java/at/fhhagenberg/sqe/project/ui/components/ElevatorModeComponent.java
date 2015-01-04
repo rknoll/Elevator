@@ -10,7 +10,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Created by rknoll on 17/12/14.
+ * GUI Component for an Elevator.
+ * Shows the current Mode (automatic, manual) and a Button to Switch to the Detail View of this Elevator
  */
 public class ElevatorModeComponent extends DynamicUIComponent implements PropertyChangeListener {
 

@@ -54,7 +54,7 @@ public abstract class BuildingService implements IService {
 
         for (Elevator elevator : mBuilding.getElevators()) {
             mSubServices.add(new ElevatorService(adapter, elevator));
-            mSubServices.add(new AutomaticModeService(mBuilding, elevator));
+            mSubServices.add(new SimpleAutomaticModeService(mBuilding, elevator));
         }
 
         mBuilding.setConnected(true);

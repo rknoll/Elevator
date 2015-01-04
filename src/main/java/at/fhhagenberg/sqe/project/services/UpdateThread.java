@@ -3,7 +3,7 @@ package at.fhhagenberg.sqe.project.services;
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 
 /**
- * Created by rknoll on 03/01/15.
+ * A Thread to Call a Service in a specific interval
  */
 public class UpdateThread extends Thread {
 

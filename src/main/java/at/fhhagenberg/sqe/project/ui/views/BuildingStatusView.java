@@ -10,7 +10,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Created by rknoll on 03/01/15.
+ * Status Bar of the Building and its Connection
  */
 public class BuildingStatusView extends DynamicUIComponent implements PropertyChangeListener {
 

@@ -3,14 +3,14 @@ package at.fhhagenberg.sqe.project.connection;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 /**
- * Created by rknoll on 16/12/14.
+ * Example Elevator to Test UI Components without an active Connection
  */
 public class DummyElevator implements IElevatorAdapter {
     private boolean mBtnState;
 
     public DummyElevator() {
         new Thread(() -> {
-            while(true) {
+            while (true) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ignored) {

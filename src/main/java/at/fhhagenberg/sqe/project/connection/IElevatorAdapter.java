@@ -3,7 +3,7 @@ package at.fhhagenberg.sqe.project.connection;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 /**
- * Created by rknoll on 16/12/14.
+ * Adapter Interface to Elevator
  */
 public interface IElevatorAdapter {
 

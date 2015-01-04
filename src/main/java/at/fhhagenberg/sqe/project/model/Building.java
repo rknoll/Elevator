@@ -102,18 +102,15 @@ public class Building {
         return mElevators;
     }
 
-    public int getNumberOfFloors()
-    {
+    public int getNumberOfFloors() {
         return mNumberOfFloors;
     }
 
-    public int getNumberOfElevators()
-    {
-    	return mNumberOfElevators;
+    public int getNumberOfElevators() {
+        return mNumberOfElevators;
     }
 
-    public int getHeight()
-    {
+    public int getHeight() {
         return mHeight;
     }
 
@@ -123,8 +120,7 @@ public class Building {
         pcs.firePropertyChange(PROP_CONNECTED, oldValue, mConnected);
     }
 
-    public boolean isConnected()
-    {
+    public boolean isConnected() {
         return mConnected;
     }
 

@@ -23,6 +23,7 @@ public class ElevatorProgram {
 
     /**
      * Main Entry function to the Elevator Project
+     *
      * @param args command line arguments
      */
     public static void main(String[] args) {

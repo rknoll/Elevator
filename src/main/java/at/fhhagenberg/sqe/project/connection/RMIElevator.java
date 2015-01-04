@@ -6,7 +6,7 @@ import sqelevator.IElevator;
 import java.rmi.RemoteException;
 
 /**
- * Created by rknoll on 16/12/14.
+ * Connection to an Elevator using RMI
  */
 public class RMIElevator implements IElevatorAdapter {
 
@@ -25,9 +25,12 @@ public class RMIElevator implements IElevatorAdapter {
             throw new ElevatorConnectionLostException(e);
         }
         switch (ret) {
-            case IElevator.ELEVATOR_DIRECTION_UP: return Elevator.Direction.UP;
-            case IElevator.ELEVATOR_DIRECTION_DOWN: return Elevator.Direction.DOWN;
-            default: return Elevator.Direction.UNCOMMITTED;
+            case IElevator.ELEVATOR_DIRECTION_UP:
+                return Elevator.Direction.UP;
+            case IElevator.ELEVATOR_DIRECTION_DOWN:
+                return Elevator.Direction.DOWN;
+            default:
+                return Elevator.Direction.UNCOMMITTED;
         }
     }
 
@@ -62,10 +65,14 @@ public class RMIElevator implements IElevatorAdapter {
             throw new ElevatorConnectionLostException(e);
         }
         switch (ret) {
-            case IElevator.ELEVATOR_DOORS_OPEN: return Elevator.DoorStatus.OPEN;
-            case IElevator.ELEVATOR_DOORS_OPENING: return Elevator.DoorStatus.OPENING;
-            case IElevator.ELEVATOR_DOORS_CLOSING: return Elevator.DoorStatus.CLOSING;
-            default: return Elevator.DoorStatus.CLOSED;
+            case IElevator.ELEVATOR_DOORS_OPEN:
+                return Elevator.DoorStatus.OPEN;
+            case IElevator.ELEVATOR_DOORS_OPENING:
+                return Elevator.DoorStatus.OPENING;
+            case IElevator.ELEVATOR_DOORS_CLOSING:
+                return Elevator.DoorStatus.CLOSING;
+            default:
+                return Elevator.DoorStatus.CLOSED;
         }
     }
 
@@ -213,7 +220,7 @@ public class RMIElevator implements IElevatorAdapter {
                     dir = IElevator.ELEVATOR_DIRECTION_DOWN;
                     break;
                 default:
-                	break;
+                    break;
             }
             mElevatorConnection.setCommittedDirection(elevatorNumber, dir);
         } catch (RemoteException e) {

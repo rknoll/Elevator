@@ -21,6 +21,11 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
     private JComponent mContentPane;
 
     public ElevatorWindow(Building building) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ignored) {
+        }
+
         mBuilding = building;
 
         mFrame = new JFrame("ElevatorControl");

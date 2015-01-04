@@ -14,20 +14,20 @@ import java.beans.PropertyChangeListener;
  */
 public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Floor mFloor;    
+    private Floor mFloor;
     private JLabel mLabelButtonState;
-    
+
     private ImageIcon[][] mIcons;	// [Down][Up]
 
     public FloorStatusComponent(Floor floor) {
         mFloor = floor;
-        
-        // Create Icons 
+
+        // Create Icons
         mIcons = new ImageIcon[2][2];	// [Down][Up]
-        mIcons[0][0] = new ImageIcon("img/Down0Up0.png", "IconDown0Up0");
-        mIcons[0][1] = new ImageIcon("img/Down0Up1.png", "IconDown0Up1");
-        mIcons[1][0] = new ImageIcon("img/Down1Up0.png", "IconDown1Up0");
-        mIcons[1][1] = new ImageIcon("img/Down1Up1.png", "IconDown1Up1");
+        mIcons[0][0] = new ImageIcon(this.getClass().getResource("Down0Up0.png"));
+        mIcons[0][1] = new ImageIcon(this.getClass().getResource("Down0Up1.png"));
+        mIcons[1][0] = new ImageIcon(this.getClass().getResource("Down1Up0.png"));
+        mIcons[1][1] = new ImageIcon(this.getClass().getResource("Down1Up1.png"));
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -37,7 +37,7 @@ public class FloorStatusComponent extends DynamicUIComponent implements Property
         gc.gridy = 0;
         gc.anchor = GridBagConstraints.WEST;
         add(new JLabel(floor.getDescription()), gc);
-        
+
         // -- Spalte 2 -----------------------------------------
         gc.anchor = GridBagConstraints.EAST;
         gc.gridx += 1;

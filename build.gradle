@@ -6,6 +6,16 @@ apply plugin: 'jacoco'
 group = 'at.fhhagenberg.sqe.project'
 version = '0.1'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+}
+
 buildscript {
     repositories { mavenCentral() }
     dependencies { classpath 'org.ajoberstar:gradle-jacoco:0.2.0' }

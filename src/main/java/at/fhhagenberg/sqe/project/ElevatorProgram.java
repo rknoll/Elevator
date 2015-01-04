@@ -4,8 +4,6 @@
 
 package at.fhhagenberg.sqe.project;
 
-//import at.fhhagenberg.sqe.project.connection.DummyElevator;
-import at.fhhagenberg.sqe.project.connection.DummyElevator;
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
@@ -16,10 +14,7 @@ import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
 import sqelevator.IElevator;
 
 import javax.swing.*;
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 
 /**
  * Main Entry Class for the Elevator Project

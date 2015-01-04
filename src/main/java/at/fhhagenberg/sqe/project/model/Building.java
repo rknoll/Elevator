@@ -9,9 +9,7 @@ import java.util.List;
 /**
  * A representation of a whole Building with Floors and Elevators
  */
-public class Building {
-    /* Support Class for Property Change Listeners */
-    private final PropertyChangeSupport pcs;
+public class Building extends ListenableModel {
 
     /* All possible Properties */
     public static final String PROP_NUMBER_OF_ELEVATORS = "numberOfElevators";
@@ -28,38 +26,8 @@ public class Building {
     private List<Floor> mFloors;
 
     public Building() {
-        pcs = new PropertyChangeSupport(this);
         mElevators = new ArrayList<Elevator>();
         mFloors = new ArrayList<Floor>();
-    }
-
-    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(property, listener);
-    }
-
-    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(property, listener);
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(listener);
-    }
-
-    public int getPropertyChangeListenersCount(String property) {
-        int totalNumber = 0;
-        for (PropertyChangeListener listener : pcs.getPropertyChangeListeners()) {
-            if (listener instanceof PropertyChangeListenerProxy) {
-                PropertyChangeListenerProxy proxy = (PropertyChangeListenerProxy) listener;
-                if (proxy.getPropertyName().equals(property)) ++totalNumber;
-            } else {
-                ++totalNumber;
-            }
-        }
-        return totalNumber;
     }
 
     public void setNumberOfFloorsAndElevators(int numberOfFloors, int numberOfElevators) {

@@ -16,19 +16,35 @@ public class SimpleAutomaticModeService implements IService, PropertyChangeListe
     private Elevator mElevator;
     private Floor mNextGoal;
     private boolean mUpwards;
+    private boolean mRegistered;
 
     public SimpleAutomaticModeService(Building building, Elevator elevator) {
         mBuilding = building;
         mElevator = elevator;
         mNextGoal = null;
         mUpwards = true;
-        if (mElevator.isAutomaticMode()) setNextGoal();
+
         mElevator.addPropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
-        mElevator.addPropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
-        mElevator.addPropertyChangeListener(Elevator.PROP_SPEED, this);
-        mElevator.addPropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
-        mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
-        mElevator.addPropertyChangeListener(Elevator.PROP_DIRECTION, this);
+
+        checkRegistries();
+
+        setNextGoal();
+    }
+
+    private void checkRegistries() {
+        if (mElevator.isAutomaticMode() && !mRegistered) {
+            mElevator.addPropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
+            mElevator.addPropertyChangeListener(Elevator.PROP_SPEED, this);
+            mElevator.addPropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
+            mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
+            mRegistered = true;
+        } else if (!mElevator.isAutomaticMode() && mRegistered) {
+            mElevator.removePropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
+            mElevator.removePropertyChangeListener(Elevator.PROP_SPEED, this);
+            mElevator.removePropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
+            mElevator.removePropertyChangeListener(Elevator.PROP_SERVICE, this);
+            mRegistered = false;
+        }
     }
 
     @Override
@@ -38,22 +54,12 @@ public class SimpleAutomaticModeService implements IService, PropertyChangeListe
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        switch (evt.getPropertyName()) {
-            case Elevator.PROP_AUTOMATIC_MODE:
-                if (!mElevator.isAutomaticMode()) break;
-                setNextGoal();
-                break;
-            case Elevator.PROP_CURRENT_FLOOR:
-            case Elevator.PROP_SPEED:
-            case Elevator.PROP_DOOR_STATUS:
-            case Elevator.PROP_SERVICE:
-                if (!mElevator.isAutomaticMode()) break;
-                if (mNextGoal == mElevator.getCurrentFloor()) setNextGoal();
-                break;
-        }
+        checkRegistries();
+        setNextGoal();
     }
 
     private void setNextGoal() {
+        if (!mElevator.isAutomaticMode()) return;
         if (mElevator.getSpeed() == 0 && mElevator.getDoorStatus() == Elevator.DoorStatus.OPEN) {
             int nextFloor = mElevator.getCurrentFloor().getFloorNumber();
 

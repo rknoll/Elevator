@@ -3,15 +3,15 @@ package at.fhhagenberg.sqe.project.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeListenerProxy;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Represents an Elevator and all its Properties
  */
-public class Elevator {
-    /* Support Class for Property Change Listeners */
-    private final PropertyChangeSupport pcs;
+public class Elevator extends ListenableModel {
 
     /* All possible Properties */
     public static final String PROP_BUTTON = "button";
@@ -52,50 +52,27 @@ public class Elevator {
 
     private Map<Floor, Boolean> mFloorServices;
     private Map<Floor, Boolean> mFloorButtons;
+    private List<Floor> mFloors;
 
     public Elevator(int elevatorNumber, String description, Iterable<Floor> floors) {
-        pcs = new PropertyChangeSupport(this);
         mElevatorNumber = elevatorNumber;
         mDescription = description;
+        mFloors = new ArrayList<Floor>();
         mFloorServices = new HashMap<Floor, Boolean>();
         mFloorButtons = new HashMap<Floor, Boolean>();
         for (Floor f : floors) {
+            mFloors.add(f);
             mFloorServices.put(f, false);
             mFloorButtons.put(f, false);
         }
     }
 
-    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(property, listener);
-    }
-
-    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(property, listener);
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(listener);
-    }
-
-    public int getPropertyChangeListenersCount(String property) {
-        int totalNumber = 0;
-        for (PropertyChangeListener listener : pcs.getPropertyChangeListeners()) {
-            if (listener instanceof PropertyChangeListenerProxy) {
-                PropertyChangeListenerProxy proxy = (PropertyChangeListenerProxy) listener;
-                if (proxy.getPropertyName().equals(property)) ++totalNumber;
-            } else {
-                ++totalNumber;
-            }
-        }
-        return totalNumber;
-    }
-
     public Iterable<Floor> getFloors() {
         return mFloorButtons.keySet();
+    }
+
+    public Floor getFloor(int floorNumber) {
+        return mFloors.get(floorNumber);
     }
 
     public int getElevatorNumber() {
@@ -112,6 +89,7 @@ public class Elevator {
     }
 
     public void setService(Floor floor, boolean service) {
+        if (mFloorServices.get(floor) == service) return;
         Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorServices);
         mFloorServices.replace(floor, service);
         pcs.firePropertyChange(PROP_SERVICE, oldValue, mFloorServices);
@@ -122,6 +100,7 @@ public class Elevator {
     }
 
     public void setButton(Floor floor, boolean button) {
+        if (mFloorButtons.get(floor) == button) return;
         Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorButtons);
         mFloorButtons.replace(floor, button);
         pcs.firePropertyChange(PROP_BUTTON, oldValue, mFloorButtons);

@@ -7,6 +7,7 @@ import at.fhhagenberg.sqe.project.ui.DynamicUIComponent;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Arc2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
@@ -65,9 +66,15 @@ public class ElevatorButtonsComponent extends DynamicUIComponent implements Prop
 
     private int getColumns(int numberOfFloors) {
         final double golden = (1+Math.sqrt(5))/2;
+        double lastDistance = Double.MAX_VALUE;
         for (int i = 1; i < numberOfFloors; ++i) {
-            int rows = (int)(golden * i);
-            if (i * rows >= numberOfFloors) return i;
+            int rows = (int)Math.ceil(1.0 * numberOfFloors / i);
+            double ratio = 1.0 * rows / i;
+            if (ratio < golden) {
+                double distance = golden - ratio;
+                return lastDistance < distance ? i - 1 : i;
+            }
+            lastDistance = ratio - golden;
         }
         return 1;
     }

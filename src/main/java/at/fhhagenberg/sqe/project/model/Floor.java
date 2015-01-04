@@ -7,10 +7,7 @@ import java.beans.PropertyChangeSupport;
 /**
  * A representation for a Floor
  */
-public class Floor {
-    /* Support Class for Property Change Listeners */
-    private final PropertyChangeSupport pcs;
-
+public class Floor extends ListenableModel {
     /* All possible Properties */
     public static final String PROP_BUTTON_UP = "buttonUp";
     public static final String PROP_BUTTON_DOWN = "buttonDown";
@@ -30,38 +27,8 @@ public class Floor {
      * @param description The Human readable representation, e.g. "Lobby"
      */
     public Floor(int floorNumber, String description) {
-        pcs = new PropertyChangeSupport(this);
         mFloorNumber = floorNumber;
         mDescription = description;
-    }
-
-    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(property, listener);
-    }
-
-    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(property, listener);
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        pcs.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        pcs.removePropertyChangeListener(listener);
-    }
-
-    public int getPropertyChangeListenersCount(String property) {
-        int totalNumber = 0;
-        for (PropertyChangeListener listener : pcs.getPropertyChangeListeners()) {
-            if (listener instanceof PropertyChangeListenerProxy) {
-                PropertyChangeListenerProxy proxy = (PropertyChangeListenerProxy) listener;
-                if (proxy.getPropertyName().equals(property)) ++totalNumber;
-            } else {
-                ++totalNumber;
-            }
-        }
-        return totalNumber;
     }
 
     public void setButtonUp(boolean buttonUp) {

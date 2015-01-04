@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * GUI Component to show the Status of all Buttons inside an Elevator
@@ -18,19 +21,55 @@ public class ElevatorButtonsComponent extends DynamicUIComponent implements Prop
     private Building mBuilding;
     private Elevator mElevator;
 
-    private JLabel mElevatorButtons;
+    //private JLabel mElevatorButtons;
+
+    private Map<Floor, ElevatorButtonComponent> mElevatorButtons;
 
     public ElevatorButtonsComponent(Building building, Elevator elevator) {
         mBuilding = building;
         mElevator = elevator;
 
-        setLayout(new BorderLayout());
-        mElevatorButtons = new JLabel();
-        add(mElevatorButtons);
+        int floors = mBuilding.getNumberOfFloors();
+        int columns = getColumns(floors);
+        int rows = (int)Math.ceil(1.0 * floors / columns);
+        setLayout(new GridLayout(0,columns,5,5));
+
+        mElevatorButtons = new HashMap<Floor, ElevatorButtonComponent>();
+        ElevatorButtonComponent[] components = new ElevatorButtonComponent[rows * columns];
+
+        for (Floor f : mBuilding.getFloors()) {
+            ElevatorButtonComponent component = new ElevatorButtonComponent(f.getFloorNumber());
+            components[positionOf(f.getFloorNumber(), floors, columns, rows)] = component;
+            mElevatorButtons.put(f, component);
+        }
+
+        for(int i = 0; i < components.length; ++i) {
+            if (components[i] != null) {
+                add(components[i]);
+            } else {
+                add(Box.createGlue());
+            }
+        }
 
         showDetails();
 
         mElevator.addPropertyChangeListener(Elevator.PROP_BUTTON, this);
+    }
+
+    private int positionOf(int floorNumber, int floors, int columns, int rows) {
+        int n = floorNumber + columns * rows - floors;
+        int r = rows - n / columns - 1;
+        int c = n % columns;
+        return r * columns + c;
+    }
+
+    private int getColumns(int numberOfFloors) {
+        final double golden = (1+Math.sqrt(5))/2;
+        for (int i = 1; i < numberOfFloors; ++i) {
+            int rows = (int)(golden * i);
+            if (i * rows >= numberOfFloors) return i;
+        }
+        return 1;
     }
 
     @Override
@@ -44,16 +83,8 @@ public class ElevatorButtonsComponent extends DynamicUIComponent implements Prop
     }
 
     private void showDetails() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<html>");
-        sb.append("Pressed Buttons:<br>");
         for (Floor f : mBuilding.getFloors()) {
-            if (mElevator.getButton(f)) {
-                sb.append(f.getDescription());
-                sb.append("<br>");
-            }
+            mElevatorButtons.get(f).setPressed(mElevator.getButton(f));
         }
-        sb.append("</html>");
-        mElevatorButtons.setText(sb.toString());
     }
 }

@@ -11,6 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * GUI Component to show one Floor Element of an Elevator.
@@ -23,10 +27,18 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
 
     private JCheckBox mServeFloorCheckBox;
     private JButton mCallButton;
+    private Thread mWaitThread;
+    private Lock mLock;
+    private Condition mCondition;
+    private Condition mCondition2;
+    private boolean mUpdateBlocked;
 
     public ElevatorFloorComponent(Elevator elevator, Floor floor) {
         mElevator = elevator;
         mFloor = floor;
+        mLock = new ReentrantLock();
+        mCondition = mLock.newCondition();
+        mCondition2 = mLock.newCondition();
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -42,6 +54,7 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         // property changed listeners
         mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
+        mElevator.addPropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
 
         // action listeners
         mCallButton.addActionListener(this);
@@ -66,7 +79,7 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         mServeFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
         mServeFloorCheckBox.setSelected(elevator.getService(floor));
 
-        mCallButton.setEnabled(!mElevator.isAutomaticMode());
+        mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
 
         pnlElevatorSettings.add(mServeFloorCheckBox, gc);
 
@@ -77,21 +90,68 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == mCallButton) {
             int targetFloor = mFloor.getFloorNumber();
-            int currentFloor = mElevator.getCurrentFloor().getFloorNumber();
-
-            // set direction
-            if (targetFloor > currentFloor) {
-                mElevator.setDirection(Direction.UP);
-            } else if (targetFloor < currentFloor) {
-                mElevator.setDirection(Direction.DOWN);
-            } else {
+            if (mElevator.getCurrentFloor() == null) {
                 mElevator.setDirection(Direction.UNCOMMITTED);
+            } else {
+                int currentFloor = mElevator.getCurrentFloor().getFloorNumber();
+
+                // set direction
+                if (targetFloor > currentFloor) {
+                    mElevator.setDirection(Direction.UP);
+                } else if (targetFloor < currentFloor) {
+                    mElevator.setDirection(Direction.DOWN);
+                } else {
+                    mElevator.setDirection(Direction.UNCOMMITTED);
+                }
             }
 
             // set new target
             mElevator.setTarget(mFloor);
         } else if (e.getSource() == mServeFloorCheckBox) {
+            mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
+
             mElevator.setService(mFloor, mServeFloorCheckBox.isSelected());
+
+            mLock.lock();
+            if (mWaitThread != null) {
+                mWaitThread.interrupt();
+            }
+            mWaitThread = new Thread(() -> {
+                mLock.lock();
+                mCondition2.signal();
+                try {
+                    mCondition.await(500, TimeUnit.MILLISECONDS);
+                } catch (InterruptedException ignored) {
+                    mLock.unlock();
+                    return;
+                }
+
+                mUpdateBlocked = false;
+
+                updateValues();
+
+                mWaitThread = null;
+                mLock.unlock();
+            });
+            mWaitThread.start();
+
+            mUpdateBlocked = true;
+
+            try {
+                mCondition2.await();
+            } catch (InterruptedException ignored) {
+            }
+            mLock.unlock();
+        }
+    }
+
+    private void updateValues() {
+        boolean newValue = mElevator.getService(mFloor);
+        boolean oldValue = mServeFloorCheckBox.isSelected();
+
+        if (newValue != oldValue) {
+            mServeFloorCheckBox.setSelected(newValue);
+            mCallButton.setEnabled(!mElevator.isAutomaticMode() && newValue);
         }
     }
 
@@ -99,14 +159,16 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
             case Elevator.PROP_SERVICE:
-                boolean newValue = mElevator.getService(mFloor);
-                boolean oldValue = mServeFloorCheckBox.isSelected();
-                if (newValue != oldValue) {
-                    mServeFloorCheckBox.setSelected(newValue);
+                mLock.lock();
+                if (mUpdateBlocked) {
+                    mLock.unlock();
+                    break;
                 }
+                updateValues();
+                mLock.unlock();
                 break;
             case Elevator.PROP_AUTOMATIC_MODE:
-                mCallButton.setEnabled(!mElevator.isAutomaticMode());
+                mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
                 break;
         }
     }
@@ -115,5 +177,6 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
     public void unload() {
         mElevator.removePropertyChangeListener(Elevator.PROP_SERVICE, this);
         mElevator.removePropertyChangeListener(Elevator.PROP_AUTOMATIC_MODE, this);
+        mElevator.removePropertyChangeListener(Elevator.PROP_CURRENT_FLOOR, this);
     }
 }

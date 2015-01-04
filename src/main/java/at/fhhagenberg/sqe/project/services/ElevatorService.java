@@ -96,11 +96,16 @@ public class ElevatorService implements IService, PropertyChangeListener {
         try {
             switch (evt.getPropertyName()) {
                 case Elevator.PROP_SERVICE:
-                    Map<Floor, Boolean> oldValue = (Map<Floor, Boolean>)(evt.getOldValue());
-                    Map<Floor, Boolean> newValue = (Map<Floor, Boolean>)(evt.getNewValue());
+                    Object oldValue = evt.getOldValue();
+                    Object newValue = evt.getNewValue();
+                    if (!(oldValue instanceof Map) || !(newValue instanceof Map)) break;
+                    Map oldMap = (Map) oldValue;
+                    Map newMap = (Map) newValue;
+
                     for (Floor floor : mElevator.getFloors()) {
-                        if (!oldValue.get(floor).equals(newValue.get(floor))) {
-                            mAdapter.setServicesFloors(mElevator.getElevatorNumber(), floor.getFloorNumber(), newValue.get(floor));
+                        if (!(oldMap.get(floor) instanceof Boolean) || !(newMap.get(floor) instanceof Boolean)) break;
+                        if (!oldMap.get(floor).equals(newMap.get(floor))) {
+                            mAdapter.setServicesFloors(mElevator.getElevatorNumber(), floor.getFloorNumber(), (Boolean) newMap.get(floor));
                         }
                     }
                     break;

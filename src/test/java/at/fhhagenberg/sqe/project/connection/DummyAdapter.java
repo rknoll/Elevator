@@ -26,8 +26,8 @@ public class DummyAdapter implements IElevatorAdapter
 		mNumFloors = numFloors;
 		mFloorHeight = 9;	// feet
 		
-		mFloors = new ArrayList<Floor>();
-		mElevators = new ArrayList<Elevator>();
+		mFloors = new ArrayList<>();
+		mElevators = new ArrayList<>();
 		
 		for (int i = 0; i < mNumFloors; i++)
 		{

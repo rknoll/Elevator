@@ -11,8 +11,8 @@ import org.junit.Test;
 import sqelevator.IElevator;
 
 public class RMIElevatorTest {
-	IElevator mMock;
-	RMIElevator mTestObj;
+	private IElevator mMock;
+	private RMIElevator mTestObj;
 
 	@Before
 	public void setUp() throws Exception {

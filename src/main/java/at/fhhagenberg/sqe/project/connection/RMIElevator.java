@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  */
 public class RMIElevator implements IElevatorAdapter {
 
-    private IElevator mElevatorConnection;
+    private final IElevator mElevatorConnection;
 
     public RMIElevator(IElevator elevatorConnection) {
         mElevatorConnection = elevatorConnection;

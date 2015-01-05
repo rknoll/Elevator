@@ -15,8 +15,8 @@ public class Building extends ListenableModel {
     public static final String PROP_CONNECTED = "connected";
 
     /* Constant Class Members */
-    private List<Elevator> mElevators;
-    private List<Floor> mFloors;
+    private final List<Elevator> mElevators;
+    private final List<Floor> mFloors;
 
     /* Dynamic Members */
     private int mNumberOfFloors;

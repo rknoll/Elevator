@@ -184,7 +184,7 @@ public class ElevatorOverviewView extends DynamicUIComponent implements Property
         }
     }
 
-    class ResizeListener extends ComponentAdapter {
+    private class ResizeListener extends ComponentAdapter {
         @Override
         public void componentResized(ComponentEvent e) {
             if (mMainScrollPane.getHorizontalScrollBar().isVisible()) {

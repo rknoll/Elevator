@@ -78,7 +78,7 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
         mElevator.removePropertyChangeListener(Elevator.PROP_POSITION, this);
     }
 
-    class ResizeListener extends ComponentAdapter {
+    private class ResizeListener extends ComponentAdapter {
         @Override
         public void componentResized(ComponentEvent e) {
             mElevatorPanel.setBounds(0, 0, 30, e.getComponent().getHeight() / mBuilding.getNumberOfFloors());

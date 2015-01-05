@@ -35,9 +35,9 @@ public class Elevator extends ListenableModel {
     /* Constant Class Members */
     private final int mElevatorNumber;
     private final String mDescription;
-    private Map<Floor, Boolean> mFloorServices;
-    private Map<Floor, Boolean> mFloorButtons;
-    private List<Floor> mFloors;
+    private final Map<Floor, Boolean> mFloorServices;
+    private final Map<Floor, Boolean> mFloorButtons;
+    private final List<Floor> mFloors;
 
     /* Dynamic Members */
     private Floor mCurrentFloor;

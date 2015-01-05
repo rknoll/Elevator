@@ -71,11 +71,6 @@ public class OnOffButtonComponent extends AbstractButton {
     }
 
     @Override
-    public void setText(String text) {
-        super.setText(text);
-    }
-
-    @Override
     public int getHeight() {
         return getPreferredSize().height;
     }

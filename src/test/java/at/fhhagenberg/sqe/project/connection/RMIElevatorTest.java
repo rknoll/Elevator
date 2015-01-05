@@ -1,7 +1,6 @@
 package at.fhhagenberg.sqe.project.connection;
 
 import static org.easymock.EasyMock.*;
-import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;
 
 import java.rmi.RemoteException;
 
@@ -9,15 +8,11 @@ import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
-import at.fhhagenberg.sqe.project.connection.RMIElevator;
-
 import sqelevator.IElevator;
 
 public class RMIElevatorTest {
 	IElevator mMock;
 	RMIElevator mTestObj;
-	DoorStatus status;
 
 	@Before
 	public void setUp() throws Exception {

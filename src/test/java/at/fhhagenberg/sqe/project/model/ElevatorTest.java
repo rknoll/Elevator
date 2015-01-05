@@ -209,5 +209,8 @@ public class ElevatorTest {
 		assertFalse(elevator.isAutomaticMode());
 	}
 
-
+	@Test
+	public void testNotifications() {
+		// TODO
+	}
 }

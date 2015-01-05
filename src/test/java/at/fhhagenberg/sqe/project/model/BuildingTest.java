@@ -2,7 +2,10 @@ package at.fhhagenberg.sqe.project.model;
 
 import static org.junit.Assert.*;
 
+import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -91,6 +94,53 @@ public class BuildingTest {
 	public void testElevatorDescription() {
 		assertEquals("Elevator 1", building.getElevatorDescription(0));
 		assertEquals("Elevator 2", building.getElevatorDescription(1));
+	}
+
+	@Test
+	public void testNotifications() {
+		List<PropertyChangeEvent> numElevatorsEvents = new ArrayList<>();
+		List<PropertyChangeEvent> numFloorsEvents = new ArrayList<>();
+		List<PropertyChangeEvent> heightEvents = new ArrayList<>();
+		List<PropertyChangeEvent> connectedEvents = new ArrayList<>();
+		building.addPropertyChangeListener(Building.PROP_NUMBER_OF_ELEVATORS, numElevatorsEvents::add);
+		building.addPropertyChangeListener(Building.PROP_NUMBER_OF_FLOORS, numFloorsEvents::add);
+		building.addPropertyChangeListener(Building.PROP_HEIGHT, heightEvents::add);
+		building.addPropertyChangeListener(Building.PROP_CONNECTED, connectedEvents::add);
+
+		building.setNumberOfFloorsAndElevators(2, 1);
+		assertEquals(0, heightEvents.size());
+		assertEquals(0, connectedEvents.size());
+		assertEquals(1, numElevatorsEvents.size());
+		assertEquals(1, numFloorsEvents.size());
+		assertEquals(Building.PROP_NUMBER_OF_ELEVATORS, numElevatorsEvents.get(0).getPropertyName());
+		assertEquals(Building.PROP_NUMBER_OF_FLOORS, numFloorsEvents.get(0).getPropertyName());
+		assertEquals(1, numElevatorsEvents.get(0).getNewValue());
+		assertEquals(2, numFloorsEvents.get(0).getNewValue());
+		assertEquals(NUM_ELEVATORS, numElevatorsEvents.get(0).getOldValue());
+		assertEquals(NUM_FLOORS, numFloorsEvents.get(0).getOldValue());
+
+		building.setConnected(true);
+		assertEquals(0, heightEvents.size());
+		assertEquals(1, connectedEvents.size());
+		assertEquals(1, numElevatorsEvents.size());
+		assertEquals(1, numFloorsEvents.size());
+		assertEquals(true, connectedEvents.get(0).getNewValue());
+		assertEquals(false, connectedEvents.get(0).getOldValue());
+
+		// same value again, no event should be triggered
+		building.setConnected(true);
+		assertEquals(0, heightEvents.size());
+		assertEquals(1, connectedEvents.size());
+		assertEquals(1, numElevatorsEvents.size());
+		assertEquals(1, numFloorsEvents.size());
+
+		building.setHeight(1);
+		assertEquals(1, heightEvents.size());
+		assertEquals(1, connectedEvents.size());
+		assertEquals(1, numElevatorsEvents.size());
+		assertEquals(1, numFloorsEvents.size());
+		assertEquals(1, heightEvents.get(0).getNewValue());
+		assertEquals(0, heightEvents.get(0).getOldValue());
 	}
 
 }

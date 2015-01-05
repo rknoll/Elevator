@@ -21,7 +21,7 @@ public class ElevatorTest {
 
     @Before
     public void setUp() {
-    	floors = new ArrayList<Floor>();
+    	floors = new ArrayList<>();
         floors.add(new Floor(0, "Floor 1"));
         floors.add(new Floor(1, "Floor 2"));
         elevator = new Elevator(32, "elevator under test", floors);
@@ -37,6 +37,12 @@ public class ElevatorTest {
 		
 		assertTrue(floors.contains(floor1));
 		assertTrue(floors.contains(floor2));	
+	}
+
+	@Test
+	public void testGetFloor() {
+		assertEquals(floors.get(0), elevator.getFloor(0));
+		assertEquals(floors.get(1), elevator.getFloor(1));
 	}
 
 	@Test

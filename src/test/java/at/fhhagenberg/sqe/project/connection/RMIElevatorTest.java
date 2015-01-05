@@ -1,4 +1,4 @@
-package at.fhhagenberg.sqe.project.model;
+package at.fhhagenberg.sqe.project.connection;
 
 import static org.easymock.EasyMock.*;
 import at.fhhagenberg.sqe.project.model.Elevator.DoorStatus;

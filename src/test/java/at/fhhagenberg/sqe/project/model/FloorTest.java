@@ -13,7 +13,7 @@ public class FloorTest {
 	private Floor floor;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		floor = new Floor(3, "Floor 3");
 	}
 

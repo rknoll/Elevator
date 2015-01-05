@@ -4,14 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Iterator;
 
-import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
-import at.fhhagenberg.sqe.project.services.BaseAutomaticModeService;
-import at.fhhagenberg.sqe.project.services.BuildingService;
 import org.junit.Before;
 import org.junit.Test;
-
-import at.fhhagenberg.sqe.project.connection.DummyAdapter;
-import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 
 /**
  * Created by Thomas Zoechbauer on 18/12/14.
@@ -19,63 +13,84 @@ import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 public class BuildingTest {
 	
 	private Building building;
-	
+
+	private static final int NUM_ELEVATORS = 2;
+	private static final int NUM_FLOORS = 5;
+
 	@Before
-	public void setUp() throws Exception {
-		int numElevators = 2;
-		int numFloors = 5;
-		IElevatorAdapter adapter = new DummyAdapter(numElevators, numFloors);
+	public void setUp() {
 		building = new Building();
-		BuildingService service = new BuildingService(building) {
-			@Override
-			protected IElevatorAdapter connect() throws ElevatorConnectionLostException {
-				return adapter;
-			}
-
-			@Override
-			protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator) {
-				return null;
-			}
-		};
-		service.refresh();
+		building.setNumberOfFloorsAndElevators(NUM_FLOORS, NUM_ELEVATORS);
 	}
 
 	@Test
-	public void testGetElevators() {
+	public void testNumberOfFloorsAndElevators() {
+		assertEquals(NUM_FLOORS, building.getNumberOfFloors());
+		assertEquals(NUM_ELEVATORS, building.getNumberOfElevators());
+		building.setNumberOfFloorsAndElevators(10, 20);
+		assertEquals(10, building.getNumberOfFloors());
+		assertEquals(20, building.getNumberOfElevators());
+		building.setNumberOfFloorsAndElevators(30, 40);
+		assertEquals(30, building.getNumberOfFloors());
+		assertEquals(40, building.getNumberOfElevators());
+	}
+
+	@Test
+	public void testHeight() {
+		assertEquals(0, building.getHeight());
+		building.setHeight(100);
+		assertEquals(100, building.getHeight());
+		building.setHeight(20);
+		assertEquals(20, building.getHeight());
+	}
+
+	@Test
+	public void testConnected() {
+		assertFalse(building.isConnected());
+		building.setConnected(true);
+		assertTrue(building.isConnected());
+		building.setConnected(false);
+		assertFalse(building.isConnected());
+	}
+
+	@Test
+	public void testElevators() {
 		Iterable<Elevator> elevatorIterable = building.getElevators();
-		Iterator<Elevator> elevatorIter = elevatorIterable.iterator();
-		
-		int elevCount = 0;
-		while (elevatorIter.hasNext())
-		{
-			elevatorIter.next();
-			elevCount++;
+		Iterator<Elevator> elevatorIterator = elevatorIterable.iterator();
+		int elevatorCount = 0;
+
+		while (elevatorIterator.hasNext()) {
+			elevatorIterator.next();
+			elevatorCount++;
 		}
-		assertEquals(2, elevCount);		
+
+		assertEquals(NUM_ELEVATORS, elevatorCount);
 	}
 
 	@Test
-	public void testGetFloors() {
+	public void testFloors() {
 		Iterable<Floor> floorIterable = building.getFloors();
-		Iterator<Floor> floorIter = floorIterable.iterator();
-		
+		Iterator<Floor> floorIterator = floorIterable.iterator();
 		int floorCount = 0;
-		while (floorIter.hasNext())
-		{
-			floorIter.next();
+
+		while (floorIterator.hasNext()) {
+			floorIterator.next();
 			floorCount++;
 		}
-		assertEquals(5, floorCount);	
+
+		assertEquals(NUM_FLOORS, floorCount);
 	}
 
 	@Test
-	public void testGetNumberOfElevators() {
-		assertEquals(2, building.getNumberOfElevators());
+	public void testFloorDescription() {
+		assertEquals("Floor 1", building.getFloorDescription(0));
+		assertEquals("Floor 2", building.getFloorDescription(1));
 	}
 
 	@Test
-	public void testGetNumberOfFloors() {
-		assertEquals(5, building.getNumberOfFloors());
+	public void testElevatorDescription() {
+		assertEquals("Elevator 1", building.getElevatorDescription(0));
+		assertEquals("Elevator 2", building.getElevatorDescription(1));
 	}
 
 }

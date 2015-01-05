@@ -33,10 +33,12 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             // no direction yet, check for requests
             // check passengers first
             for (Floor f : mElevator.getFloors()) {
+                if (!mElevator.getService(f)) continue;
                 if (mElevator.getButton(f)) return f;
             }
             // check external people
             for (Floor f : mElevator.getFloors()) {
+                if (!mElevator.getService(f)) continue;
                 if (containsGoal(f)) continue;
                 if (f.isButtonDown() || f.isButtonUp()) return f;
             }
@@ -47,6 +49,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             if (mElevator.getDirection() == Elevator.Direction.UP) {
                 for (int i = currentFloor + 1; i < floorCount; ++i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonUp()) return f;
@@ -54,6 +57,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             } else {
                 for (int i = currentFloor - 1; i >= 0; --i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonDown()) return f;
@@ -63,6 +67,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             if (mElevator.getDirection() == Elevator.Direction.UP) {
                 for (int i = currentFloor - 1; i >= 0; --i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonDown()) return f;
@@ -70,6 +75,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             } else {
                 for (int i = currentFloor + 1; i < floorCount; ++i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonUp()) return f;
@@ -79,6 +85,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             if (mElevator.getDirection() == Elevator.Direction.UP) {
                 for (int i = currentFloor - 1; i >= 0; --i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonDown() || f.isButtonUp()) return f;
@@ -86,6 +93,7 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             } else {
                 for (int i = currentFloor + 1; i < floorCount; ++i) {
                     Floor f = mElevator.getFloor(i);
+                    if (!mElevator.getService(f)) continue;
                     if (mElevator.getButton(f)) return f;
                     if (containsGoal(f)) continue;
                     if (f.isButtonDown() || f.isButtonUp()) return f;

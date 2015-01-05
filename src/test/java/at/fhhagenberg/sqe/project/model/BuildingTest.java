@@ -48,7 +48,7 @@ public class BuildingTest {
 		int elevCount = 0;
 		while (elevatorIter.hasNext())
 		{
-			Elevator e = elevatorIter.next();
+			elevatorIter.next();
 			elevCount++;
 		}
 		assertEquals(2, elevCount);		
@@ -62,7 +62,7 @@ public class BuildingTest {
 		int floorCount = 0;
 		while (floorIter.hasNext())
 		{
-			Floor f = floorIter.next();
+			floorIter.next();
 			floorCount++;
 		}
 		assertEquals(5, floorCount);	

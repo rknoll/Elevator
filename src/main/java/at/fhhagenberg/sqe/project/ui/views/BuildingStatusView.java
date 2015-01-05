@@ -13,6 +13,7 @@ import java.beans.PropertyChangeListener;
  * Status Bar of the Building and its Connection
  */
 public class BuildingStatusView extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = -3194052998246909730L;
 
     private final Building mBuilding;
 

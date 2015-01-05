@@ -23,6 +23,7 @@ import java.util.List;
  * Overview over all Elevators in a Building
  */
 public class ElevatorOverviewView extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = -5092147526703202380L;
 
     private final Building mBuilding;
     private final IElevatorDetailSelectListener mSelectListener;

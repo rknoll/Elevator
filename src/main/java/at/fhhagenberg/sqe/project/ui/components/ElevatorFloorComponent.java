@@ -21,6 +21,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Contains a Button to Call the Elevator and shows if the Elevator services this Floor.
  */
 public class ElevatorFloorComponent extends DynamicUIComponent implements PropertyChangeListener, ActionListener {
+    private static final long serialVersionUID = -7447358754586529153L;
 
     private final Elevator mElevator;
     private final Floor mFloor;
@@ -48,7 +49,7 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         gc.gridx = 0;
         gc.gridy = 0;
 
-        Component elevatorSetting = CreateComponentElevatorSettings(elevator, floor);
+        Component elevatorSetting = createComponentElevatorSettings(elevator, floor);
         add(elevatorSetting, gc);
         setPreferredSize(new Dimension(90, 60));
 
@@ -62,7 +63,7 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         mServeFloorCheckBox.addActionListener(this);
     }
 
-    private Component CreateComponentElevatorSettings(Elevator elevator, Floor floor) {
+    private Component createComponentElevatorSettings(Elevator elevator, Floor floor) {
         JPanel pnlElevatorSettings = new JPanel(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
@@ -114,35 +115,41 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
             mElevator.setService(mFloor, mServeFloorCheckBox.isSelected());
 
             mLock.lock();
-            if (mWaitThread != null) {
-                mWaitThread.interrupt();
-            }
-            mWaitThread = new Thread(() -> {
-                mLock.lock();
-                mCondition2.signal();
-                try {
-                    mCondition.await(500, TimeUnit.MILLISECONDS);
-                } catch (InterruptedException ignored) {
-                    mLock.unlock();
-                    return;
-                }
-
-                mUpdateBlocked = false;
-
-                updateValues();
-
-                mWaitThread = null;
-                mLock.unlock();
-            });
-            mWaitThread.start();
-
-            mUpdateBlocked = true;
-
             try {
-                mCondition2.await();
-            } catch (InterruptedException ignored) {
+                if (mWaitThread != null) {
+                    mWaitThread.interrupt();
+                }
+                mWaitThread = new Thread(() -> {
+                    mLock.lock();
+                    try {
+                        mUpdateBlocked = true;
+                        mCondition2.signal();
+                        try {
+                            mCondition.await(500, TimeUnit.MILLISECONDS);
+                        } catch (InterruptedException ignored) {
+                            return;
+                        }
+
+                        mUpdateBlocked = false;
+
+                        updateValues();
+
+                        mWaitThread = null;
+                    } finally {
+                        mLock.unlock();
+                    }
+                });
+                mWaitThread.start();
+
+                try {
+                    do {
+                        mCondition2.await();
+                    } while (!mUpdateBlocked);
+                } catch (InterruptedException ignored) {
+                }
+            } finally {
+                mLock.unlock();
             }
-            mLock.unlock();
         }
     }
 
@@ -161,13 +168,15 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         switch (evt.getPropertyName()) {
             case Elevator.PROP_SERVICE:
                 mLock.lock();
-                if (mUpdateBlocked) {
-                    mLock.unlock();
+                try {
+                    if (mUpdateBlocked) {
+                        break;
+                    }
+                    updateValues();
                     break;
+                } finally {
+                    mLock.unlock();
                 }
-                updateValues();
-                mLock.unlock();
-                break;
             case Elevator.PROP_AUTOMATIC_MODE:
                 mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
                 break;

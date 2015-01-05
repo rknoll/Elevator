@@ -16,6 +16,7 @@ import java.util.Map;
  * GUI Component to show the Status of all Buttons inside an Elevator
  */
 public class ElevatorButtonsComponent extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = 2928612880686052934L;
 
     private final Building mBuilding;
     private final Elevator mElevator;

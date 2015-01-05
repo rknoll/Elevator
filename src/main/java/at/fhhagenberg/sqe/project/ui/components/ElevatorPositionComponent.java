@@ -15,6 +15,7 @@ import java.beans.PropertyChangeListener;
  * GUI Component to show the current Position of an Elevator in the Building.
  */
 public class ElevatorPositionComponent extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = -5323061259405307970L;
 
     private final Building mBuilding;
     private final Elevator mElevator;
@@ -30,7 +31,7 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
 
         setLayout(new BorderLayout());
 
-        Component positionPanel = CreateComponentElevatorPosition();
+        Component positionPanel = createComponentElevatorPosition();
         add(positionPanel, BorderLayout.CENTER);
 
         addComponentListener(new ResizeListener());
@@ -48,7 +49,7 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
         }
     }
 
-    private Component CreateComponentElevatorPosition() {
+    private Component createComponentElevatorPosition() {
         JPanel pnlFloorPosition = new JPanel(null);
 
         pnlFloorPosition.setPreferredSize(new Dimension(30, 30));

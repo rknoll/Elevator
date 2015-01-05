@@ -82,6 +82,7 @@ public class ElevatorService implements IService, PropertyChangeListener {
     }
 
     @Override
+    @SuppressWarnings("rawtypes")
     public void propertyChange(PropertyChangeEvent evt) {
         if (mIsUpdating) return;
         try {

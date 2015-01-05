@@ -4,6 +4,7 @@ package at.fhhagenberg.sqe.project.connection;
  * Exception for a Lost Connection
  */
 public class ElevatorConnectionLostException extends Exception {
+    private static final long serialVersionUID = 660595836051089059L;
 
     public ElevatorConnectionLostException() {
     }

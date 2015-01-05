@@ -15,6 +15,7 @@ import java.beans.PropertyChangeListener;
  * Detail View of an Elevator
  */
 public class ElevatorDetailView extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = -7739392955868101812L;
 
     private final Elevator mElevator;
 
@@ -38,14 +39,14 @@ public class ElevatorDetailView extends DynamicUIComponent implements PropertyCh
 
         setLayout(new BorderLayout());
 
-        JScrollPane scroll = new JScrollPane(CreateMainPanel(building, selectListener));
+        JScrollPane scroll = new JScrollPane(createMainPanel(building, selectListener));
         scroll.setBorder(BorderFactory.createEmptyBorder());
         add(scroll, BorderLayout.CENTER);
 
         elevator.addPropertyChangeListener(this);
     }
 
-    private JPanel CreateMainPanel(Building building, IElevatorOverviewSelectListener selectListener) {
+    private JPanel createMainPanel(Building building, IElevatorOverviewSelectListener selectListener) {
         GridBagLayout gbl = new GridBagLayout();
         JPanel mainPanel = new JPanel(gbl);
 
@@ -69,7 +70,7 @@ public class ElevatorDetailView extends DynamicUIComponent implements PropertyCh
         gc.gridx = 1;
         gc.gridy = 1;
 
-        Component detailInfo = CreateComponentDetailInfo();
+        Component detailInfo = createComponentDetailInfo();
         gc.insets = new Insets(0, 0, 0, 10);
         mainPanel.add(detailInfo, gc);
 
@@ -92,7 +93,7 @@ public class ElevatorDetailView extends DynamicUIComponent implements PropertyCh
         return mainPanel;
     }
 
-    private Component CreateComponentDetailInfo() {
+    private Component createComponentDetailInfo() {
         JPanel infoPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 

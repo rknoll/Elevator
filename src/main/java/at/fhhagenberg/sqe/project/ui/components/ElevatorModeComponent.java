@@ -14,6 +14,7 @@ import java.beans.PropertyChangeListener;
  * Shows the current Mode (automatic, manual) and a Button to Switch to the Detail View of this Elevator
  */
 public class ElevatorModeComponent extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = 5416603250092029073L;
 
     private final Elevator mElevator;
     private final AbstractButton mAutomaticModeToggleButton;

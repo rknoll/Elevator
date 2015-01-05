@@ -8,6 +8,8 @@ import java.awt.geom.Ellipse2D;
  * GUI Component that Represents a Button inside an Elevator
  */
 public class ElevatorButtonComponent extends JLabel {
+    private static final long serialVersionUID = -2173760156678087371L;
+
     public static final int DEFAULT_RADIUS = 20;
 
     private final int mRadius;

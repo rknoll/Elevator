@@ -12,6 +12,7 @@ import java.beans.PropertyChangeListener;
  * GUI Component to show the current Buttons that are pressed in a Floor
  */
 public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
+    private static final long serialVersionUID = 6587336751713265244L;
 
     private final Floor mFloor;
     private final JLabel mLabelButtonState;

@@ -7,5 +7,7 @@ import javax.swing.*;
  * A UI Component is Dynamic, if it registers a Listener to one of the Models
  */
 public abstract class DynamicUIComponent extends JComponent {
+    private static final long serialVersionUID = 6313714160593767273L;
+
     public abstract void unload();
 }

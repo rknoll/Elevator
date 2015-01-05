@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
  * GUI Component for a Simple On/Off Switch
  */
 public class OnOffButtonComponent extends AbstractButton {
+    private static final long serialVersionUID = -9158297973761432411L;
+
     private final Color colorBright = new Color(220, 220, 220);
     private final Color colorDark = new Color(150, 150, 150);
     private final Color black = new Color(0, 0, 0, 100);

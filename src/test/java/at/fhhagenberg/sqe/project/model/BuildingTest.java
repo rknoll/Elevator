@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Iterator;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
+import at.fhhagenberg.sqe.project.services.BaseAutomaticModeService;
 import at.fhhagenberg.sqe.project.services.BuildingService;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +30,11 @@ public class BuildingTest {
 			@Override
 			protected IElevatorAdapter connect() throws ElevatorConnectionLostException {
 				return adapter;
+			}
+
+			@Override
+			protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator) {
+				return null;
 			}
 		};
 		service.refresh();

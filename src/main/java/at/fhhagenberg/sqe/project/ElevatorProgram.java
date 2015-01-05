@@ -8,8 +8,8 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 import at.fhhagenberg.sqe.project.model.Building;
-import at.fhhagenberg.sqe.project.services.BuildingService;
-import at.fhhagenberg.sqe.project.services.UpdateThread;
+import at.fhhagenberg.sqe.project.model.Elevator;
+import at.fhhagenberg.sqe.project.services.*;
 import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
 import sqelevator.IElevator;
 
@@ -43,6 +43,12 @@ public class ElevatorProgram {
                 } catch (Exception e) {
                     throw new ElevatorConnectionLostException(e);
                 }
+            }
+
+            @Override
+            protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator) {
+                //return new SimpleAutomaticModeService(building, elevator);
+                return new AdvancedAutomaticModeService(building, elevator);
             }
         };
 

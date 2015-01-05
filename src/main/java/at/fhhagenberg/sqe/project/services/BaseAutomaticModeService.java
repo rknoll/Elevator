@@ -33,6 +33,7 @@ public abstract class BaseAutomaticModeService implements IService, PropertyChan
             mElevator.addPropertyChangeListener(Elevator.PROP_SPEED, this);
             mElevator.addPropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
             mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
+            mElevator.addPropertyChangeListener(Elevator.PROP_BUTTON, this);
             for (Floor f : mElevator.getFloors()) {
                 f.addPropertyChangeListener(this);
             }
@@ -42,6 +43,7 @@ public abstract class BaseAutomaticModeService implements IService, PropertyChan
             mElevator.removePropertyChangeListener(Elevator.PROP_SPEED, this);
             mElevator.removePropertyChangeListener(Elevator.PROP_DOOR_STATUS, this);
             mElevator.removePropertyChangeListener(Elevator.PROP_SERVICE, this);
+            mElevator.removePropertyChangeListener(Elevator.PROP_BUTTON, this);
             for (Floor f : mElevator.getFloors()) {
                 f.removePropertyChangeListener(this);
             }
@@ -51,12 +53,12 @@ public abstract class BaseAutomaticModeService implements IService, PropertyChan
 
     @Override
     public void refresh() {
+        setNextGoal();
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         checkRegistries();
-        setNextGoal();
     }
 
     protected abstract Floor getNextGoal();
@@ -77,6 +79,6 @@ public abstract class BaseAutomaticModeService implements IService, PropertyChan
                 mElevator.setDirection(Elevator.Direction.DOWN);
             }
         }
-        mElevator.setTarget(nextGoal);
+        if (nextGoal != null) mElevator.setTarget(nextGoal);
     }
 }

@@ -36,6 +36,7 @@ public abstract class BuildingService implements IService {
     }
 
     abstract protected IElevatorAdapter connect() throws ElevatorConnectionLostException;
+    abstract protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator);
 
     private void refreshBaseInformation() throws ElevatorConnectionLostException {
         IElevatorAdapter adapter = connect();
@@ -54,7 +55,8 @@ public abstract class BuildingService implements IService {
 
         for (Elevator elevator : mBuilding.getElevators()) {
             mSubServices.add(new ElevatorService(adapter, elevator));
-            mSubServices.add(new SimpleAutomaticModeService(mBuilding, elevator));
+            BaseAutomaticModeService automaticService = getAutomaticService(mBuilding, elevator);
+            if (automaticService != null) mSubServices.add(automaticService);
         }
 
         mBuilding.setConnected(true);

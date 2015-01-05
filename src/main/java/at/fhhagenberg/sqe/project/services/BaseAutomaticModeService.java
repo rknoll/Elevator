@@ -8,12 +8,13 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Created by rknoll on 05/01/15.
+ * Base Class for Automatic Services
  */
 public abstract class BaseAutomaticModeService implements IService, PropertyChangeListener {
 
-    protected Building mBuilding;
-    protected Elevator mElevator;
+    protected final Building mBuilding;
+    protected final Elevator mElevator;
+
     private boolean mRegistered;
 
     public BaseAutomaticModeService(Building building, Elevator elevator) {
@@ -52,12 +53,12 @@ public abstract class BaseAutomaticModeService implements IService, PropertyChan
     }
 
     @Override
-    public void refresh() {
+    public final void refresh() {
         setNextGoal();
     }
 
     @Override
-    public void propertyChange(PropertyChangeEvent evt) {
+    public final void propertyChange(PropertyChangeEvent evt) {
         checkRegistries();
     }
 

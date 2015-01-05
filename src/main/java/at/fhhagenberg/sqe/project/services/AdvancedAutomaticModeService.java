@@ -8,11 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by rknoll on 05/01/15.
+ * An Advanced Automatic mode that implements the Elevator Algorithm
  */
 public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
 
-    private static Map<AdvancedAutomaticModeService, Floor> sGlobalGoals = new HashMap<AdvancedAutomaticModeService, Floor>();
+    /* Contains all Goals of all Elevators */
+    // TODO: refactor this to only contain Goals of Elevators in the same Building
+    private static Map<AdvancedAutomaticModeService, Floor> sGlobalGoals = new HashMap<>();
 
     public AdvancedAutomaticModeService(Building building, Elevator elevator) {
         super(building, elevator);

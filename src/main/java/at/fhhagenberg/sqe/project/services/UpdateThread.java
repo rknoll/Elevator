@@ -7,8 +7,8 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
  */
 public class UpdateThread extends Thread {
 
-    private IService mService;
-    private int mRefreshTimeMs;
+    private final IService mService;
+    private final int mRefreshTimeMs;
 
     public UpdateThread(IService service, int refreshTimeMs) {
         mService = service;

@@ -15,8 +15,8 @@ import java.beans.PropertyChangeListener;
  */
 public class ElevatorModeComponent extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Elevator mElevator;
-    private AbstractButton mAutomaticModeToggleButton;
+    private final Elevator mElevator;
+    private final AbstractButton mAutomaticModeToggleButton;
 
     public ElevatorModeComponent(Elevator elevator, IElevatorDetailSelectListener listener) {
         mElevator = elevator;

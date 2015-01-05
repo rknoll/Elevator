@@ -15,10 +15,11 @@ import java.awt.*;
  * The Window of the Elevator Program
  */
 public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
-    private JFrame mFrame;
-    private Building mBuilding;
+    private final JFrame mFrame;
+    private final Building mBuilding;
+    private final JComponent mContentPane;
+
     private DynamicUIComponent mCurrentView;
-    private JComponent mContentPane;
 
     public ElevatorWindow(Building building) {
         try {

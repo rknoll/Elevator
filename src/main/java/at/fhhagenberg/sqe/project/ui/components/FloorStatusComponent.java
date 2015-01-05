@@ -13,10 +13,9 @@ import java.beans.PropertyChangeListener;
  */
 public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Floor mFloor;
-    private JLabel mLabelButtonState;
-
-    private ImageIcon[][] mIcons;    // [Down][Up]
+    private final Floor mFloor;
+    private final JLabel mLabelButtonState;
+    private final ImageIcon[][] mIcons;    // [Down][Up]
 
     public FloorStatusComponent(Floor floor) {
         mFloor = floor;

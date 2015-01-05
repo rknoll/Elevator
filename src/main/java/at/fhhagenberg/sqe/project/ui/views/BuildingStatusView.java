@@ -14,9 +14,9 @@ import java.beans.PropertyChangeListener;
  */
 public class BuildingStatusView extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Building mBuilding;
+    private final Building mBuilding;
 
-    private JLabel mConnectionStatusLabel;
+    private final JLabel mConnectionStatusLabel;
 
     public BuildingStatusView(Building building) {
         mBuilding = building;

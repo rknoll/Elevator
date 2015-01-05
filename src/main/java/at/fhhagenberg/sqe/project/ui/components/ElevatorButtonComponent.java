@@ -11,6 +11,7 @@ public class ElevatorButtonComponent extends JLabel {
     public static final int DEFAULT_RADIUS = 20;
 
     private final int mRadius;
+
     private boolean mPressed;
     private Shape shape;
 
@@ -36,14 +37,14 @@ public class ElevatorButtonComponent extends JLabel {
         } else {
             g.setColor(Color.LIGHT_GRAY);
         }
-        g.fillOval(0, 0, getSize().width-1,getSize().height-1);
+        g.fillOval(0, 0, getSize().width - 1, getSize().height - 1);
         super.paintComponent(g);
     }
 
     @Override
     protected void paintBorder(Graphics g) {
         g.setColor(Color.black);
-        g.drawOval(0, 0, getSize().width-1,     getSize().height-1);
+        g.drawOval(0, 0, getSize().width - 1, getSize().height - 1);
     }
 
     @Override

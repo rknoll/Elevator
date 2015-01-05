@@ -7,41 +7,42 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by rknoll on 04/01/15.
+ * The Base Class for all Models that support Property Listeners
  */
 public class ListenableModel {
     /* Support Class for Property Change Listeners */
     protected final PropertyChangeSupport pcs;
 
+    /* Local Caches to Optimize getting the Count of registered Listeners */
+    private final Map<String, Integer> mPropertyCounts;
     private int mGlobalCount;
-    private Map<String, Integer> mPropertyCounts;
 
     public ListenableModel() {
         pcs = new PropertyChangeSupport(this);
-        mPropertyCounts = new HashMap<String, Integer>();
+        mPropertyCounts = new HashMap<>();
     }
 
-    public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
+    public final void addPropertyChangeListener(String property, PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(property, listener);
         updatePropertyCount(property);
     }
 
-    public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
+    public final void removePropertyChangeListener(String property, PropertyChangeListener listener) {
         pcs.removePropertyChangeListener(property, listener);
         updatePropertyCount(property);
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
+    public final void addPropertyChangeListener(PropertyChangeListener listener) {
         pcs.addPropertyChangeListener(listener);
         updateGlobalCount();
     }
 
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
+    public final void removePropertyChangeListener(PropertyChangeListener listener) {
         pcs.removePropertyChangeListener(listener);
         updateGlobalCount();
     }
 
-    public int getPropertyChangeListenersCount(String property) {
+    public final int getPropertyChangeListenersCount(String property) {
         return mPropertyCounts.getOrDefault(property, 0) + mGlobalCount;
     }
 

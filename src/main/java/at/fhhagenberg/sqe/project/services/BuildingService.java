@@ -10,17 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by rknoll on 03/01/15.
+ * Service to Refresh Building Values
  */
 public abstract class BuildingService implements IService {
 
-    private Building mBuilding;
+    private final Building mBuilding;
 
-    private List<IService> mSubServices;
+    private final List<IService> mSubServices;
 
     public BuildingService(Building building) {
         mBuilding = building;
-        mSubServices = new ArrayList<IService>();
+        mSubServices = new ArrayList<>();
     }
 
     @Override
@@ -36,6 +36,7 @@ public abstract class BuildingService implements IService {
     }
 
     abstract protected IElevatorAdapter connect() throws ElevatorConnectionLostException;
+
     abstract protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator);
 
     private void refreshBaseInformation() throws ElevatorConnectionLostException {

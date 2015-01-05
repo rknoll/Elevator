@@ -14,9 +14,10 @@ import java.util.Map;
  */
 public class ElevatorService implements IService, PropertyChangeListener {
 
-    private IElevatorAdapter mAdapter;
-    private Elevator mElevator;
-    private int mElevatorNumber;
+    private final IElevatorAdapter mAdapter;
+    private final Elevator mElevator;
+    private final int mElevatorNumber;
+
     private boolean mIsUpdating;
 
     public ElevatorService(IElevatorAdapter adapter, Elevator elevator) {

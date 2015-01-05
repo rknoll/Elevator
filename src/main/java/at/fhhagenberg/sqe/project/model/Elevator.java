@@ -1,8 +1,5 @@
 package at.fhhagenberg.sqe.project.model;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeListenerProxy;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,9 +32,14 @@ public class Elevator extends ListenableModel {
         OPEN, CLOSED, OPENING, CLOSING
     }
 
-    private int mElevatorNumber;
-    private String mDescription;
+    /* Constant Class Members */
+    private final int mElevatorNumber;
+    private final String mDescription;
+    private Map<Floor, Boolean> mFloorServices;
+    private Map<Floor, Boolean> mFloorButtons;
+    private List<Floor> mFloors;
 
+    /* Dynamic Members */
     private Floor mCurrentFloor;
     private int mPosition;
     private Floor mTarget;
@@ -47,19 +49,16 @@ public class Elevator extends ListenableModel {
     private int mCapacity;
     private int mWeight;
     private Direction mDirection;
-
-    private boolean mAutomaticMode = false;        // set manual mode per default
-
-    private Map<Floor, Boolean> mFloorServices;
-    private Map<Floor, Boolean> mFloorButtons;
-    private List<Floor> mFloors;
+    private boolean mAutomaticMode;
 
     public Elevator(int elevatorNumber, String description, Iterable<Floor> floors) {
         mElevatorNumber = elevatorNumber;
         mDescription = description;
-        mFloors = new ArrayList<Floor>();
-        mFloorServices = new HashMap<Floor, Boolean>();
-        mFloorButtons = new HashMap<Floor, Boolean>();
+        mFloors = new ArrayList<>();
+        mFloorServices = new HashMap<>();
+        mFloorButtons = new HashMap<>();
+        mAutomaticMode = false; // set manual mode per default
+        // initialize Button and Service States
         for (Floor f : floors) {
             mFloors.add(f);
             mFloorServices.put(f, false);
@@ -90,7 +89,7 @@ public class Elevator extends ListenableModel {
 
     public void setService(Floor floor, boolean service) {
         if (mFloorServices.get(floor) == service) return;
-        Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorServices);
+        Map<Floor, Boolean> oldValue = new HashMap<>(mFloorServices);
         mFloorServices.replace(floor, service);
         pcs.firePropertyChange(PROP_SERVICE, oldValue, mFloorServices);
     }
@@ -101,7 +100,7 @@ public class Elevator extends ListenableModel {
 
     public void setButton(Floor floor, boolean button) {
         if (mFloorButtons.get(floor) == button) return;
-        Map<Floor, Boolean> oldValue = new HashMap<Floor, Boolean>(mFloorButtons);
+        Map<Floor, Boolean> oldValue = new HashMap<>(mFloorButtons);
         mFloorButtons.replace(floor, button);
         pcs.firePropertyChange(PROP_BUTTON, oldValue, mFloorButtons);
     }
@@ -170,10 +169,7 @@ public class Elevator extends ListenableModel {
         return mCapacity;
     }
 
-    public void setCapacity(int capacity) throws IllegalArgumentException {
-        if (capacity < 0) {
-            throw new IllegalArgumentException();
-        }
+    public void setCapacity(int capacity) {
         int oldValue = mCapacity;
         this.mCapacity = capacity;
         pcs.firePropertyChange(PROP_CAPACITY, oldValue, mCapacity);

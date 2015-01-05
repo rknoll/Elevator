@@ -1,8 +1,5 @@
 package at.fhhagenberg.sqe.project.model;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeListenerProxy;
-import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +14,19 @@ public class Building extends ListenableModel {
     public static final String PROP_HEIGHT = "height";
     public static final String PROP_CONNECTED = "connected";
 
+    /* Constant Class Members */
+    private List<Elevator> mElevators;
+    private List<Floor> mFloors;
+
+    /* Dynamic Members */
     private int mNumberOfFloors;
     private int mNumberOfElevators;
     private int mHeight;
     private boolean mConnected;
 
-    private List<Elevator> mElevators;
-    private List<Floor> mFloors;
-
     public Building() {
-        mElevators = new ArrayList<Elevator>();
-        mFloors = new ArrayList<Floor>();
+        mElevators = new ArrayList<>();
+        mFloors = new ArrayList<>();
     }
 
     public void setNumberOfFloorsAndElevators(int numberOfFloors, int numberOfElevators) {

@@ -9,7 +9,10 @@ import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.connection.RMIElevator;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
-import at.fhhagenberg.sqe.project.services.*;
+import at.fhhagenberg.sqe.project.services.AdvancedAutomaticModeService;
+import at.fhhagenberg.sqe.project.services.BaseAutomaticModeService;
+import at.fhhagenberg.sqe.project.services.BuildingService;
+import at.fhhagenberg.sqe.project.services.UpdateThread;
 import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
 import sqelevator.IElevator;
 

@@ -9,9 +9,9 @@ import at.fhhagenberg.sqe.project.model.Floor;
  */
 public class FloorService implements IService {
 
-    private IElevatorAdapter mAdapter;
-    private Floor mFloor;
-    private int mFloorNumber;
+    private final IElevatorAdapter mAdapter;
+    private final Floor mFloor;
+    private final int mFloorNumber;
 
     public FloorService(IElevatorAdapter adapter, Floor floor) {
         mAdapter = adapter;

@@ -16,11 +16,11 @@ import java.beans.PropertyChangeListener;
  */
 public class ElevatorPositionComponent extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Building mBuilding;
-    private Elevator mElevator;
-    private JPanel mElevatorPanel;
+    private final Building mBuilding;
+    private final Elevator mElevator;
+    private final Color mElevatorColor;
 
-    private Color mElevatorColor;
+    private JPanel mElevatorPanel;
 
     public ElevatorPositionComponent(Building building, Elevator elevator) {
         mBuilding = building;

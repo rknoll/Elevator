@@ -22,15 +22,16 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ElevatorFloorComponent extends DynamicUIComponent implements PropertyChangeListener, ActionListener {
 
-    private Elevator mElevator;
-    private Floor mFloor;
+    private final Elevator mElevator;
+    private final Floor mFloor;
+
+    private final Lock mLock;
+    private final Condition mCondition;
+    private final Condition mCondition2;
 
     private JCheckBox mServeFloorCheckBox;
     private JButton mCallButton;
     private Thread mWaitThread;
-    private Lock mLock;
-    private Condition mCondition;
-    private Condition mCondition2;
     private boolean mUpdateBlocked;
 
     public ElevatorFloorComponent(Elevator elevator, Floor floor) {

@@ -24,18 +24,19 @@ import java.util.List;
  */
 public class ElevatorOverviewView extends DynamicUIComponent implements PropertyChangeListener {
 
-    private Building mBuilding;
+    private final Building mBuilding;
+    private final IElevatorDetailSelectListener mSelectListener;
+    private final List<DynamicUIComponent> mChildControls;
+
     private JScrollPane mMainScrollPane;
-    private IElevatorDetailSelectListener mSelectListener;
     private JPanel mVerticalScrollBarSpace;
     private JPanel mHorizontalScrollBarSpace;
 
-    private List<DynamicUIComponent> mChildControls;
 
     public ElevatorOverviewView(Building building, IElevatorDetailSelectListener selectListener) {
         mBuilding = building;
         mSelectListener = selectListener;
-        mChildControls = new ArrayList<DynamicUIComponent>();
+        mChildControls = new ArrayList<>();
         setLayout(new BorderLayout());
         addComponentListener(new ResizeListener());
 

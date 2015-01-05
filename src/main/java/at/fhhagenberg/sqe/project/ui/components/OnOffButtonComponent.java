@@ -9,26 +9,26 @@ import java.awt.event.MouseEvent;
  * GUI Component for a Simple On/Off Switch
  */
 public class OnOffButtonComponent extends AbstractButton {
-    private Color colorBright = new Color(220, 220, 220);
-    private Color colorDark = new Color(150, 150, 150);
-    private Color black = new Color(0, 0, 0, 100);
-    private Color white = new Color(255, 255, 255, 100);
-    private Color light = new Color(220, 220, 220);
+    private final Color colorBright = new Color(220, 220, 220);
+    private final Color colorDark = new Color(150, 150, 150);
+    private final Color black = new Color(0, 0, 0, 100);
+    private final Color white = new Color(255, 255, 255, 100);
+    private final Color light = new Color(220, 220, 220);
 
-    private Color textColor = new Color(0, 0, 0, 200);
-    private Color falseColor = Color.lightGray;
-    private Color trueColor = new Color(230, 46, 46);
+    private final Color textColor = new Color(0, 0, 0, 200);
+    private final Color falseColor = Color.lightGray;
+    private final Color trueColor = new Color(230, 46, 46);
 
-    private Font font = new JLabel().getFont();
-    private int gap;
-    private int globalWidth;
+    private final Font font = new JLabel().getFont();
+    private final int gap;
+    private final int globalWidth;
 
     private final String trueLabel;
     private final String falseLabel;
-    private Dimension thumbBounds;
-    private int max;
-    private int trueLength;
-    private int falseLength;
+    private final Dimension thumbBounds;
+    private final int max;
+    private final int trueLength;
+    private final int falseLength;
 
     public OnOffButtonComponent(String trueLabel, String falseLabel) {
         this.trueLabel = trueLabel;

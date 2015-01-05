@@ -1,9 +1,5 @@
 package at.fhhagenberg.sqe.project.model;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeListenerProxy;
-import java.beans.PropertyChangeSupport;
-
 /**
  * A representation for a Floor
  */

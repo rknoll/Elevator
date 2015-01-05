@@ -174,15 +174,6 @@ public class ElevatorTest {
 	public void testSetAndGetCapacity() {
 		elevator.setCapacity(350);
 		assertEquals(350, elevator.getCapacity());
-		
-		try {
-			elevator.setCapacity(-1);
-		}
-		catch (IllegalArgumentException e) {
-			// exception thrown as expected
-		}
-		
-		assertEquals(350, elevator.getCapacity());
 	}
 
 	@Test

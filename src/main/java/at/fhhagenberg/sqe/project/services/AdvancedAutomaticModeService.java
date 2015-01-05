@@ -4,31 +4,25 @@ import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * An Advanced Automatic mode that implements the Elevator Algorithm
  */
 public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
-
-    /* Contains all Goals of all Elevators */
-    // TODO: refactor this to only contain Goals of Elevators in the same Building
-    private static Map<AdvancedAutomaticModeService, Floor> sGlobalGoals = new HashMap<>();
 
     public AdvancedAutomaticModeService(Building building, Elevator elevator) {
         super(building, elevator);
     }
 
     private boolean containsGoal(Floor floor) {
-        for (AdvancedAutomaticModeService service : sGlobalGoals.keySet()) {
-            if (service == this) continue;
-            if (floor == sGlobalGoals.get(service)) return true;
+        for (Elevator e : mBuilding.getElevators()) {
+            if (e == mElevator) continue;
+            if (e.getTarget() == floor) return true;
         }
         return false;
     }
 
-    private Floor searchGoal() {
+    @Override
+    protected Floor getNextGoal() {
         if (mElevator.getDirection() == Elevator.Direction.UNCOMMITTED) {
             // no direction yet, check for requests
             // check passengers first
@@ -105,12 +99,5 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
         if (mElevator.getCurrentFloor() != baseFloor) return baseFloor;
         // nothing to do yet
         return null;
-    }
-
-    @Override
-    protected Floor getNextGoal() {
-        Floor f = searchGoal();
-        sGlobalGoals.put(this, f);
-        return f;
     }
 }

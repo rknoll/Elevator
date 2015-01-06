@@ -15,7 +15,7 @@ import java.awt.*;
 /**
  * The Window of the Elevator Program
  */
-public class ElevatorWindow extends JDialog implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
+public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
     private final Building mBuilding;
     private final JComponent mContentPane;
 
@@ -24,9 +24,6 @@ public class ElevatorWindow extends JDialog implements IElevatorDetailSelectList
     private static boolean MAC_OS_X = (System.getProperty("os.name").toLowerCase().startsWith("mac os x"));
 
     public ElevatorWindow(Building building) {
-        super((Window) null);
-        setModal(true);
-
         if (MAC_OS_X) {
             try {
                 OSXAdapter.setQuitHandler(this, getClass().getDeclaredMethod("onClose", (Class[]) null));

@@ -24,7 +24,9 @@ public class ElevatorProgram {
      * @param args command line arguments
      */
     public static void main(String[] args) {
+        // create the spring application context
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ElevatorConfiguration.class);
+        context.registerShutdownHook();
 
         // Create the Base Data Model
         Building building = new Building();
@@ -37,16 +39,10 @@ public class ElevatorProgram {
         updateThread.setDaemon(true);
         updateThread.start();
 
-        // Show the GUI
-        try {
-            SwingUtilities.invokeAndWait(() -> {
-                ElevatorWindow window = new ElevatorWindow(building);
-                window.setVisible(true);
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        context.close();
+        // show the gui window
+        SwingUtilities.invokeLater(() -> {
+            ElevatorWindow window = new ElevatorWindow(building);
+            window.setVisible(true);
+        });
     }
 }

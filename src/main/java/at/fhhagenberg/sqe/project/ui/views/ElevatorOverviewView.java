@@ -43,7 +43,7 @@ public class ElevatorOverviewView extends DynamicUIComponent implements Property
 
         refreshView();
 
-        building.addPropertyChangeListener(this);
+        mBuilding.addPropertyChangeListener(this);
     }
 
     private void refreshView() {
@@ -202,6 +202,8 @@ public class ElevatorOverviewView extends DynamicUIComponent implements Property
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        // leave view as it is if we are disconnected
+        if (!mBuilding.isConnected()) return;
         refreshView();
     }
 }

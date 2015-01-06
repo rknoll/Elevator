@@ -11,15 +11,18 @@ public class DummyElevator implements IElevatorAdapter {
     private boolean mBtnState;
 
     public DummyElevator() {
-        new Thread(() -> {
-            while (true) {
+        Thread updateThread = new Thread(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ignored) {
+                    Thread.currentThread().interrupt();
                 }
                 mBtnState = !mBtnState;
             }
-        }).start();
+        });
+        updateThread.setDaemon(true);
+        updateThread.start();
     }
 
     @Override

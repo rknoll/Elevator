@@ -34,6 +34,7 @@ public class ElevatorProgram {
 
         // Start the Update Thread
         UpdateThread updateThread = new UpdateThread(buildingService, 100);
+        updateThread.setDaemon(true);
         updateThread.start();
 
         // Show the GUI
@@ -45,8 +46,6 @@ public class ElevatorProgram {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        updateThread.interrupt();
 
         context.close();
     }

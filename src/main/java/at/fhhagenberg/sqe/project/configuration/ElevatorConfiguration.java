@@ -1,7 +1,6 @@
 package at.fhhagenberg.sqe.project.configuration;
 
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapterFactory;
-import at.fhhagenberg.sqe.project.connection.rmi.RMIElevator;
 import at.fhhagenberg.sqe.project.connection.rmi.RMIElevatorFactory;
 import at.fhhagenberg.sqe.project.services.automatic.IAutomaticModeServiceFactory;
 import at.fhhagenberg.sqe.project.services.automatic.advanced.AdvancedAutomaticModeService;

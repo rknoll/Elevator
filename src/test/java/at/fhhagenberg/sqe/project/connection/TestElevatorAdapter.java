@@ -33,7 +33,7 @@ public class TestElevatorAdapter implements IElevatorAdapter {
 
     @Override
     public int getElevatorNum() throws ElevatorConnectionLostException {
-        return 0;
+        return 2;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class TestElevatorAdapter implements IElevatorAdapter {
 
     @Override
     public int getFloorNum() throws ElevatorConnectionLostException {
-        return 0;
+        return 3;
     }
 
     @Override

@@ -6,6 +6,7 @@ import at.fhhagenberg.sqe.project.model.Elevator;
 import sqelevator.IElevator;
 
 import java.rmi.RemoteException;
+import java.util.Comparator;
 
 /**
  * Connection to an Elevator using RMI

@@ -18,21 +18,24 @@ public class BuildingStatusView extends DynamicUIComponent implements PropertyCh
     private final Building mBuilding;
 
     private final JLabel mConnectionStatusLabel;
+    private final JButton mReconnectButton;
 
     public BuildingStatusView(Building building) {
         mBuilding = building;
 
         setLayout(new BorderLayout());
+        setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
+        setPreferredSize(new Dimension(0, 22));
 
-        JPanel statusPanel = new JPanel();
-        statusPanel.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
-        statusPanel.setPreferredSize(new Dimension(0, 18));
-        statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
         mConnectionStatusLabel = new JLabel();
-        mConnectionStatusLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        statusPanel.add(mConnectionStatusLabel);
+        add(mConnectionStatusLabel, BorderLayout.LINE_START);
 
-        add(statusPanel, BorderLayout.CENTER);
+        mReconnectButton = new JButton("Reconnect");
+        mReconnectButton.addActionListener(evt -> {
+            mReconnectButton.setEnabled(false);
+            mBuilding.setConnected(false);
+        });
+        add(mReconnectButton, BorderLayout.LINE_END);
 
         updateStatus();
 
@@ -45,6 +48,7 @@ public class BuildingStatusView extends DynamicUIComponent implements PropertyCh
     }
 
     private void updateStatus() {
+        mReconnectButton.setEnabled(mBuilding.isConnected());
         if (mBuilding.isConnected()) {
             mConnectionStatusLabel.setText("Status: Connected");
         } else {

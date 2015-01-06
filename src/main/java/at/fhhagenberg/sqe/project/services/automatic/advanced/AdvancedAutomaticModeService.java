@@ -1,8 +1,9 @@
-package at.fhhagenberg.sqe.project.services;
+package at.fhhagenberg.sqe.project.services.automatic.advanced;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.services.automatic.BaseAutomaticModeService;
 
 /**
  * An Advanced Automatic mode that implements the Elevator Algorithm

@@ -1,8 +1,9 @@
-package at.fhhagenberg.sqe.project.services;
+package at.fhhagenberg.sqe.project.services.automatic.simple;
 
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.services.automatic.BaseAutomaticModeService;
 
 /**
  * Helper Class for the Automatic Mode

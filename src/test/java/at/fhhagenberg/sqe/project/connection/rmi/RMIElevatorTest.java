@@ -1,9 +1,10 @@
-package at.fhhagenberg.sqe.project.connection;
+package at.fhhagenberg.sqe.project.connection.rmi;
 
 import static org.easymock.EasyMock.*;
 
 import java.rmi.RemoteException;
 
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;

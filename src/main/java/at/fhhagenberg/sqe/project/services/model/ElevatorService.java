@@ -1,9 +1,10 @@
-package at.fhhagenberg.sqe.project.services;
+package at.fhhagenberg.sqe.project.services.model;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.services.IService;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

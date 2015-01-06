@@ -1,5 +1,7 @@
-package at.fhhagenberg.sqe.project.connection;
+package at.fhhagenberg.sqe.project.connection.dummy;
 
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
+import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 /**

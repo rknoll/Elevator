@@ -1,5 +1,6 @@
 package at.fhhagenberg.sqe.project.ui;
 
+import apple.dts.samplecode.osxadapter.OSXAdapter;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.ui.views.BuildingStatusView;
@@ -14,33 +15,49 @@ import java.awt.*;
 /**
  * The Window of the Elevator Program
  */
-public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
-    private final JFrame mFrame;
+public class ElevatorWindow extends JDialog implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
     private final Building mBuilding;
     private final JComponent mContentPane;
 
     private DynamicUIComponent mCurrentView;
 
+    private static boolean MAC_OS_X = (System.getProperty("os.name").toLowerCase().startsWith("mac os x"));
+
     public ElevatorWindow(Building building) {
+        super((Window) null);
+        setModal(true);
+
+        if (MAC_OS_X) {
+            try {
+                OSXAdapter.setQuitHandler(this, getClass().getDeclaredMethod("onClose", (Class[]) null));
+            } catch (NoSuchMethodException ignored) {
+            }
+        }
+
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {
         }
 
+        setTitle("ElevatorControl");
+
         mBuilding = building;
-
-        mFrame = new JFrame("ElevatorControl");
-        mFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         mContentPane = new JPanel(new BorderLayout());
         mContentPane.add(new BuildingStatusView(mBuilding), BorderLayout.PAGE_END);
 
-        mFrame.setContentPane(mContentPane);
+        setContentPane(mContentPane);
 
         selectOverview();
 
-        mFrame.setSize(800, 600);
-        mFrame.setVisible(true);
+        setSize(800, 600);
+    }
+
+    // Only for OSX and its Cmd-Q Close Shortcut and to Close the Application in a clean way
+    public boolean onClose() {
+        dispose();
+        return false;
     }
 
     private void setView(DynamicUIComponent view) {
@@ -50,19 +67,19 @@ public class ElevatorWindow implements IElevatorDetailSelectListener, IElevatorO
         }
         mCurrentView = view;
         mContentPane.add(mCurrentView, BorderLayout.CENTER);
-        mFrame.revalidate();
-        mFrame.repaint();
+        revalidate();
+        repaint();
     }
 
     @Override
     public void elevatorSelected(Elevator elevator) {
-        mFrame.setTitle("ElevatorControl - Elevator Details");
+        setTitle("ElevatorControl - Elevator Details");
         setView(new ElevatorDetailView(mBuilding, elevator, this));
     }
 
     @Override
     public void selectOverview() {
-        mFrame.setTitle("ElevatorControl - Overview");
+        setTitle("ElevatorControl - Overview");
         setView(new ElevatorOverviewView(mBuilding, this));
     }
 }

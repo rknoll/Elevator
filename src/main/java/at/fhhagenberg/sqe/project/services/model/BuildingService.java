@@ -1,10 +1,17 @@
-package at.fhhagenberg.sqe.project.services;
+package at.fhhagenberg.sqe.project.services.model;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
+import at.fhhagenberg.sqe.project.connection.IElevatorAdapterFactory;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.model.Elevator;
 import at.fhhagenberg.sqe.project.model.Floor;
+import at.fhhagenberg.sqe.project.services.IService;
+import at.fhhagenberg.sqe.project.services.automatic.BaseAutomaticModeService;
+import at.fhhagenberg.sqe.project.services.automatic.IAutomaticModeServiceFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +19,18 @@ import java.util.List;
 /**
  * Service to Refresh Building Values
  */
-public abstract class BuildingService implements IService {
+@Component
+@Scope("prototype")
+public class BuildingService implements IService {
 
     private final Building mBuilding;
-
     private final List<IService> mSubServices;
+
+    @Autowired
+    private IElevatorAdapterFactory mAdapterFactory;
+
+    @Autowired
+    private IAutomaticModeServiceFactory mAutomaticModeFactory;
 
     public BuildingService(Building building) {
         mBuilding = building;
@@ -35,12 +49,9 @@ public abstract class BuildingService implements IService {
         }
     }
 
-    abstract protected IElevatorAdapter connect() throws ElevatorConnectionLostException;
-
-    abstract protected BaseAutomaticModeService getAutomaticService(Building building, Elevator elevator);
-
     private void refreshBaseInformation() throws ElevatorConnectionLostException {
-        IElevatorAdapter adapter = connect();
+        IElevatorAdapter adapter = mAdapterFactory.create();
+        if (adapter == null) throw new ElevatorConnectionLostException();
 
         mSubServices.clear();
 
@@ -56,7 +67,7 @@ public abstract class BuildingService implements IService {
 
         for (Elevator elevator : mBuilding.getElevators()) {
             mSubServices.add(new ElevatorService(adapter, elevator));
-            BaseAutomaticModeService automaticService = getAutomaticService(mBuilding, elevator);
+            BaseAutomaticModeService automaticService = mAutomaticModeFactory.create(mBuilding, elevator);
             if (automaticService != null) mSubServices.add(automaticService);
         }
 

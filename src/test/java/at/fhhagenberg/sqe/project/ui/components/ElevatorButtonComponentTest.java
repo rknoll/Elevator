@@ -23,14 +23,18 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
 
     public void testText() {
         ElevatorButtonComponent component = new ElevatorButtonComponent("1");
-        showFrame(component);
+        JPanel pane = new JPanel();
+        pane.add(component);
+        showFrame(pane);
 
         assertEquals("1", component.getText());
     }
 
     public void testPressed() {
         ElevatorButtonComponent component = new ElevatorButtonComponent("2");
-        showFrame(component);
+        JPanel pane = new JPanel();
+        pane.add(component);
+        showFrame(pane);
 
         assertFalse(component.isPressed());
         component.setPressed(true);
@@ -39,7 +43,9 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
 
     public void testContains() {
         ElevatorButtonComponent component = new ElevatorButtonComponent("3");
-        showFrame(component);
+        JPanel pane = new JPanel();
+        pane.add(component);
+        showFrame(pane);
 
         final boolean[] gotPressed = {false};
 
@@ -56,4 +62,5 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         tester.actionClick(component);
         assertTrue(gotPressed[0]);
     }
+
 }

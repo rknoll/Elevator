@@ -87,7 +87,13 @@ javadoc  {
 task javadocZip(type: Zip, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
-    archiveName 'SQE-Project-Elevator-javadoc.zip'
+    archiveName 'javadoc.zip'
+}
+
+task jacocoZip(type: Zip, dependsOn: test) {
+    classifier = 'javadoc'
+    from new File(jacoco.reportsDir, "test/html")
+    archiveName 'jacoco.zip'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -104,4 +110,5 @@ artifacts {
     archives sourcesJar
     archives javadocZip
     archives javadocJar
+    archives jacocoZip
 }

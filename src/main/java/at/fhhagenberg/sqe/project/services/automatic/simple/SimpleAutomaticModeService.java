@@ -6,36 +6,52 @@ import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.automatic.BaseAutomaticModeService;
 
 /**
- * Helper Class for the Automatic Mode
+ * A Simple Automatic Mode.
+ * This algorithm just goes up until the last Floor, and then changes the direction.
+ * While moving, it will stop at every Floor.
+ * To use this Service, change the Default Spring Configuration to return SimpleAutomaticModeService::new
  */
 public class SimpleAutomaticModeService extends BaseAutomaticModeService {
 
-    private boolean mUpwards;
-
+    /**
+     * Create a new Simple Automatic Mode for an Elevator in a Building.
+     *
+     * @param building The Building
+     * @param elevator The Elevator
+     */
     public SimpleAutomaticModeService(Building building, Elevator elevator) {
         super(building, elevator);
-
-        mUpwards = true;
     }
 
+    /**
+     * Get the next Goal of this Elevator
+     *
+     * @return The Next Goal, or null of no new goal should be set
+     */
     @Override
     protected Floor getNextGoal() {
         int currentFloor = mElevator.getCurrentFloor().getFloorNumber();
         int nextFloor = currentFloor;
         int floorCount = mBuilding.getNumberOfFloors();
-        boolean prevDirection = mUpwards;
+        boolean prevDirection = mElevator.getDirection() != Elevator.Direction.DOWN;
+        boolean nextDirection = prevDirection;
 
         do {
-            nextFloor += mUpwards ? 1 : -1;
+            // calculate next goal
+            nextFloor += nextDirection ? 1 : -1;
+
+            // check if we reached a limit, if yes, invert direction
             if (nextFloor == floorCount) {
-                mUpwards = false;
+                nextDirection = false;
                 nextFloor = currentFloor - 1;
-                if (nextFloor == -1 || prevDirection == mUpwards) return null;
+                if (nextFloor == -1 || !prevDirection) return null; // building has only one reachable floor?
             } else if (nextFloor == -1) {
-                mUpwards = true;
+                nextDirection = true;
                 nextFloor = currentFloor + 1;
-                if (nextFloor == floorCount || prevDirection == mUpwards) return null;
+                if (nextFloor == floorCount || prevDirection) return null; // building has only one reachable floor?
             }
+
+            // continue until we find a floor, which can be services by this elevator
         } while (!mElevator.getService(mElevator.getFloor(nextFloor)));
 
         return mElevator.getFloor(nextFloor);

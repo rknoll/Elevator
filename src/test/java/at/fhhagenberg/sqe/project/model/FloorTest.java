@@ -18,7 +18,7 @@ public class FloorTest {
 	
 	@Before
 	public void setUp() {
-		floor = new Floor(3, "Floor 3");
+		floor = new Floor(3, "F0", "0");
 	}
 
 	@Test
@@ -44,7 +44,12 @@ public class FloorTest {
 
 	@Test
 	public void testGetDescription() {
-		assertEquals("Floor 3", floor.getDescription());
+		assertEquals("F0", floor.getDescription());
+	}
+
+	@Test
+	public void testGetShortDescription() {
+		assertEquals("0", floor.getShortDescription());
 	}
 
 	@Test

@@ -7,15 +7,17 @@ import sqelevator.IElevator;
 import java.rmi.Naming;
 
 /**
- * Created by rknoll on 05/01/15.
+ * A Factory to Create RMIElevator Adapters.
  */
 public class RMIElevatorFactory implements IElevatorAdapterFactory {
     @Override
     public IElevatorAdapter create() {
         try {
+            // try to connect to the Server via RMI
             IElevator rmi = (IElevator) Naming.lookup("rmi://localhost/ElevatorSim");
             return new RMIElevator(rmi);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
+            // connection failed
             return null;
         }
     }

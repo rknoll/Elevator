@@ -24,6 +24,7 @@ public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListe
     private static boolean MAC_OS_X = (System.getProperty("os.name").toLowerCase().startsWith("mac os x"));
 
     public ElevatorWindow(Building building) {
+        // OSX needs a special Quit Handler to do a clean shutdown
         if (MAC_OS_X) {
             try {
                 OSXAdapter.setQuitHandler(this, getClass().getDeclaredMethod("onClose", (Class[]) null));
@@ -51,7 +52,11 @@ public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListe
         setSize(800, 600);
     }
 
-    // Only for OSX and its Cmd-Q Close Shortcut and to Close the Application in a clean way
+    /**
+     * Only for OSX and its Cmd-Q Close Shortcut and to Close the Application in a clean way.
+     *
+     * @return true if the Application should Quit now
+     */
     public boolean onClose() {
         dispose();
         return false;

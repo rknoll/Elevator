@@ -1,5 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
+import at.fhhagenberg.sqe.project.model.Floor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -17,12 +19,12 @@ public class ElevatorButtonComponent extends JLabel {
     private boolean mPressed;
     private Shape shape;
 
-    public ElevatorButtonComponent(int floorNumber) {
-        this(floorNumber, DEFAULT_RADIUS);
+    public ElevatorButtonComponent(Floor floor) {
+        this(floor, DEFAULT_RADIUS);
     }
 
-    public ElevatorButtonComponent(int floorNumber, int radius) {
-        super("" + (floorNumber + 1));
+    public ElevatorButtonComponent(Floor floor, int radius) {
+        super(floor.getShortDescription());
         mRadius = radius;
         setHorizontalAlignment(CENTER);
     }

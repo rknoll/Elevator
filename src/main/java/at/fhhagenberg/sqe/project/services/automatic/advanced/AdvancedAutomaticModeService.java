@@ -6,14 +6,30 @@ import at.fhhagenberg.sqe.project.model.Floor;
 import at.fhhagenberg.sqe.project.services.automatic.BaseAutomaticModeService;
 
 /**
- * An Advanced Automatic mode that implements the Elevator Algorithm
+ * An Advanced Automatic mode that implements the Elevator Algorithm.
+ * Basically it keeps going into the current Direction until there are no more
+ * Requests. Then it goes into the other Direction. If there are no Requests at all
+ * the Elevator will wait in the Base Floor.
+ * This is the default Service, as defined in the Spring Configuration.
  */
 public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
 
+    /**
+     * Create a new Advanced Automatic Mode for an Elevator in a Building.
+     *
+     * @param building The Building
+     * @param elevator The Elevator
+     */
     public AdvancedAutomaticModeService(Building building, Elevator elevator) {
         super(building, elevator);
     }
 
+    /**
+     * Check if any other Elevator in the Building already targets the Floor.
+     *
+     * @param floor The Floor
+     * @return true, if there is at least one Elevator targeting that Floor, false otherwise
+     */
     private boolean containsGoal(Floor floor) {
         for (Elevator e : mBuilding.getElevators()) {
             if (e == mElevator) continue;
@@ -22,6 +38,11 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
         return false;
     }
 
+    /**
+     * Get the next Goal of this Elevator
+     *
+     * @return The Next Goal, or null of no new goal should be set
+     */
     @Override
     protected Floor getNextGoal() {
         if (mElevator.getDirection() == Elevator.Direction.UNCOMMITTED) {
@@ -96,9 +117,6 @@ public class AdvancedAutomaticModeService extends BaseAutomaticModeService {
             }
         }
         // go home by default
-        Floor baseFloor = mElevator.getFloor(0);
-        if (mElevator.getCurrentFloor() != baseFloor) return baseFloor;
-        // nothing to do yet
-        return null;
+        return mElevator.getFloor(0);
     }
 }

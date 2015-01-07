@@ -22,9 +22,9 @@ public class ElevatorTest {
     @Before
     public void setUp() {
     	floors = new ArrayList<>();
-        floors.add(new Floor(0, "Floor 1"));
-        floors.add(new Floor(1, "Floor 2"));
-        elevator = new Elevator(32, "elevator under test", floors);
+        floors.add(new Floor(0, "F0", "0"));
+        floors.add(new Floor(1, "F1", "1"));
+        elevator = new Elevator(32, "E0", floors);
     }    
 
 	@Test
@@ -105,7 +105,7 @@ public class ElevatorTest {
 
 	@Test
 	public void testGetDescription() {
-		assertEquals("elevator under test", elevator.getDescription());
+		assertEquals("E0", elevator.getDescription());
 	}
 
 	@Test

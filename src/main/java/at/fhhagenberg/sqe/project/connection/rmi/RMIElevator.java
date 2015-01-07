@@ -8,12 +8,21 @@ import sqelevator.IElevator;
 import java.rmi.RemoteException;
 
 /**
- * Connection to an Elevator using RMI
+ * Connection to an Elevator using RMI.
+ * It relays all calls to the RMI Interface IElevator and translates constants to enum values
  */
 public class RMIElevator implements IElevatorAdapter {
 
+    /**
+     * The active RMI Connection
+     */
     private final IElevator mElevatorConnection;
 
+    /**
+     * Creates a new RMIElevator, that is an Adapter of an RMI Connection, supplied by the elevatorConnection Parameter.
+     *
+     * @param elevatorConnection The RMI Connection
+     */
     public RMIElevator(IElevator elevatorConnection) {
         mElevatorConnection = elevatorConnection;
     }
@@ -213,7 +222,7 @@ public class RMIElevator implements IElevatorAdapter {
     @Override
     public void setCommittedDirection(int elevatorNumber, Elevator.Direction direction) throws ElevatorConnectionLostException {
         try {
-            int dir = IElevator.ELEVATOR_DIRECTION_UNCOMMITTED;
+            int dir;
             switch (direction) {
                 case UP:
                     dir = IElevator.ELEVATOR_DIRECTION_UP;
@@ -222,6 +231,7 @@ public class RMIElevator implements IElevatorAdapter {
                     dir = IElevator.ELEVATOR_DIRECTION_DOWN;
                     break;
                 default:
+                    dir = IElevator.ELEVATOR_DIRECTION_UNCOMMITTED;
                     break;
             }
             mElevatorConnection.setCommittedDirection(elevatorNumber, dir);

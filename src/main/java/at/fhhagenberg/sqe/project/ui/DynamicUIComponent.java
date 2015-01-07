@@ -9,5 +9,8 @@ import javax.swing.*;
 public abstract class DynamicUIComponent extends JComponent {
     private static final long serialVersionUID = 6313714160593767273L;
 
+    /**
+     * Unload all registered Listeners, as this View will get removed from Screen
+     */
     public abstract void unload();
 }

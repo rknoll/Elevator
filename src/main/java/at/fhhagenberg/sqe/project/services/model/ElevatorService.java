@@ -11,20 +11,41 @@ import java.beans.PropertyChangeListener;
 import java.util.Map;
 
 /**
- * Helper Class to Refresh a Elevators Data
+ * Service to Refresh an Elevators Data
  */
 public class ElevatorService implements IService, PropertyChangeListener {
 
+    /**
+     * The Elevator Adapter to retrieve Values
+     */
     private final IElevatorAdapter mAdapter;
+    /**
+     * The Elevator
+     */
     private final Elevator mElevator;
+    /**
+     * Cached Elevator Number
+     */
     private final int mElevatorNumber;
-
+    /**
+     * Flag if we are updating the Values ourselves
+     */
     private boolean mIsUpdating;
 
+    /**
+     * Create a new ElevatorService.
+     *
+     * @param adapter  The ElevatorAdapter Connection
+     * @param elevator The Elevator
+     */
     public ElevatorService(IElevatorAdapter adapter, Elevator elevator) {
         mAdapter = adapter;
         mElevator = elevator;
+
+        // cache the Elevator number as it will never change
         mElevatorNumber = mElevator.getElevatorNumber();
+
+        // register property Listeners to send the new Values over to the Adapter
         mElevator.addPropertyChangeListener(Elevator.PROP_SERVICE, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_TARGET, this);
         mElevator.addPropertyChangeListener(Elevator.PROP_DIRECTION, this);
@@ -32,6 +53,8 @@ public class ElevatorService implements IService, PropertyChangeListener {
 
     @Override
     public void refresh() throws ElevatorConnectionLostException {
+        // only update Values if there are some Listeners besides ourselves
+
         if (mElevator.getPropertyChangeListenersCount(Elevator.PROP_BUTTON) > 0) {
             for (Floor floor : mElevator.getFloors()) {
                 mElevator.setButton(floor, mAdapter.getElevatorButton(mElevatorNumber, floor.getFloorNumber()));
@@ -85,10 +108,11 @@ public class ElevatorService implements IService, PropertyChangeListener {
     @Override
     @SuppressWarnings("rawtypes")
     public void propertyChange(PropertyChangeEvent evt) {
-        if (mIsUpdating) return;
+        if (mIsUpdating) return; // we are currently updating the value
         try {
             switch (evt.getPropertyName()) {
                 case Elevator.PROP_SERVICE:
+                    // get the old and new map of services flags
                     Object oldValue = evt.getOldValue();
                     Object newValue = evt.getNewValue();
                     if (!(oldValue instanceof Map) || !(newValue instanceof Map)) break;
@@ -97,6 +121,7 @@ public class ElevatorService implements IService, PropertyChangeListener {
 
                     for (Floor floor : mElevator.getFloors()) {
                         if (!(oldMap.get(floor) instanceof Boolean) || !(newMap.get(floor) instanceof Boolean)) break;
+                        // check if the Flag has changed
                         if (!oldMap.get(floor).equals(newMap.get(floor))) {
                             mAdapter.setServicesFloors(mElevatorNumber, floor.getFloorNumber(), (Boolean) newMap.get(floor));
                         }

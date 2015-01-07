@@ -1,8 +1,13 @@
 package at.fhhagenberg.sqe.project.connection;
 
 /**
- * Created by rknoll on 05/01/15.
+ * Factory Interface to create ElevatorAdapters.
  */
 public interface IElevatorAdapterFactory {
+    /**
+     * Create a new Instance of an ElevatorAdapter.
+     *
+     * @return The new Connection Object or null, if the connection failed.
+     */
     public IElevatorAdapter create();
 }

@@ -35,7 +35,7 @@ public class ElevatorButtonsComponent extends DynamicUIComponent implements Prop
         ElevatorButtonComponent[] components = new ElevatorButtonComponent[rows * columns];
 
         for (Floor f : mBuilding.getFloors()) {
-            ElevatorButtonComponent component = new ElevatorButtonComponent(f.getFloorNumber());
+            ElevatorButtonComponent component = new ElevatorButtonComponent(f);
             components[positionOf(f.getFloorNumber(), floors, columns, rows)] = component;
             mElevatorButtons.put(f, component);
         }

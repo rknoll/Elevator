@@ -5,12 +5,18 @@ import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 /**
- * Example Elevator to Test UI Components without an active Connection
+ * Example Elevator to Test UI Components without an active Connection.
+ * To use it, simply change the Spring Configuration to return DummyElevator::new
  */
 public class DummyElevator implements IElevatorAdapter {
+
+    /**
+     * The current Button State
+     */
     private boolean mBtnState;
 
     public DummyElevator() {
+        // create a thread to periodically switch the floor button states
         Thread updateThread = new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
@@ -21,7 +27,7 @@ public class DummyElevator implements IElevatorAdapter {
                 mBtnState = !mBtnState;
             }
         });
-        updateThread.setDaemon(true);
+        updateThread.setDaemon(true); // has to be a daemon thread as the program would not stop otherwise
         updateThread.start();
     }
 

@@ -33,7 +33,7 @@ public class BuildingStatusView extends DynamicUIComponent implements PropertyCh
         mReconnectButton = new JButton("Reconnect");
         mReconnectButton.addActionListener(evt -> {
             mReconnectButton.setEnabled(false);
-            mBuilding.setConnected(false);
+            mBuilding.setConnected(false); // this will trigger a reconnect
         });
         add(mReconnectButton, BorderLayout.LINE_END);
 

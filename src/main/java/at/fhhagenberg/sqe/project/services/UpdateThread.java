@@ -7,14 +7,27 @@ import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
  */
 public class UpdateThread extends Thread {
 
+    /**
+     * The Service to call
+     */
     private final IService mService;
+    /**
+     * The Interval to call the Service
+     */
     private final int mRefreshTimeMs;
 
+    /**
+     * Create a new Thread that calls a Service in a specific Interval.
+     *
+     * @param service       The Service
+     * @param refreshTimeMs The Interval to call the Service in Milliseconds
+     */
     public UpdateThread(IService service, int refreshTimeMs) {
         mService = service;
         mRefreshTimeMs = refreshTimeMs;
     }
 
+    @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {

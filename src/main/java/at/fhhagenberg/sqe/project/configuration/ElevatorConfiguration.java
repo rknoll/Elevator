@@ -9,17 +9,28 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by rknoll on 06/01/15.
+ * This is the Runtime Spring-Configuration of the Elevator Project.
  */
 @Configuration
 @ComponentScan(value = {"at.fhhagenberg.sqe.project.services.model"})
 public class ElevatorConfiguration {
 
+    /**
+     * Gets the Elevator Construction Factory to (re)connect.
+     *
+     * @return A Factory Object to create ElevatorAdapters
+     */
     @Bean
     public IElevatorAdapterFactory getIElevatorAdapterFactory() {
         return new RMIElevatorFactory();
     }
 
+    /**
+     * Gets the Automatic Mode Factory to create AutomaticModeServices
+     * that contain the Algorithm to drive individual Elevators.
+     *
+     * @return A Factory Object to create AutomaticModeServices
+     */
     @Bean
     public IAutomaticModeServiceFactory getIAutomaticModeServiceFactory() {
         return AdvancedAutomaticModeService::new;

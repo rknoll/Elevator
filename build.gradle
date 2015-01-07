@@ -37,7 +37,18 @@ jar {
     }
 }
 
-test.finalizedBy jacocoTestReport
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    description = "Generate Jacoco coverage reports after running tests."
+}
+
+jacocoTestReport.doFirst{
+    classDirectories = files('build/classes/main/at/fhhagenberg/sqe/project')
+}
 
 uploadArchives {
     repositories {
@@ -90,7 +101,7 @@ task javadocZip(type: Zip, dependsOn: javadoc) {
     archiveName 'javadoc.zip'
 }
 
-task jacocoZip(type: Zip, dependsOn: test) {
+task jacocoZip(type: Zip, dependsOn: jacocoTestReport) {
     classifier = 'javadoc'
     from new File(jacoco.reportsDir, "test/html")
     archiveName 'coverage.zip'

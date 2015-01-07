@@ -93,7 +93,7 @@ task javadocZip(type: Zip, dependsOn: javadoc) {
 task jacocoZip(type: Zip, dependsOn: test) {
     classifier = 'javadoc'
     from new File(jacoco.reportsDir, "test/html")
-    archiveName 'jacoco.zip'
+    archiveName 'coverage.zip'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {

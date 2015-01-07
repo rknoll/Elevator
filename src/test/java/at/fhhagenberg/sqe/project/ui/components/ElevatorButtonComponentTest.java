@@ -56,9 +56,6 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
             }
         });
 
-        tester.actionClick(component, 0, 0);
-        assertFalse(gotPressed[0]);
-
         tester.actionClick(component);
         assertTrue(gotPressed[0]);
     }

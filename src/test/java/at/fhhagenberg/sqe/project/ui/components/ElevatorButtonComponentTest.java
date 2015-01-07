@@ -1,9 +1,7 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
 import abbot.tester.ComponentTester;
-import at.fhhagenberg.sqe.project.model.Floor;
 import junit.extensions.abbot.ComponentTestFixture;
-import org.junit.Test;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -27,10 +25,8 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         tester = null;
     }
 
-    @Test
     public void testText() {
-        Floor floor = new Floor(0, "Floor 1", "1");
-        ElevatorButtonComponent component = new ElevatorButtonComponent(floor);
+        ElevatorButtonComponent component = new ElevatorButtonComponent("1");
         JPanel pane = new JPanel();
         pane.add(component);
         showFrame(pane);
@@ -38,10 +34,8 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         assertEquals("1", component.getText());
     }
 
-    @Test
     public void testPressed() {
-        Floor floor = new Floor(0, "Floor 1", "1");
-        ElevatorButtonComponent component = new ElevatorButtonComponent(floor);
+        ElevatorButtonComponent component = new ElevatorButtonComponent("2");
         JPanel pane = new JPanel();
         pane.add(component);
         showFrame(pane);
@@ -51,10 +45,8 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         assertTrue(component.isPressed());
     }
 
-    @Test
     public void testContains() {
-        Floor floor = new Floor(0, "Floor 1", "1");
-        ElevatorButtonComponent component = new ElevatorButtonComponent(floor);
+        ElevatorButtonComponent component = new ElevatorButtonComponent("3");
         JPanel pane = new JPanel();
         pane.add(component);
         showFrame(pane);

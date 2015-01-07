@@ -1,11 +1,13 @@
-package at.fhhagenberg.sqe.project.connection;
+package at.fhhagenberg.sqe.project.mocks;
 
+import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
+import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;
 import at.fhhagenberg.sqe.project.model.Elevator;
 
 /**
  * Created by rknoll on 16/12/14.
  */
-public class TestElevatorAdapter implements IElevatorAdapter {
+public class EmptyAdapter implements IElevatorAdapter {
     @Override
     public Elevator.Direction getCommittedDirection(int elevatorNumber) throws ElevatorConnectionLostException {
         return null;

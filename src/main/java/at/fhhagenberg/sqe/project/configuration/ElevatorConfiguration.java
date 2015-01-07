@@ -22,7 +22,7 @@ public class ElevatorConfiguration {
      */
     @Bean
     public IElevatorAdapterFactory getIElevatorAdapterFactory() {
-        return new RMIElevatorFactory();
+        return new RMIElevatorFactory("rmi://localhost/ElevatorSim");
     }
 
     /**

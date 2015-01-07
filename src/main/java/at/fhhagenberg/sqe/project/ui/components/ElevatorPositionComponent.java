@@ -17,28 +17,69 @@ import java.beans.PropertyChangeListener;
 public class ElevatorPositionComponent extends DynamicUIComponent implements PropertyChangeListener {
     private static final long serialVersionUID = -5323061259405307970L;
 
+    /**
+     * The Building
+     */
     private final Building mBuilding;
+    /**
+     * The Elevator
+     */
     private final Elevator mElevator;
-    private final Color mElevatorColor;
-
+    /**
+     * The Panel of the Elevator View
+     */
     private JPanel mElevatorPanel;
 
+    /**
+     * Create a new ElevatorPositionComponent to visualize the Position of an Elevator.
+     *
+     * @param building The Building of the Elevator
+     * @param elevator The Elevator
+     */
     public ElevatorPositionComponent(Building building, Elevator elevator) {
         mBuilding = building;
         mElevator = elevator;
 
-        mElevatorColor = createColorCode(elevator.getElevatorNumber(), mBuilding.getNumberOfElevators());
-
         setLayout(new BorderLayout());
 
-        Component positionPanel = createComponentElevatorPosition();
-        add(positionPanel, BorderLayout.CENTER);
+        // Panel for the whole Elevator Shaft
+        JPanel pnlFloorPosition = new JPanel(null);
 
-        addComponentListener(new ResizeListener());
-        elevator.addPropertyChangeListener(Elevator.PROP_POSITION, this);
+        pnlFloorPosition.setPreferredSize(new Dimension(30, 30));
+        pnlFloorPosition.setBackground(Color.lightGray);
+        pnlFloorPosition.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        // Panel for the actual Elevator
+        mElevatorPanel = new JPanel();
+        mElevatorPanel.setBackground(createColorCode(mElevator.getElevatorNumber(), mBuilding.getNumberOfElevators()));
+        mElevatorPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        pnlFloorPosition.add(mElevatorPanel);
+
+        add(pnlFloorPosition, BorderLayout.CENTER);
+
+        // add resize listener to correctly position the Elevator inside the Shaft
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                mElevatorPanel.setBounds(0, 0, 30, e.getComponent().getHeight() / mBuilding.getNumberOfFloors());
+                updateView();
+            }
+        });
+
+        mElevator.addPropertyChangeListener(Elevator.PROP_POSITION, this);
     }
 
-    private Color createColorCode(int colorIndex, int numColors) {
+    /**
+     * Create a new Color based on the Total Number of Colors and the Index.
+     * This uses the Hue Value to generate numColors different Colors and selects the one
+     * at Index colorIndex.
+     *
+     * @param colorIndex Index of the Color to Create
+     * @param numColors  Total Number of Colors to generate
+     * @return
+     */
+    private static Color createColorCode(int colorIndex, int numColors) {
         float hueMax = (float) 0.85;
         float sat = (float) 0.8;
         float hue = hueMax * colorIndex / numColors;
@@ -49,44 +90,24 @@ public class ElevatorPositionComponent extends DynamicUIComponent implements Pro
         }
     }
 
-    private Component createComponentElevatorPosition() {
-        JPanel pnlFloorPosition = new JPanel(null);
-
-        pnlFloorPosition.setPreferredSize(new Dimension(30, 30));
-        pnlFloorPosition.setBackground(Color.lightGray);
-        pnlFloorPosition.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        mElevatorPanel = new JPanel();
-        mElevatorPanel.setBackground(mElevatorColor);
-        mElevatorPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        pnlFloorPosition.add(mElevatorPanel);
-
-        return pnlFloorPosition;
+    /**
+     * Update the Position of the Elevator in the View
+     */
+    private void updateView() {
+        double floorHeight = getHeight() / mBuilding.getNumberOfFloors();
+        double elevatorPos = (double) mElevator.getPosition() / mBuilding.getHeight();
+        double pos = getHeight() - floorHeight - elevatorPos * getHeight();
+        mElevatorPanel.setLocation(0, (int) pos);
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        double floorHeight = this.getHeight() / mBuilding.getNumberOfFloors();
-        double elevatorPos = (double) mElevator.getPosition() / mBuilding.getHeight();
-        double pos = this.getHeight() - floorHeight - elevatorPos * this.getHeight();
-        mElevatorPanel.setLocation(0, (int) pos);
+        updateView();
     }
 
     @Override
     public void unload() {
         mElevator.removePropertyChangeListener(Elevator.PROP_POSITION, this);
-    }
-
-    private class ResizeListener extends ComponentAdapter {
-        @Override
-        public void componentResized(ComponentEvent e) {
-            mElevatorPanel.setBounds(0, 0, 30, e.getComponent().getHeight() / mBuilding.getNumberOfFloors());
-            double floorHeight = e.getComponent().getHeight() / mBuilding.getNumberOfFloors();
-            double elevatorPos = (double) mElevator.getPosition() / mBuilding.getHeight();
-            double pos = e.getComponent().getHeight() - floorHeight - elevatorPos * e.getComponent().getHeight();
-            mElevatorPanel.setLocation(0, (int) pos);
-        }
     }
 
 }

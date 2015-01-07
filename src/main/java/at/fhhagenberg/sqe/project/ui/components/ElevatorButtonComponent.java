@@ -1,7 +1,5 @@
 package at.fhhagenberg.sqe.project.ui.components;
 
-import at.fhhagenberg.sqe.project.model.Floor;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -12,19 +10,40 @@ import java.awt.geom.Ellipse2D;
 public class ElevatorButtonComponent extends JLabel {
     private static final long serialVersionUID = -2173760156678087371L;
 
+    /**
+     * Default Component size
+     */
     public static final int DEFAULT_RADIUS = 10;
-
+    /**
+     * Preferred Size of this Component
+     */
     private final int mRadius;
-
+    /**
+     * Current state of this Button
+     */
     private boolean mPressed;
+    /**
+     * Shape of this Component, lazily initialized
+     */
     private Shape shape;
 
-    public ElevatorButtonComponent(Floor floor) {
-        this(floor, DEFAULT_RADIUS);
+    /**
+     * Create a new ElevatorButtonComponent with the specified Text and the default Size
+     *
+     * @param shortDescription The Text shown in this Component
+     */
+    public ElevatorButtonComponent(String shortDescription) {
+        this(shortDescription, DEFAULT_RADIUS);
     }
 
-    public ElevatorButtonComponent(Floor floor, int radius) {
-        super(floor.getShortDescription());
+    /**
+     * Create a new ElevatorButtonComponent with the specified Text and Size
+     *
+     * @param shortDescription The Text shown in this Component
+     * @param radius           The size of this Component
+     */
+    public ElevatorButtonComponent(String shortDescription, int radius) {
+        super(shortDescription);
         mRadius = radius;
         setHorizontalAlignment(CENTER);
     }
@@ -59,12 +78,22 @@ public class ElevatorButtonComponent extends JLabel {
         return shape.contains(x, y);
     }
 
+    /**
+     * Set if this Button is pressed.
+     *
+     * @param pressed true if this Button is pressed, false otherwise
+     */
     public void setPressed(boolean pressed) {
         if (mPressed == pressed) return;
         mPressed = pressed;
         this.repaint();
     }
 
+    /**
+     * Get if this Button is pressed.
+     *
+     * @return true if this Button is pressed
+     */
     public boolean isPressed() {
         return mPressed;
     }

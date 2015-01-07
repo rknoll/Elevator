@@ -14,15 +14,29 @@ import java.beans.PropertyChangeListener;
 public class FloorStatusComponent extends DynamicUIComponent implements PropertyChangeListener {
     private static final long serialVersionUID = 6587336751713265244L;
 
+    /**
+     * The Floor
+     */
     private final Floor mFloor;
+    /**
+     * State of the Buttons on the Floor
+     */
     private final JLabel mLabelButtonState;
-    private final ImageIcon[][] mIcons;    // [Down][Up]
+    /**
+     * Icons for Up and Down Arrows
+     */
+    private final ImageIcon[][] mIcons; // [Down][Up]
 
+    /**
+     * Create a new FloorStatusComponent for the specified Floor.
+     *
+     * @param floor The Floor
+     */
     public FloorStatusComponent(Floor floor) {
         mFloor = floor;
 
-        // Create Icons
-        mIcons = new ImageIcon[2][2];    // [Down][Up]
+        // Get Icons from Resources
+        mIcons = new ImageIcon[2][2]; // [Down][Up]
         mIcons[0][0] = new ImageIcon(this.getClass().getResource("Down0Up0.png"));
         mIcons[0][1] = new ImageIcon(this.getClass().getResource("Down0Up1.png"));
         mIcons[1][0] = new ImageIcon(this.getClass().getResource("Down1Up0.png"));
@@ -31,18 +45,18 @@ public class FloorStatusComponent extends DynamicUIComponent implements Property
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
-        // -- Spalte 1 -----------------------------------------
+        // Column 1
         gc.gridx = 0;
         gc.gridy = 0;
         gc.anchor = GridBagConstraints.WEST;
         add(new JLabel(floor.getDescription()), gc);
 
-        // -- Spalte 2 -----------------------------------------
+        // Column 2
         gc.anchor = GridBagConstraints.EAST;
         gc.gridx += 1;
-        add(new JLabel("   "));    // spacer
+        add(new JLabel("   ")); // spacer
 
-        // -- Spalte 3 -----------------------------------------
+        // Column 3
         gc.anchor = GridBagConstraints.EAST;
         gc.gridx += 1;
         mLabelButtonState = new JLabel();
@@ -60,11 +74,13 @@ public class FloorStatusComponent extends DynamicUIComponent implements Property
         refreshView();
     }
 
+    /**
+     * Update the Icons
+     */
     private void refreshView() {
-        boolean buttonUp = mFloor.isButtonUp();
-        boolean buttonDown = mFloor.isButtonDown();
-
-        mLabelButtonState.setIcon(mIcons[(buttonDown ? 1 : 0)][(buttonUp ? 1 : 0)]);
+        int downIdx = mFloor.isButtonDown() ? 1 : 0;
+        int upIdx = mFloor.isButtonUp() ? 1 : 0;
+        mLabelButtonState.setIcon(mIcons[downIdx][upIdx]);
     }
 
     @Override

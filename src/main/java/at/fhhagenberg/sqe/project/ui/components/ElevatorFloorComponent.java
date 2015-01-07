@@ -23,21 +23,40 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ElevatorFloorComponent extends DynamicUIComponent implements PropertyChangeListener, ActionListener {
     private static final long serialVersionUID = -7447358754586529153L;
 
+    /**
+     * The Elevator
+     */
     private final Elevator mElevator;
+    /**
+     * The Floor of the Elevator
+     */
     private final Floor mFloor;
+    /**
+     * Checkbox if the Elevator serves this Floor
+     */
+    private JCheckBox mServeFloorCheckBox;
+    /**
+     * Call Button to call the Elevator to this Floor
+     */
+    private JButton mCallButton;
 
+    // Thread Safety
+    private Thread mWaitThread;
+    private boolean mUpdateBlocked;
     private final Lock mLock;
     private final Condition mCondition;
     private final Condition mCondition2;
 
-    private JCheckBox mServeFloorCheckBox;
-    private JButton mCallButton;
-    private Thread mWaitThread;
-    private boolean mUpdateBlocked;
-
+    /**
+     * Create a new ElevatorFloorComponent that Shows a Call Button and if the Elevator services the Floor
+     *
+     * @param elevator The Elevator
+     * @param floor    The Floor
+     */
     public ElevatorFloorComponent(Elevator elevator, Floor floor) {
         mElevator = elevator;
         mFloor = floor;
+
         mLock = new ReentrantLock();
         mCondition = mLock.newCondition();
         mCondition2 = mLock.newCondition();
@@ -63,6 +82,13 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         mServeFloorCheckBox.addActionListener(this);
     }
 
+    /**
+     * Create the Panel and its Components.
+     *
+     * @param elevator The Elevator
+     * @param floor    The Floor
+     * @return The Panel to show on Screen
+     */
     private Component createComponentElevatorSettings(Elevator elevator, Floor floor) {
         JPanel pnlElevatorSettings = new JPanel(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -72,13 +98,17 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
 
         gc.anchor = GridBagConstraints.CENTER;
 
+        // Create Call Button
         mCallButton = new JButton("Call");
         mCallButton.setName(elevator.getDescription() + " Call " + floor.getDescription());
         pnlElevatorSettings.add(mCallButton, gc);
 
         gc.gridy = 1;
+
+        // Create Serve Check Box
         mServeFloorCheckBox = new JCheckBox("Serve");
         mServeFloorCheckBox.setName(elevator.getDescription() + " Serve " + floor.getDescription());
+
         mServeFloorCheckBox.setSelected(elevator.getService(floor));
 
         mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
@@ -110,20 +140,20 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
             // set new target
             mElevator.setTarget(mFloor);
         } else if (e.getSource() == mServeFloorCheckBox) {
-            mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
-
             mElevator.setService(mFloor, mServeFloorCheckBox.isSelected());
 
+            updateValues();
+
+            // keep the same Value for at least 500 ms to prevent glitches
             mLock.lock();
             try {
-                if (mWaitThread != null) {
-                    mWaitThread.interrupt();
-                }
+                if (mWaitThread != null) mWaitThread.interrupt();
                 mWaitThread = new Thread(() -> {
                     mLock.lock();
                     try {
                         mUpdateBlocked = true;
                         mCondition2.signal();
+
                         try {
                             mCondition.await(500, TimeUnit.MILLISECONDS);
                         } catch (InterruptedException ignored) {
@@ -131,10 +161,9 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
                         }
 
                         mUpdateBlocked = false;
+                        mWaitThread = null;
 
                         updateValues();
-
-                        mWaitThread = null;
                     } finally {
                         mLock.unlock();
                     }
@@ -153,14 +182,13 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
         }
     }
 
+    /**
+     * Update Checkbox and Enabled State of Call Button
+     */
     private void updateValues() {
-        boolean newValue = mElevator.getService(mFloor);
-        boolean oldValue = mServeFloorCheckBox.isSelected();
-
-        if (newValue != oldValue) {
-            mServeFloorCheckBox.setSelected(newValue);
-            mCallButton.setEnabled(!mElevator.isAutomaticMode() && newValue);
-        }
+        boolean services = mElevator.getService(mFloor);
+        mServeFloorCheckBox.setSelected(services);
+        mCallButton.setEnabled(!mElevator.isAutomaticMode() && services);
     }
 
     @Override
@@ -169,16 +197,13 @@ public class ElevatorFloorComponent extends DynamicUIComponent implements Proper
             case Elevator.PROP_SERVICE:
                 mLock.lock();
                 try {
-                    if (mUpdateBlocked) {
-                        break;
-                    }
-                    updateValues();
-                    break;
+                    if (!mUpdateBlocked) updateValues();
                 } finally {
                     mLock.unlock();
                 }
+                break;
             case Elevator.PROP_AUTOMATIC_MODE:
-                mCallButton.setEnabled(!mElevator.isAutomaticMode() && mServeFloorCheckBox.isSelected());
+                updateValues();
                 break;
         }
     }

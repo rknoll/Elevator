@@ -13,6 +13,12 @@ import javax.swing.*;
  * Class that constructs all necessary Objects and Launches the Application Window
  */
 public class ElevatorLauncher {
+
+    /**
+     * Run the Elevator Application with the supplied Command Line Arguments.
+     *
+     * @param args Command Line Arguments
+     */
     public void run(String[] args) {
         // create the spring application context
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ElevatorConfiguration.class);

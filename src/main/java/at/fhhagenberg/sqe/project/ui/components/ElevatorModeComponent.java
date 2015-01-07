@@ -16,9 +16,21 @@ import java.beans.PropertyChangeListener;
 public class ElevatorModeComponent extends DynamicUIComponent implements PropertyChangeListener {
     private static final long serialVersionUID = 5416603250092029073L;
 
+    /**
+     * The Elevator
+     */
     private final Elevator mElevator;
+    /**
+     * The Button Component to Switch the Automatic Mode
+     */
     private final AbstractButton mAutomaticModeToggleButton;
 
+    /**
+     * Create a new ElevatorModeComponent for the specified Elevator and register a Listener to change to a Detail View.
+     *
+     * @param elevator The Elevator
+     * @param listener The Listener to be called if the user wants to see the Detail View for the Elevator
+     */
     public ElevatorModeComponent(Elevator elevator, IElevatorDetailSelectListener listener) {
         mElevator = elevator;
 
@@ -28,24 +40,20 @@ public class ElevatorModeComponent extends DynamicUIComponent implements Propert
         gc.gridx = 0;
         gc.anchor = GridBagConstraints.CENTER;
 
-        setBackground(Color.black);
+        JButton button = new JButton(mElevator.getDescription());
 
-        JButton button = new JButton(elevator.getDescription());
-        button.addActionListener(event -> listener.elevatorSelected(elevator));
+        // register the listener with the Button Click Event
+        button.addActionListener(event -> listener.elevatorSelected(mElevator));
 
         add(button, gc);
 
         gc.gridy += 1;
 
         mAutomaticModeToggleButton = new OnOffButtonComponent("Auto", "Manual");
-        mAutomaticModeToggleButton.setSelected(elevator.isAutomaticMode());
 
-        mAutomaticModeToggleButton.addChangeListener(event -> {
-            boolean selected = mAutomaticModeToggleButton.isSelected();
-            if (selected != elevator.isAutomaticMode()) {
-                elevator.setAutomaticMode(selected);
-            }
-        });
+        updateView();
+
+        mAutomaticModeToggleButton.addChangeListener(event -> mElevator.setAutomaticMode(mAutomaticModeToggleButton.isSelected()));
 
         add(mAutomaticModeToggleButton, gc);
 
@@ -56,6 +64,13 @@ public class ElevatorModeComponent extends DynamicUIComponent implements Propert
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        updateView();
+    }
+
+    /**
+     * Update the State of the Automatic Mode Toggle Button
+     */
+    private void updateView() {
         mAutomaticModeToggleButton.setSelected(mElevator.isAutomaticMode());
     }
 

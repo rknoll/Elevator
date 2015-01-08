@@ -97,4 +97,118 @@ public class RMIElevatorTest {
 
         verify(mMock);
     }
+    
+    @Test
+    public void testGetElevatorFloor() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorFloor(0)).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorFloor(0);
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
+    
+    @Test
+    public void testGetElevatorNum() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorNum()).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorNum();
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
+    
+    @Test
+    public void testGetElevatorPosition() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorPosition(0)).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorPosition(0);
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
+    
+    @Test
+    public void testGetElevatorSpeed() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorSpeed(0)).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorSpeed(0);
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
+    
+    @Test
+    public void testGetElevatorWeight() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorWeight(0)).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorWeight(0);
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
+    
+    @Test
+    public void testGetElevatorCapacity() {
+    	try {
+    		EasyMock.expect(mMock.getElevatorCapacity(0)).andReturn(0);
+    	} catch (RemoteException e) {
+    		System.out.println(e.getMessage());
+    	}
+    	
+    	replay(mMock);
+
+        try {
+            mTestObj.getElevatorCapacity(0);
+        } catch (ElevatorConnectionLostException e) {
+            System.out.println(e.getMessage());
+        }
+
+        verify(mMock);
+    }
 }

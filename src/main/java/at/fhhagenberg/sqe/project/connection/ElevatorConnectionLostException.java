@@ -7,6 +7,7 @@ public class ElevatorConnectionLostException extends Exception {
     private static final long serialVersionUID = 660595836051089059L;
 
     public ElevatorConnectionLostException() {
+    	super();
     }
 
     public ElevatorConnectionLostException(String message) {

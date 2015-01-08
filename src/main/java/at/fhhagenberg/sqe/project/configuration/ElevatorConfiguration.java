@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * This is the Runtime Spring-Configuration of the Elevator Project.
  */
 @Configuration
-@ComponentScan(value = {"at.fhhagenberg.sqe.project.services.model"})
+@ComponentScan(value = {"at.fhhagenberg.sqe.project"})
 public class ElevatorConfiguration {
 
     /**

@@ -8,6 +8,7 @@ import at.fhhagenberg.sqe.project.ui.views.ElevatorDetailView;
 import at.fhhagenberg.sqe.project.ui.views.ElevatorOverviewView;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorDetailSelectListener;
 import at.fhhagenberg.sqe.project.ui.views.listeners.IElevatorOverviewSelectListener;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,14 +16,33 @@ import java.awt.*;
 /**
  * The Window of the Elevator Program
  */
+@org.springframework.stereotype.Component
 public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
-    private final Building mBuilding;
-    private final JComponent mContentPane;
 
-    private DynamicUIComponent mCurrentView;
-
+    /**
+     * Checks if the OS is MAC.
+     */
     private static boolean MAC_OS_X = (System.getProperty("os.name").toLowerCase().startsWith("mac os x"));
 
+    /**
+     * The Building
+     */
+    private final Building mBuilding;
+    /**
+     * Our Content Pane where the View will be shown
+     */
+    private final JComponent mContentPane;
+    /**
+     * The currently active View
+     */
+    private DynamicUIComponent mCurrentView;
+
+    /**
+     * Create a new Elevator Program Window for a Building.
+     *
+     * @param building The Building
+     */
+    @Autowired
     public ElevatorWindow(Building building) {
         // OSX needs a special Quit Handler to do a clean shutdown
         if (MAC_OS_X) {
@@ -62,6 +82,11 @@ public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListe
         return false;
     }
 
+    /**
+     * Update the View.
+     *
+     * @param view The new View
+     */
     private void setView(DynamicUIComponent view) {
         if (mCurrentView != null) {
             mCurrentView.unload();

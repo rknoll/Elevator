@@ -27,6 +27,8 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         pane.add(component);
         showFrame(pane);
 
+        tester.actionWaitForIdle();
+
         assertEquals("1", component.getText());
     }
 
@@ -41,6 +43,13 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
         assertTrue(component.isPressed());
         component.setPressed(true);
         assertTrue(component.isPressed());
+
+        tester.actionWaitForIdle();
+
+        component.setPressed(false);
+        assertFalse(component.isPressed());
+        component.setPressed(false);
+        assertFalse(component.isPressed());
 
         tester.actionWaitForIdle();
     }
@@ -60,7 +69,7 @@ public class ElevatorButtonComponentTest extends ComponentTestFixture {
             }
         });
 
-        tester.actionClick(pane, 0, 0);
+        tester.actionClick(component, 0, 0);
         assertFalse(gotPressed[0]);
 
         tester.actionClick(component);

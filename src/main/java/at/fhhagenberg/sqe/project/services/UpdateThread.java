@@ -1,29 +1,43 @@
 package at.fhhagenberg.sqe.project.services;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * A Thread to Call a Service in a specific interval
  */
-public class UpdateThread extends Thread {
+@Component
+public class UpdateThread extends Thread implements IUpdateThread {
+
+    /**
+     * The Default Refresh Time in Milliseconds.
+     */
+    public static final int DEFAULT_REFRESH_TIME_MS = 100;
 
     /**
      * The Service to call
      */
-    private final IService mService;
+    @Autowired
+    private IService mService;
     /**
      * The Interval to call the Service
      */
-    private final int mRefreshTimeMs;
+    private int mRefreshTimeMs;
 
     /**
      * Create a new Thread that calls a Service in a specific Interval.
-     *
-     * @param service       The Service
-     * @param refreshTimeMs The Interval to call the Service in Milliseconds
      */
-    public UpdateThread(IService service, int refreshTimeMs) {
-        mService = service;
+    public UpdateThread() {
+        mRefreshTimeMs = DEFAULT_REFRESH_TIME_MS;
+    }
+
+    /**
+     * Set the new Refresh Time in Milliseconds.
+     *
+     * @param refreshTimeMs The new Refresh Time
+     */
+    public void setRefreshTimeMs(int refreshTimeMs) {
         mRefreshTimeMs = refreshTimeMs;
     }
 

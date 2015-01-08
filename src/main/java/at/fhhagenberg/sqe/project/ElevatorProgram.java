@@ -4,6 +4,9 @@
 
 package at.fhhagenberg.sqe.project;
 
+import at.fhhagenberg.sqe.project.configuration.ElevatorConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 /**
  * Main Entry Class for the Elevator Project
  */
@@ -12,7 +15,7 @@ public class ElevatorProgram {
     /**
      * The Launcher used to start the Application
      */
-    private static ElevatorLauncher launcher = new ElevatorLauncher();
+    private static ElevatorLauncher launcher = new ElevatorLauncher(new AnnotationConfigApplicationContext(ElevatorConfiguration.class));
 
     /**
      * Main Entry function to the Elevator Project

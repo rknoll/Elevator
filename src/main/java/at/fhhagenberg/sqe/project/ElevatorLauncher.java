@@ -1,11 +1,10 @@
 package at.fhhagenberg.sqe.project;
 
-import at.fhhagenberg.sqe.project.configuration.ElevatorConfiguration;
-import at.fhhagenberg.sqe.project.model.Building;
-import at.fhhagenberg.sqe.project.services.UpdateThread;
-import at.fhhagenberg.sqe.project.services.model.BuildingService;
-import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import at.fhhagenberg.sqe.project.services.IUpdateThread;
+import at.fhhagenberg.sqe.project.ui.IElevatorWindow;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.context.support.GenericApplicationContext;
 
 import javax.swing.*;
 
@@ -13,6 +12,28 @@ import javax.swing.*;
  * Class that constructs all necessary Objects and Launches the Application Window
  */
 public class ElevatorLauncher {
+    /**
+     * The Update Thread to Refresh the Service
+     */
+    @Autowired
+    private IUpdateThread mUpdateThread;
+
+    /**
+     * The Window to show on Screen
+     */
+    @Autowired
+    private IElevatorWindow mElevatorWindow;
+
+    /**
+     * Create a new Launcher with the specified Application Context
+     *
+     * @param context The Application Context
+     */
+    public ElevatorLauncher(GenericApplicationContext context) {
+        context.registerShutdownHook();
+        AutowireCapableBeanFactory acbFactory = context.getAutowireCapableBeanFactory();
+        acbFactory.autowireBean(this);
+    }
 
     /**
      * Run the Elevator Application with the supplied Command Line Arguments.
@@ -20,25 +41,10 @@ public class ElevatorLauncher {
      * @param args Command Line Arguments
      */
     public void run(String[] args) {
-        // create the spring application context
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ElevatorConfiguration.class);
-        context.registerShutdownHook();
-
-        // Create the Base Data Model
-        Building building = new Building();
-
-        // Bind the Building Service
-        BuildingService buildingService = context.getBean(BuildingService.class, building);
-
-        // Start the Update Thread
-        UpdateThread updateThread = new UpdateThread(buildingService, 100);
-        updateThread.setDaemon(true);
-        updateThread.start();
+        mUpdateThread.setDaemon(true);
+        mUpdateThread.start();
 
         // show the gui window
-        SwingUtilities.invokeLater(() -> {
-            ElevatorWindow window = new ElevatorWindow(building);
-            window.setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> mElevatorWindow.setVisible(true));
     }
 }

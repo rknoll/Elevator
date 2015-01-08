@@ -165,11 +165,3 @@ public class AdvancedAutomaticModeServiceTest
 		assertEquals(mFloors.get(0), mElevator.getTarget());
 	}
 }
-
-
-
-
-
-
-
-

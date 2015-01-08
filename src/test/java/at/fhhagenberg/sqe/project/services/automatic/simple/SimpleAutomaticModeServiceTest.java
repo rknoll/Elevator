@@ -111,5 +111,4 @@ public class SimpleAutomaticModeServiceTest {
 //		mSimpleAutoModeService.refresh();
 //		assertEquals(mFloors.get(2), mElevator.getTarget());
 //	}
-    
 }

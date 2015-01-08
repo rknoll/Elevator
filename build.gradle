@@ -73,6 +73,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
     testCompile group: 'org.easymock', name: 'easymock', version: '3.1'
     testCompile group: 'com.github.WojtekKowaluk', name: 'abbot', version: '1.2.0'
+    testCompile group: 'org.mockito', name:'mockito-all', version: '1.10.19'
 }
 
 jar {

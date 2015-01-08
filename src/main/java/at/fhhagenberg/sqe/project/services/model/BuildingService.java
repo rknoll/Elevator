@@ -25,7 +25,8 @@ public class BuildingService implements IService {
     /**
      * The Building
      */
-    private final Building mBuilding;
+    @Autowired
+    private Building mBuilding;
     /**
      * All Sub Services that need to be refreshed
      */
@@ -45,11 +46,8 @@ public class BuildingService implements IService {
 
     /**
      * Create a new Building Service to refresh a Building.
-     *
-     * @param building The Building
      */
-    public BuildingService(Building building) {
-        mBuilding = building;
+    public BuildingService() {
         mSubServices = new ArrayList<>();
     }
 

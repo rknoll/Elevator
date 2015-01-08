@@ -1,11 +1,14 @@
 package at.fhhagenberg.sqe.project.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A representation of a whole Building with Floors and Elevators
  */
+@Component
 public class Building extends ListenableModel {
 
     /**

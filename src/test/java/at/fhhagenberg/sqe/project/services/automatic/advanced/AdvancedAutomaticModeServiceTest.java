@@ -40,6 +40,7 @@ public class AdvancedAutomaticModeServiceTest
     	mElevator.setDoorStatus(DoorStatus.OPEN);
 		
     	mBuilding = new Building();
+    	//mBuilding.setNumberOfFloorsAndElevators(3, 1);
     	
 		mAdvAutoModeService = new AdvancedAutomaticModeService(mBuilding, mElevator);
 	}

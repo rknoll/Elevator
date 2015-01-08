@@ -40,6 +40,7 @@ public class BaseAutomaticModeServiceTest
     	mElevator.setDoorStatus(DoorStatus.OPEN);
 		
     	mBuilding = new Building();
+    	mBuilding.setNumberOfFloorsAndElevators(3, 1);
     	
     	mMyBaseAutoModeService = new MyBaseAutomaticModeService(mBuilding, mElevator);
     }    

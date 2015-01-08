@@ -6,10 +6,7 @@ import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.services.automatic.IAutomaticModeServiceFactory;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InOrder;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,7 @@ public class BuildingServiceTest {
     @InjectMocks
     private BuildingService service;
 
-    @Mock
+    @Spy
     private Building building;
 
     @Mock
@@ -35,8 +32,6 @@ public class BuildingServiceTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         when(adapterFactory.create()).thenReturn(new EmptyAdapter());
-        when(building.getElevators()).thenReturn(new ArrayList<>());
-        when(building.getFloors()).thenReturn(new ArrayList<>());
     }
 
     @Test

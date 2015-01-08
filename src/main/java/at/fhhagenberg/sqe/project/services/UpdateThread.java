@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * A Thread to Call a Service in a specific interval
  */
 @Component
-public class UpdateThread extends Thread {
+public class UpdateThread extends Thread implements IUpdateThread {
 
     /**
      * The Default Refresh Time in Milliseconds.

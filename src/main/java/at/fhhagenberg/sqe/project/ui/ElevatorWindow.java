@@ -17,7 +17,7 @@ import java.awt.*;
  * The Window of the Elevator Program
  */
 @org.springframework.stereotype.Component
-public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener {
+public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener, IElevatorWindow {
 
     /**
      * Checks if the OS is MAC.

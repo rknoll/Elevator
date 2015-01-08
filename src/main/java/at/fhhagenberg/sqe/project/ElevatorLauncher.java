@@ -1,9 +1,7 @@
 package at.fhhagenberg.sqe.project;
 
-import at.fhhagenberg.sqe.project.model.Building;
-import at.fhhagenberg.sqe.project.services.UpdateThread;
-import at.fhhagenberg.sqe.project.services.model.BuildingService;
-import at.fhhagenberg.sqe.project.ui.ElevatorWindow;
+import at.fhhagenberg.sqe.project.services.IUpdateThread;
+import at.fhhagenberg.sqe.project.ui.IElevatorWindow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.support.GenericApplicationContext;
@@ -14,30 +12,17 @@ import javax.swing.*;
  * Class that constructs all necessary Objects and Launches the Application Window
  */
 public class ElevatorLauncher {
-
-    /**
-     * The Building
-     */
-    @Autowired
-    private Building mBuilding;
-
-    /**
-     * The Building Service to Update the Building
-     */
-    @Autowired
-    private BuildingService mBuildingService;
-
     /**
      * The Update Thread to Refresh the Service
      */
     @Autowired
-    private UpdateThread mUpdateThread;
+    private IUpdateThread mUpdateThread;
 
     /**
      * The Window to show on Screen
      */
     @Autowired
-    private ElevatorWindow mElevatorWindow;
+    private IElevatorWindow mElevatorWindow;
 
     /**
      * Create a new Launcher with the specified Application Context

@@ -40,31 +40,33 @@ public class AdvancedAutomaticModeServiceTest
     	mElevator.setDoorStatus(DoorStatus.OPEN);
 		
     	mBuilding = new Building();
-    	//mBuilding.setNumberOfFloorsAndElevators(3, 1);
+    	mBuilding.setNumberOfFloorsAndElevators(3, 1);
     	
 		mAdvAutoModeService = new AdvancedAutomaticModeService(mBuilding, mElevator);
 	}
    
 	@Test
-	public void testServiceFloorFalse()
-	{
+	public void testServiceNoFloor()
+	{		
+		mElevator.setService(mFloors.get(0), false);
+		mElevator.setService(mFloors.get(1), false);
+		mElevator.setService(mFloors.get(2), false);
+		
 		mElevator.setAutomaticMode(true);
 		
-		mElevator.setService(mFloors.get(1), false);
+		mFloors.get(0).setButtonDown(true);
 		mFloors.get(1).setButtonDown(true);
+		mFloors.get(2).setButtonDown(true);
+		
 		mAdvAutoModeService.refresh();
 		assertEquals(mFloors.get(0), mElevator.getTarget());
-	}
-	
-	@Test
-	public void testServiceFloorTrue()
-	{
-		mElevator.setAutomaticMode(true);
+		mFloors.get(0).setButtonDown(false);
 		
-		mElevator.setService(mFloors.get(1), true);
-		mFloors.get(1).setButtonDown(true);
 		mAdvAutoModeService.refresh();
-		assertEquals(mFloors.get(1), mElevator.getTarget());
+		assertEquals(mFloors.get(0), mElevator.getTarget());
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(0), mElevator.getTarget());
 	}
 	
 	@Test 
@@ -123,11 +125,11 @@ public class AdvancedAutomaticModeServiceTest
 		mFloors.get(1).setButtonUp(false);
 		
 		mAdvAutoModeService.refresh();
-		assertEquals(mFloors.get(0), mElevator.getTarget());
-		
-		mAdvAutoModeService.refresh();
 		assertEquals(mFloors.get(2), mElevator.getTarget());	
 		mFloors.get(2).setButtonUp(false);
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(0), mElevator.getTarget());	
 		
 		mAdvAutoModeService.refresh();
 		assertEquals(mFloors.get(0), mElevator.getTarget());
@@ -156,11 +158,37 @@ public class AdvancedAutomaticModeServiceTest
 		mElevator.setButton(mFloors.get(1), false);
 		
 		mAdvAutoModeService.refresh();
-		assertEquals(mFloors.get(0), mElevator.getTarget());
-		
-		mAdvAutoModeService.refresh();
 		assertEquals(mFloors.get(2), mElevator.getTarget());	
 		mElevator.setButton(mFloors.get(2), false);
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(0), mElevator.getTarget());	
+		mElevator.setButton(mFloors.get(2), false);
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(0), mElevator.getTarget());
+	}
+	
+	@Test
+	public void testServiceFloor0and2()
+	{		
+		mElevator.setService(mFloors.get(0), true);
+		mElevator.setService(mFloors.get(1), false);
+		mElevator.setService(mFloors.get(2), true);
+		
+		mElevator.setAutomaticMode(true);
+		
+		mFloors.get(0).setButtonDown(true);
+		mFloors.get(1).setButtonDown(true);
+		mFloors.get(2).setButtonDown(true);
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(0), mElevator.getTarget());
+		mFloors.get(0).setButtonDown(false);
+		
+		mAdvAutoModeService.refresh();
+		assertEquals(mFloors.get(2), mElevator.getTarget());
+		mFloors.get(2).setButtonDown(false);
 		
 		mAdvAutoModeService.refresh();
 		assertEquals(mFloors.get(0), mElevator.getTarget());

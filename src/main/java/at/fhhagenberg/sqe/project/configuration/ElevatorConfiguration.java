@@ -4,15 +4,18 @@ import at.fhhagenberg.sqe.project.connection.IElevatorAdapterFactory;
 import at.fhhagenberg.sqe.project.connection.rmi.RMIElevatorFactory;
 import at.fhhagenberg.sqe.project.services.automatic.IAutomaticModeServiceFactory;
 import at.fhhagenberg.sqe.project.services.automatic.advanced.AdvancedAutomaticModeService;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 
 /**
  * This is the Runtime Spring-Configuration of the Elevator Project.
  */
 @Configuration
-@ComponentScan(value = {"at.fhhagenberg.sqe.project"})
+@ComponentScan(basePackages={"at.fhhagenberg.sqe.project"}, excludeFilters={@Filter(type=FilterType.REGEX, pattern="at.fhhagenberg.sqe.mocks.*")})
 public class ElevatorConfiguration {
 
     /**

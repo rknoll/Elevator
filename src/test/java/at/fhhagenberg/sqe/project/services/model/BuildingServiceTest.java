@@ -1,9 +1,10 @@
 package at.fhhagenberg.sqe.project.services.model;
 
+import at.fhhagenberg.sqe.mocks.EmptyAdapter;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapterFactory;
-import at.fhhagenberg.sqe.project.mocks.EmptyAdapter;
 import at.fhhagenberg.sqe.project.model.Building;
 import at.fhhagenberg.sqe.project.services.automatic.IAutomaticModeServiceFactory;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;

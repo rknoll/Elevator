@@ -1,4 +1,4 @@
-package at.fhhagenberg.sqe.project.mocks;
+package at.fhhagenberg.sqe.mocks;
 
 import at.fhhagenberg.sqe.project.connection.ElevatorConnectionLostException;
 import at.fhhagenberg.sqe.project.connection.IElevatorAdapter;

@@ -1,4 +1,4 @@
-package at.fhhagenberg.sqe.project.mocks;
+package at.fhhagenberg.sqe.mocks;
 
 import at.fhhagenberg.sqe.project.ui.IElevatorWindow;
 import org.springframework.stereotype.Component;

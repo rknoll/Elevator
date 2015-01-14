@@ -18,8 +18,6 @@ public class RMIElevatorTest {
     private IElevator mMock;
     private RMIElevator mTestObj;
 
-    // TODO: finish RMIElevator tests
-
     @Before
     public void setUp() throws Exception {
         mMock = createMock(IElevator.class);

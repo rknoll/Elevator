@@ -11,7 +11,7 @@ import javax.swing.*;
 /**
  * Class that constructs all necessary Objects and Launches the Application Window
  */
-public class ElevatorLauncher {
+public class ElevatorLauncher implements IElevatorLauncher {
     /**
      * The Update Thread to Refresh the Service
      */
@@ -40,6 +40,7 @@ public class ElevatorLauncher {
      *
      * @param args Command Line Arguments
      */
+    @Override
     public void run(String[] args) {
         mUpdateThread.setDaemon(true);
         mUpdateThread.start();

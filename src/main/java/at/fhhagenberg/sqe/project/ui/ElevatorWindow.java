@@ -18,6 +18,7 @@ import java.awt.*;
  */
 @org.springframework.stereotype.Component
 public class ElevatorWindow extends JFrame implements IElevatorDetailSelectListener, IElevatorOverviewSelectListener, IElevatorWindow {
+	private static final long serialVersionUID = -8670790568524405985L;
 
     /**
      * Checks if the OS is MAC.

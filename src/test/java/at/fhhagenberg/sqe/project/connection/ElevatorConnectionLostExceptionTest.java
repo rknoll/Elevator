@@ -8,9 +8,7 @@ import org.junit.Test;
  * Created by rknoll on 07/01/15.
  */
 public class ElevatorConnectionLostExceptionTest {
-    // TODO: finish ElevatorConnectionLostException tests
-	
-	//private ElevatorConnectionLostException mExeption;
+
 	private Exception mExeption;
 	
 	@Test

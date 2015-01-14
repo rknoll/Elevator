@@ -97,8 +97,8 @@ public class ListenableModelTest {
         List<PropertyChangeEvent> specificEvents2 = new ArrayList<>();
         List<PropertyChangeEvent> globalEvents = new ArrayList<>();
         model.addPropertyChangeListener("property1", specificEvents1::add);
-        model.addPropertyChangeListener("property2", specificEvents2::add);
         model.addPropertyChangeListener(globalEvents::add);
+        model.addPropertyChangeListener("property2", specificEvents2::add);
         assertEquals(1, model.getPropertyChangeListenersCount(""));
         assertEquals(2, model.getPropertyChangeListenersCount("property1"));
         assertEquals(2, model.getPropertyChangeListenersCount("property2"));

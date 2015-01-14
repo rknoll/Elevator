@@ -121,8 +121,31 @@ public class SimpleAutomaticModeServiceTest {
 		assertEquals(mFloors.get(2), mElevator.getTarget());
 		mElevator.setCurrentFloor(mElevator.getTarget());
 	}
-    
-    @Test 
+
+	@Test
+	public void testServiceFloor3()
+	{
+		mElevator.setService(mFloors.get(0), true);
+		mElevator.setService(mFloors.get(1), false);
+		mElevator.setService(mFloors.get(2), false);
+
+		mElevator.setAutomaticMode(true);
+		assertEquals(null, mElevator.getTarget());
+
+		mElevator.setDirection(Direction.UP);
+
+		mSimpleAutoModeService.refresh();
+		assertEquals(null, mElevator.getTarget());
+		mElevator.setCurrentFloor(mElevator.getTarget());
+
+		mElevator.setDirection(Direction.DOWN);
+
+		mSimpleAutoModeService.refresh();
+		assertEquals(null, mElevator.getTarget());
+		mElevator.setCurrentFloor(mElevator.getTarget());
+	}
+
+	@Test
 	public void testServiceNoFloors()
 	{		
 		mElevator.setService(mFloors.get(0), false);
